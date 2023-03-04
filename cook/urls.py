@@ -1,0 +1,32 @@
+from django.urls import path
+from .views import *
+
+urlpatterns = [
+    path('accounts/', register_user, name='User registration'),
+    path('accounts/login/', login_user, name='User log-in'),
+    path('accounts/logout/', logout_user, name='User log-out'),
+    path('accounts/<str:username>/profile/', profile, name='View/Modify a user\'s profile'),
+    path('accounts/<str:jesus_username>/follow/', follow, name='Follow a chief in the community'),
+    path('accounts/<str:jesus_username>/unfollow/', unfollow, name='Unfollow a chief in the community'),
+    path('accounts/<str:jesus_username>/followers/', view_followers, name='Follow a chief in the community'),
+    path('accounts/<str:username>/following/', view_following, name='Unfollow a chief in the community'),
+    path('foodstuffs/', foodstuffs, name='Create/View foodstuffs'),
+    path('recipes/', recipes, name='Recipe Create'),
+    path('recipes/<int:recipe_id>/add_photo/', add_recipe_photo, name='Add photo to recipe by name'),
+    path('recipes/<int:recipe_id>/rate/', rate_recipe, name='Rate a recipe'),
+    path('recipes/<int:recipe_id>/remove/', remove_recipe, name='Add photo to recipe by name'),
+    path('recipes/filter/', filter_recipe, name='Search Recipe By Name/Difficulty/Preparation time'),
+    path('recipes/advanced_filter/', advanced_filter_recipe, name='Advanced Search Recipe'),
+    path('comments/', comments, name='Comment on a recipe/View comments on a recipe'),
+    path('comments/<int:comment_id>/remove/', delete_comment, name='Delete comment'),
+    path('tickets/', tickets, name='Create a ticket / View all tickets'),
+    path('tickets/<int:ticket_id>/view/', view_ticket, name='View a ticket'),
+    path('tickets/<int:ticket_id>/update/', update_ticket, name='Modify a ticket'),
+    path('forums/', forums, name='Create a new forum/View the forums in which has been involved'),
+    path('forums/<int:forum_id>/view/', view_forum, name='View a forum in details'),
+    path('forums/<int:forum_id>/join/', join_forum, name='Join a forum'),
+    path('forums/<int:forum_id>/leave/', leave_forum, name='Leave a forum'),
+    path('forums/<int:forum_id>/ban/', ban_from_forum, name='Ban a user from forum'),
+    path('forums/<int:forum_id>/post/', post_on_forum, name='Post a message on the forum'),
+    path('forums/<int:forum_id>/delete/', delete_forum, name='Delete a forum'),
+]
