@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import Grid from "@mui/material/Grid";
 import "./dash-promotion.css";
 import {BASE_API} from "../../App";
+import { List } from "@mui/material";
 
 const DashPromotionComponent = () => {
   const [tickets, setTickets] = useState({});
@@ -62,7 +63,14 @@ const DashPromotionComponent = () => {
         console.log("error in creating ticket.");
       });
   };
-
+  console.log(tickets);
+  console.log("1");
+  while(tickets[0] === undefined){
+    return <>Still loading...</>;
+  }
+  console.log(tickets[0] === undefined);
+  console.log("2");
+  
   return (
     <Grid container spacing={2}>
       <Container>
