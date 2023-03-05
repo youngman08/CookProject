@@ -1,0 +1,138 @@
+.forum_body_area {
+  height: 100%;
+  background: #fff;
+  padding: 50px 40px 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 30px 60px 0 rgba(2, 2, 48, 0.08);
+}
+.MuiTablePagination-toolbar {
+  display: none !important;
+}
+.MuiTable-root {
+  size: medium;
+}
+.MuiDataGrid-root {
+  height: 700px !important;
+}
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+  margin-bottom: 45px;
+}
+.btn {
+  position: relative;
+  background: #4c4cf1;
+  width: 80px;
+  padding: 0;
+  border: none;
+  color: #fff;
+  text-align: center;
+  border-top-left-radius: 25px !important;
+  border-bottom-left-radius: 25px !important;
+}
+.btn:hover {
+  background: #4c4cf1;
+  color: #fff;
+}
+.mbtn {
+  position: relative;
+  background: #fab209;
+  padding: 10px;
+  border: none;
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.mbtn2 {
+  position: relative;
+  background: #b658ed;
+  padding: 10px;
+  border: none;
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.MuiTableCell-root {
+  text-align: right !important;
+}
+.forum-post-top {
+  display: flex;
+}
+.forum-author-meta {
+  display: flex;
+  font-weight: 400;
+  color: #6b707f;
+  letter-spacing: 0.15px;
+}
+.forum-post-top .author-avatar img {
+  border-radius: 50%;
+  margin-left: 15px;
+}
+.author-badge {
+  margin-left: 20px;
+}
+.comment-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #6b707f;
+  letter-spacing: 0.15px;
+}
+.comment-content {
+  margin-left: 60px;
+  margin-top: 10px;
+  border-bottom: 1px solid #e8ecee;
+  padding-bottom: 28px;
+}
+.review-form {
+  box-shadow: 10px 0 60px rgba(138, 138, 138, 0.1);
+  margin-bottom: 30px;
+  margin-top: 50px;
+  padding: 50px;
+  border-radius: 20px;
+}
+.form-control {
+  width: 100%;
+  height: auto;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 16px 30px;
+  background: #f7f7f7;
+}
+.review-form .thm_btn:hover {
+  box-shadow: 0 20px 30px 0 rgba(76, 76, 241, 0.24);
+}
+.review-form .thm_btn {
+  padding: 12px 35px;
+  box-shadow: none;
+  border-radius: 5px !important;
+  width: 150px !important;
+  margin-top: 20px;
+}
+.review-form h4 {
+  font-size: 20px;
+}
+.forum-post-author a {
+  font-size: 20px;
+}
+.f-title {
+  font-size: 30px;
+  color: #1d2746;
+  margin-right: 15px;
+  font-weight: 600;
+  display: flex;
+  padding: 40px 15px 30px 0;
+
+}
+.f-p-container{
+  margin-bottom: 30px;
+  border-bottom: 1px solid #5a5b5c;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.f-p-container .mbtn,.mbtn2 {height: 50px; margin-right: 10px;}
