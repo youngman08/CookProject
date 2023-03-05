@@ -1,8 +1,8 @@
 export const homeObject = {
     id: "1",
-    title: "تیم مهندسی نرم افزار",
+    title: "تیم برنامه سازی وب",
     short_description:"An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
-    description:"۴ دانشجو ترم ۹ دانشکده کامپیوتر پروژه ای در قالب اسکرام و با ایده ای خلاقانه برای  دستور غذا تلاش کردیم تا با فراهم کردن دستور غذا های متفاوت دیگر دانشجویان را از دست غذا های سلف راحت کنیم ",
+    description:"۴ دانشجوی مهندسی کامپیوتر دانشکده مهندسی کامپیوتر پروژه ای تحت عنوان آشپزباشی برای یافتن دستور غذا ساختیم تا با فراهم کردن دستور غذا های متفاوت دیگر دانشجویان را از دست غذا های سلف راحت کنیم ",
     imgStart: false,
     imgUrl: require("../../images/image_(1).svg").default,
     alt: "Youngman",
