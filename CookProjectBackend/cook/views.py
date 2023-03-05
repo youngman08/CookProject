@@ -190,6 +190,10 @@ def recipes(request):
         return view_all_recipes(request)
     if request.method == "POST":
         return create_recipe(request)
+    
+@require_http_methods(["GET"])
+def recipes(request, recipe_id):
+    return view_recipe_by_id(request, recipe_id)
 
 
 def create_recipe(request):
@@ -224,6 +228,9 @@ def view_all_recipes(request):
     recipes = Recipe.objects.all()
     return HttpResponse(ObjectListResponse(recipes).json)
 
+def view_recipe_by_id(request, recipe_id):
+    recipe = Recipe.objects.get(pk=recipe_id)
+    return HttpResponse(ObjectInfoResponse(recipe).json)
 
 @require_http_methods(["POST"])
 def add_recipe_photo(request, recipe_id):

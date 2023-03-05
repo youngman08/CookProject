@@ -4,14 +4,10 @@ import element from "../../images/nodel-ba-panir.jpg";
 import author from "../../images/author.jpg";
 import Rating from "@mui/material/Rating";
 import PageBanner from "../Banner/PageBanner.js";
-function FoodDetail() {
-  const [food, setFood] = useState({});
-  const { food_id } = useParams();
-  // useEffect(() => {
-  //   // fetch("http://localhost:9000/movies")
-  //   //   .then((res) => res.json())
-  //   //   .then((movie) => console.log(movie));
-  // }, []);
+import axios from "axios";
+import {BASE_API} from "../../App";
+
+function ViewDetailFood(food) {
   return (
     <>
     <PageBanner pageName={"طرز پخت"} />
@@ -24,26 +20,19 @@ function FoodDetail() {
           </h2>
           <div className="author">
             <img src={author} alt="author" />
-            <h6>آشپز رضا</h6>
+            <h6>{food.chief.first_name} {food.chief.last_name}</h6>
           </div>
           <div className="rating">
-            <Rating name="read-only" value={4} readOnly />
-            <span className="price">59.58</span>
+            <Rating name="read-only" value={4/*{food.rate}*/} readOnly />
+            <span className="price">{food.price}</span>
           </div>
           <div className="detail-description">
             <p className="card-description">
               {" "}
-         
-
-    ابتدا سینه مرغ خام را با پیاز، پنیر، پودر سیر و مرغ در مخلوط‌كن له كنید تا به صورت خمیر چسبناكی درآید
-    در ظرف دیگری پودر پفك نمكی، پودر نان را مخلوط كنید.
-    سپس از خمیر مرغ تهیه شده به اندازه یك گردو بردارید و با مرطوب كردن دست به آن فرم بدهید كه البته به شكل لوله‌ای در اندازه كوچك باشد سپس این خمیر كه حالا نامش ناگت است را در مخلوط پودر نان و پفك نمكی بغلتانید و در روغن داغ سرخ كنید.
-    به دلیل آنكه پودر مخصوص ناگت دردسترس نیست، در این دستور از مخلوط پفك‌نمكی استفاده می‌شود تا به رنگ و مزه واقعی پودر ناگت نزدیك باشد
-
-
+              {food.description}
             </p>
           </div>
-          <ul className="category-tags pt-10 pb-5">
+          {/* <ul className="category-tags pt-10 pb-5">
             <li>
               <b>دسته بندی</b>
               <span>:</span>
@@ -58,7 +47,7 @@ function FoodDetail() {
               <a href="#">Teach</a>
               <a href="#">Videos</a>
             </li>
-          </ul>
+          </ul> */}
         </div>
         <div className="images preview-images">
           <img className="detail-img" src={element} alt="" />
@@ -68,6 +57,31 @@ function FoodDetail() {
     </div>
     </>
   );
+}
+
+function FoodDetail() {
+  const [food, setFood] = useState({});
+  const { food_id } = useParams();
+  console.log(food_id);
+  console.log("first kh");
+  axios
+      .get(
+        BASE_API + `recipes/${food_id}`,
+        JSON.stringify(food_id),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        return ViewDetailFood(response.data); //results
+      })
+      .catch((error) => {
+        console.log("error in get recipe info");
+      });
+  console.log("khh");
+  return 0;
 }
 
 export default FoodDetail;
