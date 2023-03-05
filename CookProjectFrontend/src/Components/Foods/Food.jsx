@@ -6,7 +6,7 @@ import Rating from "@mui/material/Rating";
 import Grid from "@mui/material/Grid";
 import "./Food.css";
 import Sidebar from "../Sidebar";
-import Navbar from "../Navbar";
+import Navbar from "../Navbar-second";
 import Footer from "../Footer";
 function Foods({ fetchFood }) {
   return (

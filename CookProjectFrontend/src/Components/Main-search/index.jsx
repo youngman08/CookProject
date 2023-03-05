@@ -7,7 +7,7 @@ const SearchFood = ({setFoods}) => {
   return (
     <Container>
       <>
-        <Sidebar/>
+        <Sidebar />
         <Navbar />
         <HeroSectionSearch setFoods={setFoods} />
       </>
