@@ -1,0 +1,69 @@
+@font-face {
+  font-family: IranSans;
+  src: url(./fonts/IRANSansXMedium.ttf);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "IranSans", IranSans;
+  box-sizing: border-box;
+  direction: rtl;
+}
+.success-notif{
+  width: 300px;
+  text-align: center;
+  align-items: center;
+  margin: 10px auto;
+}
+.eror-notif{
+  width: 300px;
+  text-align: center;
+  align-items: center;
+  margin: 10px auto !important;
+  display: none;
+}
+.contain.eror-notif{
+  display: block;
+}
+.home-div{
+  color: aliceblue;
+  width: 100%;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.home-icon{
+  height: 2em;
+}
+.reg-col {
+  margin: 0 5px;
+}
+.reg-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: space-between;
+}
+.f-reg{background: #261236;
+  height: auto;
+  width: auto;
+  z-index: 1;
+  display: flex;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 32px 32px;
+  border-radius: 29px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  @media screen and (max-width: 480px) {
+    padding: 32px 32px;
+  }}
+  .f-form{
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+  }
