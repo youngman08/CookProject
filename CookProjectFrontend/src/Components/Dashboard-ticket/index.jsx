@@ -1,14 +1,68 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "./Dash-promotion";
 import DashboardSidebar from "../Dashboard/Dash-sidebar";
 import DashboardHeader from "../Dashboard/Dash-header";
 import author_avatar from "../../images/author-avatar.png";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import TicketCard from './TicketCard'
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Grid from "@mui/material/Grid";
 import "./dash-promotion.css";
+import {BASE_API} from "../../App";
+
 const DashPromotionComponent = () => {
+  const [tickets, setTickets] = useState({});
+  useEffect(() => {
+    const fetchData = async () => {
+      await axios
+        .get(BASE_API + "tickets/",{
+            params: {
+              username: localStorage.getItem("username"),
+            },
+              headers: {
+                "Content-Type": "application/json",
+              },
+          }
+        )
+        .then((response) => {
+          setTickets(response.data); //results
+        })
+        .catch((error) => {
+          console.log("error in get recipe info");
+        });
+    }
+    fetchData();
+  }, []);
+
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+  const onSubmit = (data) => {
+    console.log(data);
+    console.log(JSON.stringify(data));
+    var ticketParameter = {
+      text: data.text,
+      username: localStorage.getItem("username"),
+      category: 1,
+    };
+    console.log(ticketParameter);
+    axios
+      .post("http://127.0.0.1:8000/api/tickets/", JSON.stringify(ticketParameter), {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        alert("تیکت با موفقیت ثبت شد.");
+        navigate("/dashboard/tickets");
+      })
+      .catch((error) => {
+        alert("خطایی رخ داده است. لطفا مجددا تلاش کنید.");
+        console.log("error in creating ticket.");
+      });
+  };
+
   return (
     <Grid container spacing={2}>
       <Container>
@@ -23,42 +77,19 @@ const DashPromotionComponent = () => {
                 <h1 className="f-title">تیکت های من</h1>
 
               </div>
-              <div class="forum-post-top">
-                <a class="author-avatar" href="#">
-                  <img src={author_avatar} alt="author avatar" />
-                </a>
-                <div class="forum-post-author">
-                  <a class="author-name" href="#">
-                    Eh Jewel
-                  </a>
-                  <div class="forum-author-meta">
-                    <div class="author-badge">
-                      <span>Conversation Starter</span>
-                    </div>
-                    <div class="author-badge">
-                      <i class="icon_calendar"></i>
-                      <p>January 16 at 10:32 PM</p>
-                    </div>
-                  </div>
-                  <div class="comment-content">
-                    <p>
-                      Cheeky chap jolly good mufty a load of old tosh I don't
-                      want no agro a chinwag amongst tickety-boo, tosser
-                      victoria sponge horse play happy days give us a bell nice
-                      one cup of tea young delinquent wellies, cockup absolutely
-                      bladdered barmy bleeding.!
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <form id="review-form" className="review-form">
+
+              {tickets.map((ticket) => (
+                <TicketCard ticket={ticket} />
+              ))}
+
+              <form id="review-form" className="review-form" onSubmit={handleSubmit(onSubmit)}>
                 <h4>نظر خود را بنویسید</h4>
                 <br />
                 <input
                   type="text"
                   placeholder="متن"
                   className="form-control"
-                  {...register("last_name")}
+                  {...register("text")}
                 />
                 <button class="btn action_btn thm_btn" type="submit">
                   ثبت نظر

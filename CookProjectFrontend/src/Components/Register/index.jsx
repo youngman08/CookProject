@@ -20,6 +20,8 @@ import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
+import {BASE_API} from "../../App";
+
 const RegisterForm = () => {
   const { register, handleSubmit } = useForm();
   const [isShown, setIsShown] = useState(false);
@@ -27,7 +29,7 @@ const RegisterForm = () => {
   const onSubmit = (data) => {
     console.log(JSON.stringify(data));
     axios
-      .post("http://127.0.0.1:8000/api/accounts/", JSON.stringify(data), {
+      .post(BASE_API+"accounts/", JSON.stringify(data), {
         headers: {
           "Content-Type": "application/json",
         },

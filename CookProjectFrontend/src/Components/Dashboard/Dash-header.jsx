@@ -12,8 +12,8 @@ import {BASE_API, check_error} from "../../App";
 const DashboardHeader = ({removeAuth}) => {
     const navigate = useNavigate();
     const logout = () => {
-        removeAuth();
         navigate('/');
+        removeAuth();
     }
     return (
         <div className="web-header">

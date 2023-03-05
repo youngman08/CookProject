@@ -38,15 +38,6 @@ function FoodDetail() {
     return <>Still loading...</>;
   }
 
-  console.log("hala");
-  console.log(food);
-  console.log(food.chief);
-  console.log(food.chief);
-
-  
-
-  
-
   return (
     <>
     <PageBanner pageName={"طرز پخت"} />
