@@ -192,7 +192,8 @@ def recipes(request):
         return create_recipe(request)
     
 @require_http_methods(["GET"])
-def recipes(request, recipe_id):
+def recipes2(request):
+    recipe_id = request.GET.get('recipe_id')
     return view_recipe_by_id(request, recipe_id)
 
 

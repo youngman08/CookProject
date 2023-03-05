@@ -30,6 +30,9 @@ const HeroSectionSearch = ({setFoods}) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
+    console.log("kh");
+    console.log(data);
+    console.log("kh");
     axios
       .get(
         BASE_API + `recipes/filter/?criterion=name__contains&name__contains=${data.name__contains}`,
