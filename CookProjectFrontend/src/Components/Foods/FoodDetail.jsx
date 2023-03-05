@@ -87,9 +87,9 @@ function FoodDetail() {
     fetchData();
   }, []);
   
-  // while(food.chief == undefined){
-  //   console.log("vaysa");
-  // }
+  while(food.chief === undefined){
+    return <>Still loading...</>;
+  }
 
   console.log("hala");
   console.log(food);
