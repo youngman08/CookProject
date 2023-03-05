@@ -7,59 +7,6 @@ import PageBanner from "../Banner/PageBanner.js";
 import axios from "axios";
 import {BASE_API} from "../../App";
 
-function ViewDetailFood(food) {
-  console.log(food);
-  return (
-    <>
-    <PageBanner pageName={"طرز پخت"} />
-    <div className="food-detail container">
-      <div className="detail-body">
-        <div className="food-details-content">
-          <h2 className="card-title">
-            لازانیا با پنیر
-            <span className="release-year"> برای 4 نفر</span>
-          </h2>
-          <div className="author">
-            <img src={author} alt="author" />
-            <h6>{food.chief.first_name} {food.chief.last_name}</h6>
-          </div>
-          <div className="rating">
-            <Rating name="read-only" value={4/*{food.rate}*/} readOnly />
-            <span className="price">{food.price}</span>
-          </div>
-          <div className="detail-description">
-            <p className="card-description">
-              {" "}
-              {food.description}
-            </p>
-          </div>
-          {/* <ul className="category-tags pt-10 pb-5">
-            <li>
-              <b>دسته بندی</b>
-              <span>:</span>
-              <a href="#">Book</a>
-              <a href="#">Cover</a>
-              <a href="#">Course</a>
-            </li>
-            <li>
-              <b>تگ ها</b>
-              <span>:</span>
-              <a href="#">Learn</a>
-              <a href="#">Teach</a>
-              <a href="#">Videos</a>
-            </li>
-          </ul> */}
-        </div>
-        <div className="images preview-images">
-          <img className="detail-img" src={element} alt="" />
-        </div>
-      </div>
-    
-    </div>
-    </>
-  );
-}
-
 function FoodDetail() {
   const [food, setFood] = useState({});
   const { food_id } = useParams();
@@ -107,7 +54,7 @@ function FoodDetail() {
       <div className="detail-body">
         <div className="food-details-content">
           <h2 className="card-title">
-            لازانیا با پنیر
+            {food.name}
             <span className="release-year"> برای 4 نفر</span>
           </h2>
           <div className="author">

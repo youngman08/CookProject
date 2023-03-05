@@ -32,7 +32,7 @@ const Navbar = ({ toggle }) => {
       <Nav scrolNav={scrolNav}>
         <NavBarContainer>
           <NavLogo to="/" onClick={toggleHome} smooth duration={1000} spy>
-            Youngman
+          AshpazBashi
           </NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />

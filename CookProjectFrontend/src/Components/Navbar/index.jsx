@@ -31,7 +31,7 @@ const Navbar = ({ toggle }) => {
     <>
       <Nav scrolNav={scrolNav}>
         <NavBarContainer>
-          <NavLogo to="/" onClick={toggleHome} smooth duration={1000} spy>Youngman</NavLogo>
+          <NavLogo to="/" onClick={toggleHome} smooth duration={1000} spy>AshpazBashi</NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>

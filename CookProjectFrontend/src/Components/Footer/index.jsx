@@ -42,8 +42,8 @@ const Footer = () => {
         </FooterLinksContainer>
         <SocialMediaContainer>
           <SocialMediaWrap>
-            <SocialLogo>Youngman</SocialLogo>
-            <WebsitesRights>Youngman Copy Rights 2022</WebsitesRights>
+            <SocialLogo>AshpazBashi</SocialLogo>
+            <WebsitesRights>AshpazBashi Copy Rights 2023</WebsitesRights>
             <SocialIcons>
               <SocialIconLinks>
                 <FaFacebook />

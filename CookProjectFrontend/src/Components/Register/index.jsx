@@ -36,6 +36,7 @@ const RegisterForm = () => {
         navigate("/login");
       })
       .catch((error) => {
+        alert("این نام کاربری قبلا ثبت شده است. مجددا تلاش کنید.");
         setIsShown(true);
       });
   };
