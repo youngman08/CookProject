@@ -202,7 +202,7 @@ CREATE TABLE `cook_forum` (
 
 LOCK TABLES `cook_forum` WRITE;
 /*!40000 ALTER TABLE `cook_forum` DISABLE KEYS */;
-INSERT INTO `cook_forum` (`forum_id`, `members_count`, `name`, `owner_id`) VALUES (1,2,'AJ Forum',1);
+INSERT INTO `cook_forum` (`forum_id`, `members_count`, `name`, `forum_text` `owner_id`) VALUES (1,2,'AJ Forum', 'I think In the process of learning how to be a good Chief of Staff to a leader, I learned about the kind of leader I want to be myself.', 1);
 /*!40000 ALTER TABLE `cook_forum` ENABLE KEYS */;
 UNLOCK TABLES;
 
