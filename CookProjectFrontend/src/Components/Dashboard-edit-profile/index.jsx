@@ -34,9 +34,10 @@ const EditProfile = ({removeAuth}) => {
             .then((response) => {
                 if (check_error(response.data))
                     alert(response.data.err_msg)
-                else
+                else{
                     setUser(response.data)
-
+                    alert("اطلاعات با موفقیت تغییر کرد.")
+                }
             })
             .catch((error) => {
             });
