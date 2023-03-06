@@ -290,7 +290,7 @@ CREATE TABLE `cook_forummessage` (
 
 LOCK TABLES `cook_forummessage` WRITE;
 /*!40000 ALTER TABLE `cook_forummessage` DISABLE KEYS */;
-INSERT INTO `cook_forummessage` (`message_id`, `text`, `date_posted`, `forum_id`, `sender_id`) VALUES (1,'Message 1 from Yashar.','2023-01-25 08:53:15.764868',1,2),(2,'Message 2 from Ali.','2023-01-25 08:53:23.711509',1,1);
+INSERT INTO `cook_forummessage` (`message_id`, `text`, `date_posted`, `forum_id`, `sender_id`) VALUES (1,'Message 1 from reza.','2023-01-25 08:53:15.764868',1,2),(2,'Message 2 from Ali.','2023-01-25 08:53:23.711509',1,1);
 /*!40000 ALTER TABLE `cook_forummessage` ENABLE KEYS */;
 UNLOCK TABLES;
 
