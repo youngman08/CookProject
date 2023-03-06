@@ -191,7 +191,7 @@ class Forum(models.Model):
     banned = models.ManyToManyField(SystemUser, related_name='banned')
     members_count = models.IntegerField(default=0)
     name = models.CharField(max_length=100)
-    forum_text = models.CharField(max_length=1000)
+    forum_text = models.CharField(max_length=1000, default='This is default forum text for previous forums. rest in peace.')
 
     class Meta:
         unique_together = ['owner', 'name']

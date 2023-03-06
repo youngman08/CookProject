@@ -29,7 +29,6 @@ function ForumDetail() {
   const [chiefDetail, setChiefDetail] = useState({});
   const { chiefName, forumName, forumId } = useParams();
   const username = localStorage.getItem("username");
-
   console.log(chiefName);
   console.log(forumName);
   console.log(forumId);
@@ -43,7 +42,8 @@ function ForumDetail() {
             },
               headers: {
                 "Content-Type": "application/json",
-              },
+                "Access-Control-Allow-Origin": "*",
+            },
           }
         )
         .then((response) => {
@@ -66,7 +66,8 @@ function ForumDetail() {
             },
               headers: {
                 "Content-Type": "application/json",
-              },
+              "Access-Control-Allow-Origin": "*",
+            },
           }
         )
         .then((response) => {
@@ -86,6 +87,7 @@ function ForumDetail() {
         .get(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
             headers: {
               "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
             },
           }
         ).then((response)  => {
@@ -101,6 +103,7 @@ function ForumDetail() {
         .get(BASE_API + `accounts/${chiefName}/unfollow/?username=${username}`,{
             headers: {
               "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
             },
           }
         ).then((response)  => {
@@ -119,7 +122,8 @@ function ForumDetail() {
             },
               headers: {
                 "Content-Type": "application/json",
-              },
+                "Access-Control-Allow-Origin": "*",
+            },
           }
         )
         .then((response) => {
@@ -139,7 +143,8 @@ function ForumDetail() {
             },
               headers: {
                 "Content-Type": "application/json",
-              },
+                "Access-Control-Allow-Origin": "*",
+            },
           }
         )
         .then((response) => {
@@ -197,26 +202,27 @@ function ForumDetail() {
                   <img src={author_avatar} alt="author avatar" />
                 </a>
                 <div class="forum-post-author">
-                  <a class="author-name" href="#">
-                    Eh Jewel
-                  </a>
-                  <div class="forum-author-meta">
-                    <div class="author-badge">
-                      <span>Conversation Starter</span>
-                    </div>
-                    <div class="author-badge">
-                      <i class="icon_calendar"></i>
-                      <p>January 16 at 10:32 PM</p>
-                    </div>
-                  </div>
+                  
                   <div class="comment-content">
-                    <p>
-                      Cheeky chap jolly good mufty a load of old tosh I don't
-                      want no agro a chinwag amongst tickety-boo, tosser
-                      victoria sponge horse play happy days give us a bell nice
-                      one cup of tea young delinquent wellies, cockup absolutely
-                      bladdered barmy bleeding.!
-                    </p>
+                    {Forum.messages.map((comment) => (
+                      <Grid>
+                        <a class="author-name" href="#">
+                          {comment.sender}
+                        </a>
+                        <div class="forum-author-meta">
+                          <div class="author-badge">
+                            <span>Conversation Starter</span>
+                          </div>
+                          <div class="author-badge">
+                            <i class="icon_calendar"></i>
+                            <p>{comment.date}</p>
+                          </div>
+                        </div>
+                        <p>
+                          {comment.text}
+                        </p>
+                      </Grid>
+                    ))}
                   </div>
                 </div>
               </div>
