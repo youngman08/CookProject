@@ -188,6 +188,7 @@ CREATE TABLE `cook_forum` (
   `forum_id` int NOT NULL AUTO_INCREMENT,
   `members_count` int NOT NULL,
   `name` varchar(100) NOT NULL,
+  `forum_text` varchar(1000) NOT NULL,
   `owner_id` bigint NOT NULL,
   PRIMARY KEY (`forum_id`),
   UNIQUE KEY `cook_forum_owner_id_name_a408266a_uniq` (`owner_id`,`name`),
