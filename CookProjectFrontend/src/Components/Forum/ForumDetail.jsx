@@ -27,33 +27,49 @@ function ForumDetail() {
   const { register, handleSubmit } = useForm();
   const [chiefDetail, setChiefDetail] = useState({});
   const { chiefName, forumName, forumId } = useParams();
+  const username=localStorage.getItem("username");
   console.log(chiefName);
   console.log(forumName);
   console.log(forumId);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await axios
-        .get(BASE_API + `forums/${forumId}/view`,{
-            params: {
-              username: localStorage.getItem("username")
-            },
-              headers: {
-                "Content-Type": "application/json",
-              },
-          }
-        )
-        .then((response) => {
-          console.log(response.data);
-          setForum(response.data); //results
-        })
-        .catch((error) => {
-          console.log("error in get forum info.");
-        });
-    }
-    fetchData();
-  }, []);
-
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     await axios
+  //       .get(BASE_API + `forums/${forumId}/view`,{
+  //           params: {
+  //             username: username
+  //           },
+  //             headers: {
+  //               "Content-Type": "application/json",
+  //             },
+  //         }
+  //       )
+  //       .then((response) => {
+  //         console.log(response.data);
+  //         setForum(response.data); //results
+  //       })
+  //       .catch((error) => {
+  //         console.log("error in get forum info.");
+  //       });
+  //   }
+  //   fetchData();
+  // }, []);
+  function follow_chief(){
+        axios
+            .put(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            ).then((response)  => {
+              console.log(response.data)
+            })
+            .catch((error) => {})
+          }      
+  
+  function unfollow_chief(){
+    console.log("@@@22");
+  }
   return (
     <>
       <Sidebar />
@@ -80,8 +96,8 @@ function ForumDetail() {
                   >
                     سوالات خود را بپرسید!
                   </a>
-                  <button class="mbtn">دنبال کن !</button>
-                  <button class="mbtn2">دنبال نکن :(</button>
+                  <button class="mbtn" onClick={follow_chief}>دنبال کن !</button>
+                  <button class="mbtn2" onClick={unfollow_chief}>دنبال نکن :(</button>
                 </ChiefCard>
               </ChiefWrapper>
             </ChiefContainer>
@@ -142,6 +158,7 @@ function ForumDetail() {
       </Grid>
     </>
   );
-}
 
+                  }        
 export default ForumDetail;
+                

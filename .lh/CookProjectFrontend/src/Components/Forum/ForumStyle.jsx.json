@@ -1,0 +1,18 @@
+{
+    "sourceFile": "CookProjectFrontend/src/Components/Forum/ForumStyle.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1678096217317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1678096217317,
+            "name": "Commit-0",
+            "content": "import styled from \"styled-components\";\r\nexport const ChiefContainer = styled.div`\r\n  height: 850px;\r\n  display: flex;\r\n  flex-direction: column;\r\n\r\n  background-color: #35334d;\r\n`;\r\nexport const ChiefWrapper = styled.div`\r\n  max-width: 100%;\r\n  margin: 0 auto;\r\n  grid-template-columns: 1fr 1fr 1fr;\r\n  align-items: center;\r\n  grid-gap: 16px;\r\n  padding: 0 50px;\r\n`;\r\nexport const ChiefCard = styled.div`\r\n  background: antiquewhite;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n  border-radius: 10px;\r\n  max-height: 600px;\r\n  max-width: 650px;\r\n  padding: 30px;\r\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);\r\n  transition: all 0.2s ease-in-out;\r\n  &:hover {\r\n    transform: scale(1.02);\r\n    transition: all 0.2s ease-in-out;\r\n  }\r\n`;\r\nexport const ChiefImage = styled.img`\r\n  width: 120px;\r\n  margin-top: 10px;\r\n  margin-bottom: 10px;\r\n`;\r\nexport const ChiefH1 = styled.h3`\r\n  color: #fff;\r\n  margin-bottom: 10px;\r\n\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n`;\r\nexport const ChiefH2 = styled.h5`\r\n  margin-bottom: 10px;\r\n  text-align: center;\r\n`;\r\nexport const ChiefP = styled.p`\r\n  font-size: 1rem;\r\n  text-align: center;\r\n  color: indigo;\r\n  direction: rtl;\r\n`;\r\n"
+        }
+    ]
+}

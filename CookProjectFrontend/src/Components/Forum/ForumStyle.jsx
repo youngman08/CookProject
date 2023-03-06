@@ -29,7 +29,6 @@ export const ChiefCard = styled.div`
   &:hover {
     transform: scale(1.02);
     transition: all 0.2s ease-in-out;
-    cursor: pointer;
   }
 `;
 export const ChiefImage = styled.img`

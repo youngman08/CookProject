@@ -1,0 +1,246 @@
+{
+    "sourceFile": "CookProjectFrontend/src/Components/Forum/ForumDetail.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 57,
+            "patches": [
+                {
+                    "date": 1678093468152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678093475085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n   const [Forum, setForum] = useState({});\r\n   const { register, handleSubmit } = useForm();\r\n   const [chiefDetail, setChiefDetail] = useState({});\r\n   const { chiefName, forumName, forumId } = useParams();\r\n-  const \r\n+  const user\r\n   console.log(chiefName);\r\n   console.log(forumName);\r\n   console.log(forumId);\r\n \r\n"
+                },
+                {
+                    "date": 1678093490419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n   const [Forum, setForum] = useState({});\r\n   const { register, handleSubmit } = useForm();\r\n   const [chiefDetail, setChiefDetail] = useState({});\r\n   const { chiefName, forumName, forumId } = useParams();\r\n-  const user\r\n+  const username=localStorage.getItem(\"username\")\r\n   console.log(chiefName);\r\n   console.log(forumName);\r\n   console.log(forumId);\r\n \r\n"
+                },
+                {
+                    "date": 1678093498726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n   const [Forum, setForum] = useState({});\r\n   const { register, handleSubmit } = useForm();\r\n   const [chiefDetail, setChiefDetail] = useState({});\r\n   const { chiefName, forumName, forumId } = useParams();\r\n-  const username=localStorage.getItem(\"username\")\r\n+  const username=localStorage.getItem(\"username\");\r\n   console.log(chiefName);\r\n   console.log(forumName);\r\n   console.log(forumId);\r\n \r\n@@ -36,9 +36,9 @@\n     const fetchData = async () => {\r\n       await axios\r\n         .get(BASE_API + `forums/${forumId}/view`,{\r\n             params: {\r\n-              username: localStorage.getItem(\"username\")\r\n+              username: $\r\n             },\r\n               headers: {\r\n                 \"Content-Type\": \"application/json\",\r\n               },\r\n"
+                },
+                {
+                    "date": 1678093504512,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n     const fetchData = async () => {\r\n       await axios\r\n         .get(BASE_API + `forums/${forumId}/view`,{\r\n             params: {\r\n-              username: $\r\n+              username: ${username}\r\n             },\r\n               headers: {\r\n                 \"Content-Type\": \"application/json\",\r\n               },\r\n"
+                },
+                {
+                    "date": 1678093524715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n     const fetchData = async () => {\r\n       await axios\r\n         .get(BASE_API + `forums/${forumId}/view`,{\r\n             params: {\r\n-              username: ${username}\r\n+              username: username}\r\n             },\r\n               headers: {\r\n                 \"Content-Type\": \"application/json\",\r\n               },\r\n"
+                },
+                {
+                    "date": 1678095301999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n     const fetchData = async () => {\r\n       await axios\r\n         .get(BASE_API + `forums/${forumId}/view`,{\r\n             params: {\r\n-              username: username}\r\n+              username: username\r\n             },\r\n               headers: {\r\n                 \"Content-Type\": \"application/json\",\r\n               },\r\n@@ -80,9 +80,9 @@\n                     }\r\n                   >\r\n                     سوالات خود را بپرسید!\r\n                   </a>\r\n-                  <button class=\"mbtn\">دنبال کن !</button>\r\n+                  <button class=\"mbtn\" onclick=\"solve()\">دنبال کن !</button>\r\n                   <button class=\"mbtn2\">دنبال نکن :(</button>\r\n                 </ChiefCard>\r\n               </ChiefWrapper>\r\n             </ChiefContainer>\r\n"
+                },
+                {
+                    "date": 1678095310871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,9 @@\n                     }\r\n                   >\r\n                     سوالات خود را بپرسید!\r\n                   </a>\r\n-                  <button class=\"mbtn\" onclick=\"solve()\">دنبال کن !</button>\r\n+                  <button class=\"mbtn\" onclick=\"follow()\">دنبال کن !</button>\r\n                   <button class=\"mbtn2\">دنبال نکن :(</button>\r\n                 </ChiefCard>\r\n               </ChiefWrapper>\r\n             </ChiefContainer>\r\n"
+                },
+                {
+                    "date": 1678095316274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,9 @@\n                     }\r\n                   >\r\n                     سوالات خود را بپرسید!\r\n                   </a>\r\n-                  <button class=\"mbtn\" onclick=\"follow()\">دنبال کن !</button>\r\n+                  <button class=\"mbtn\" onclick=follow()\"\">دنبال کن !</button>\r\n                   <button class=\"mbtn2\">دنبال نکن :(</button>\r\n                 </ChiefCard>\r\n               </ChiefWrapper>\r\n             </ChiefContainer>\r\n"
+                },
+                {
+                    "date": 1678095332489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n         });\r\n     }\r\n     fetchData();\r\n   }, []);\r\n-\r\n+  \r\n   return (\r\n     <>\r\n       <Sidebar />\r\n       <Navbar />\r\n@@ -80,9 +80,9 @@\n                     }\r\n                   >\r\n                     سوالات خود را بپرسید!\r\n                   </a>\r\n-                  <button class=\"mbtn\" onclick=follow()\"\">دنبال کن !</button>\r\n+                  <button class=\"mbtn\" onclick=\"follow()\">دنبال کن !</button>\r\n                   <button class=\"mbtn2\">دنبال نکن :(</button>\r\n                 </ChiefCard>\r\n               </ChiefWrapper>\r\n             </ChiefContainer>\r\n"
+                },
+                {
+                    "date": 1678095340106,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n         });\r\n     }\r\n     fetchData();\r\n   }, []);\r\n-  \r\n+  const follow\r\n   return (\r\n     <>\r\n       <Sidebar />\r\n       <Navbar />\r\n"
+                },
+                {
+                    "date": 1678095346109,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n         });\r\n     }\r\n     fetchData();\r\n   }, []);\r\n-  const follow\r\n+  const follow()=>{}\r\n   return (\r\n     <>\r\n       <Sidebar />\r\n       <Navbar />\r\n"
+                },
+                {
+                    "date": 1678095358515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n         });\r\n     }\r\n     fetchData();\r\n   }, []);\r\n-  const follow()=>{}\r\n+  const  follow()=>{};\r\n   return (\r\n     <>\r\n       <Sidebar />\r\n       <Navbar />\r\n"
+                },
+                {
+                    "date": 1678095584554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n         });\r\n     }\r\n     fetchData();\r\n   }, []);\r\n-  const  follow()=>{};\r\n+  \r\n   return (\r\n     <>\r\n       <Sidebar />\r\n       <Navbar />\r\n"
+                },
+                {
+                    "date": 1678095593417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n         });\r\n     }\r\n     fetchData();\r\n   }, []);\r\n-  \r\n+  function \r\n   return (\r\n     <>\r\n       <Sidebar />\r\n       <Navbar />\r\n"
+                },
+                {
+                    "date": 1678095602482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n         });\r\n     }\r\n     fetchData();\r\n   }, []);\r\n-  function \r\n+  function follow_chief\r\n   return (\r\n     <>\r\n       <Sidebar />\r\n       <Navbar />\r\n"
+                },
+                {
+                    "date": 1678095608889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,11 @@\n         });\r\n     }\r\n     fetchData();\r\n   }, []);\r\n-  function follow_chief\r\n+  function follow_chief(){\r\n+    \r\n+  }\r\n   return (\r\n     <>\r\n       <Sidebar />\r\n       <Navbar />\r\n"
+                },
+                {
+                    "date": 1678095618854,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n     }\r\n     fetchData();\r\n   }, []);\r\n   function follow_chief(){\r\n-    \r\n+    console.log(\"\");\r\n   }\r\n   return (\r\n     <>\r\n       <Sidebar />\r\n"
+                },
+                {
+                    "date": 1678095629246,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n     }\r\n     fetchData();\r\n   }, []);\r\n   function follow_chief(){\r\n-    console.log(\"\");\r\n+    console.log(\"@@@\");\r\n   }\r\n   return (\r\n     <>\r\n       <Sidebar />\r\n@@ -82,9 +82,9 @@\n                     }\r\n                   >\r\n                     سوالات خود را بپرسید!\r\n                   </a>\r\n-                  <button class=\"mbtn\" onclick=\"follow()\">دنبال کن !</button>\r\n+                  <button class=\"mbtn\" onclick={}>دنبال کن !</button>\r\n                   <button class=\"mbtn2\">دنبال نکن :(</button>\r\n                 </ChiefCard>\r\n               </ChiefWrapper>\r\n             </ChiefContainer>\r\n"
+                },
+                {
+                    "date": 1678095644211,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -82,9 +82,9 @@\n                     }\r\n                   >\r\n                     سوالات خود را بپرسید!\r\n                   </a>\r\n-                  <button class=\"mbtn\" onclick={}>دنبال کن !</button>\r\n+                  <button class=\"mbtn\" onclick={follow_chief}>دنبال کن !</button>\r\n                   <button class=\"mbtn2\">دنبال نکن :(</button>\r\n                 </ChiefCard>\r\n               </ChiefWrapper>\r\n             </ChiefContainer>\r\n"
+                },
+                {
+                    "date": 1678095650422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -83,9 +83,9 @@\n                   >\r\n                     سوالات خود را بپرسید!\r\n                   </a>\r\n                   <button class=\"mbtn\" onclick={follow_chief}>دنبال کن !</button>\r\n-                  <button class=\"mbtn2\">دنبال نکن :(</button>\r\n+                  <button class=\"mbtn2\" onclick={follow_chief}>دنبال نکن :(</button>\r\n                 </ChiefCard>\r\n               </ChiefWrapper>\r\n             </ChiefContainer>\r\n           </Grid>\r\n"
+                },
+                {
+                    "date": 1678095660236,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,8 +56,11 @@\n   }, []);\r\n   function follow_chief(){\r\n     console.log(\"@@@\");\r\n   }\r\n+  function follow_chief(){\r\n+    console.log(\"@@@\");\r\n+  }\r\n   return (\r\n     <>\r\n       <Sidebar />\r\n       <Navbar />\r\n@@ -83,9 +86,9 @@\n                   >\r\n                     سوالات خود را بپرسید!\r\n                   </a>\r\n                   <button class=\"mbtn\" onclick={follow_chief}>دنبال کن !</button>\r\n-                  <button class=\"mbtn2\" onclick={follow_chief}>دنبال نکن :(</button>\r\n+                  <button class=\"mbtn2\" onclick={unfollow_chief}>دنبال نکن :(</button>\r\n                 </ChiefCard>\r\n               </ChiefWrapper>\r\n             </ChiefContainer>\r\n           </Grid>\r\n"
+                },
+                {
+                    "date": 1678095665849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,10 +56,10 @@\n   }, []);\r\n   function follow_chief(){\r\n     console.log(\"@@@\");\r\n   }\r\n-  function follow_chief(){\r\n-    console.log(\"@@@\");\r\n+  function unfollow_chief(){\r\n+    console.log(\"@@@22\");\r\n   }\r\n   return (\r\n     <>\r\n       <Sidebar />\r\n"
+                },
+                {
+                    "date": 1678095720455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,28 +31,28 @@\n   console.log(chiefName);\r\n   console.log(forumName);\r\n   console.log(forumId);\r\n \r\n-  useEffect(() => {\r\n-    const fetchData = async () => {\r\n-      await axios\r\n-        .get(BASE_API + `forums/${forumId}/view`,{\r\n-            params: {\r\n-              username: username\r\n-            },\r\n-              headers: {\r\n-                \"Content-Type\": \"application/json\",\r\n-              },\r\n-          }\r\n-        )\r\n-        .then((response) => {\r\n-          console.log(response.data);\r\n-          setForum(response.data); //results\r\n-        })\r\n-        .catch((error) => {\r\n-          console.log(\"error in get forum info.\");\r\n-        });\r\n-    }\r\n+  // useEffect(() => {\r\n+  //   const fetchData = async () => {\r\n+  //     await axios\r\n+  //       .get(BASE_API + `forums/${forumId}/view`,{\r\n+  //           params: {\r\n+  //             username: username\r\n+  //           },\r\n+  //             headers: {\r\n+  //               \"Content-Type\": \"application/json\",\r\n+  //             },\r\n+  //         }\r\n+  //       )\r\n+  //       .then((response) => {\r\n+  //         console.log(response.data);\r\n+  //         setForum(response.data); //results\r\n+  //       })\r\n+  //       .catch((error) => {\r\n+  //         console.log(\"error in get forum info.\");\r\n+  //       });\r\n+  //   }\r\n     fetchData();\r\n   }, []);\r\n   function follow_chief(){\r\n     console.log(\"@@@\");\r\n"
+                },
+                {
+                    "date": 1678095817700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,10 +51,10 @@\n   //       .catch((error) => {\r\n   //         console.log(\"error in get forum info.\");\r\n   //       });\r\n   //   }\r\n-    fetchData();\r\n-  }, []);\r\n+  //   fetchData();\r\n+  // }, []);\r\n   function follow_chief(){\r\n     console.log(\"@@@\");\r\n   }\r\n   function unfollow_chief(){\r\n@@ -85,9 +85,9 @@\n                     }\r\n                   >\r\n                     سوالات خود را بپرسید!\r\n                   </a>\r\n-                  <button class=\"mbtn\" onclick={follow_chief}>دنبال کن !</button>\r\n+                  <button class=\"mbtn\" onClick={follow_chief}>دنبال کن !</button>\r\n                   <button class=\"mbtn2\" onclick={unfollow_chief}>دنبال نکن :(</button>\r\n                 </ChiefCard>\r\n               </ChiefWrapper>\r\n             </ChiefContainer>\r\n"
+                },
+                {
+                    "date": 1678096528703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,26 @@\n   //   }\r\n   //   fetchData();\r\n   // }, []);\r\n   function follow_chief(){\r\n-    console.log(\"@@@\");\r\n+    async () => {\r\n+      //     await axios\r\n+      //       .get(BASE_API + `forums/${forumId}/view`,{\r\n+      //           params: {\r\n+      //             username: username\r\n+      //           },\r\n+      //             headers: {\r\n+      //               \"Content-Type\": \"application/json\",\r\n+      //             },\r\n+      //         }\r\n+      //       )\r\n+      //       .then((response) => {\r\n+      //         console.log(response.data);\r\n+      //         setForum(response.data); //results\r\n+      //       })\r\n+      //       .catch((error) => {\r\n+      //         console.log(\"error in get forum info.\");\r\n+      //       });\r\n   }\r\n   function unfollow_chief(){\r\n     console.log(\"@@@22\");\r\n   }\r\n@@ -86,9 +103,9 @@\n                   >\r\n                     سوالات خود را بپرسید!\r\n                   </a>\r\n                   <button class=\"mbtn\" onClick={follow_chief}>دنبال کن !</button>\r\n-                  <button class=\"mbtn2\" onclick={unfollow_chief}>دنبال نکن :(</button>\r\n+                  <button class=\"mbtn2\" onClick={unfollow_chief}>دنبال نکن :(</button>\r\n                 </ChiefCard>\r\n               </ChiefWrapper>\r\n             </ChiefContainer>\r\n           </Grid>\r\n"
+                },
+                {
+                    "date": 1678096534314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,25 +55,25 @@\n   //   fetchData();\r\n   // }, []);\r\n   function follow_chief(){\r\n     async () => {\r\n-      //     await axios\r\n-      //       .get(BASE_API + `forums/${forumId}/view`,{\r\n-      //           params: {\r\n-      //             username: username\r\n-      //           },\r\n-      //             headers: {\r\n-      //               \"Content-Type\": \"application/json\",\r\n-      //             },\r\n-      //         }\r\n-      //       )\r\n-      //       .then((response) => {\r\n-      //         console.log(response.data);\r\n-      //         setForum(response.data); //results\r\n-      //       })\r\n-      //       .catch((error) => {\r\n-      //         console.log(\"error in get forum info.\");\r\n-      //       });\r\n+          await axios\r\n+            .get(BASE_API + `forums/${forumId}/view`,{\r\n+                params: {\r\n+                  username: username\r\n+                },\r\n+                  headers: {\r\n+                    \"Content-Type\": \"application/json\",\r\n+                  },\r\n+              }\r\n+            )\r\n+            .then((response) => {\r\n+              console.log(response.data);\r\n+              setForum(response.data); //results\r\n+            })\r\n+            .catch((error) => {\r\n+              console.log(\"error in get forum info.\");\r\n+            });\r\n   }\r\n   function unfollow_chief(){\r\n     console.log(\"@@@22\");\r\n   }\r\n"
+                },
+                {
+                    "date": 1678096560777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n   // }, []);\r\n   function follow_chief(){\r\n     async () => {\r\n           await axios\r\n-            .get(BASE_API + `forums/${forumId}/view`,{\r\n+            .get(BASE_API + `accounts/<str:jesus_username>/follow/`,{\r\n                 params: {\r\n                   username: username\r\n                 },\r\n                   headers: {\r\n"
+                },
+                {
+                    "date": 1678096599298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n   // }, []);\r\n   function follow_chief(){\r\n     async () => {\r\n           await axios\r\n-            .get(BASE_API + `accounts/<str:jesus_username>/follow/`,{\r\n+            .get(BASE_API + `accounts//follow/`,{\r\n                 params: {\r\n                   username: username\r\n                 },\r\n                   headers: {\r\n"
+                },
+                {
+                    "date": 1678096605981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n   // }, []);\r\n   function follow_chief(){\r\n     async () => {\r\n           await axios\r\n-            .get(BASE_API + `accounts//follow/`,{\r\n+            .get(BASE_API + `accounts/${chiefName}/follow/`,{\r\n                 params: {\r\n                   username: username\r\n                 },\r\n                   headers: {\r\n"
+                },
+                {
+                    "date": 1678096621057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n   // }, []);\r\n   function follow_chief(){\r\n     async () => {\r\n           await axios\r\n-            .get(BASE_API + `accounts/${chiefName}/follow/`,{\r\n+            .put(BASE_API + `accounts/${chiefName}/follow/`,{\r\n                 params: {\r\n                   username: username\r\n                 },\r\n                   headers: {\r\n"
+                },
+                {
+                    "date": 1678096697388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,15 +65,11 @@\n                     \"Content-Type\": \"application/json\",\r\n                   },\r\n               }\r\n             )\r\n-            .then((response) => {\r\n-              console.log(response.data);\r\n-              setForum(response.data); //results\r\n-            })\r\n-            .catch((error) => {\r\n-              console.log(\"error in get forum info.\");\r\n-            });\r\n+            .then(response => response.text())\r\n+  .then(result => console.log(result))\r\n+  .catch(error => console.log('error', error));\r\n   }\r\n   function unfollow_chief(){\r\n     console.log(\"@@@22\");\r\n   }\r\n"
+                },
+                {
+                    "date": 1678096738929,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,10 +66,10 @@\n                   },\r\n               }\r\n             )\r\n             .then(response => response.text())\r\n-  .then(result => console.log(result))\r\n-  .catch(error => console.log('error', error));\r\n+            .then(result => console.log(result))\r\n+            .catch(error => console.log('error', error));\r\n   }\r\n   function unfollow_chief(){\r\n     console.log(\"@@@22\");\r\n   }\r\n"
+                },
+                {
+                    "date": 1678096776433,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,9 +66,9 @@\n                   },\r\n               }\r\n             )\r\n             .then(response => response.text())\r\n-            .then(result => console.log(result))\r\n+            .then(result => console.log(\"2222\"))\r\n             .catch(error => console.log('error', error));\r\n   }\r\n   function unfollow_chief(){\r\n     console.log(\"@@@22\");\r\n"
+                },
+                {
+                    "date": 1678096913465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -160,7 +160,7 @@\n         </Grid>\r\n       </Grid>\r\n     </>\r\n   );\r\n-}\r\n \r\n+\r\n export default ForumDetail;\r\n"
+                },
+                {
+                    "date": 1678096921873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -163,4 +163,5 @@\n   );\r\n \r\n \r\n export default ForumDetail;\r\n+                  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678096927519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -161,7 +161,7 @@\n       </Grid>\r\n     </>\r\n   );\r\n \r\n-\r\n+                  }\r\n export default ForumDetail;\r\n\\ No newline at end of file\n-                  \n+                }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678096954600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,9 +68,9 @@\n             )\r\n             .then(response => response.text())\r\n             .then(result => console.log(\"2222\"))\r\n             .catch(error => console.log('error', error));\r\n-  }\r\n+  }}\r\n   function unfollow_chief(){\r\n     console.log(\"@@@22\");\r\n   }\r\n   return (\r\n@@ -163,5 +163,5 @@\n   );\r\n \r\n                   }\r\n export default ForumDetail;\r\n-                }\n\\ No newline at end of file\n+                \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678096974741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,9 +64,9 @@\n                   headers: {\r\n                     \"Content-Type\": \"application/json\",\r\n                   },\r\n               }\r\n-            )\r\n+            )}\r\n             .then(response => response.text())\r\n             .then(result => console.log(\"2222\"))\r\n             .catch(error => console.log('error', error));\r\n   }}\r\n"
+                },
+                {
+                    "date": 1678097025007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,12 +65,10 @@\n                     \"Content-Type\": \"application/json\",\r\n                   },\r\n               }\r\n             )}\r\n-            .then(response => response.text())\r\n-            .then(result => console.log(\"2222\"))\r\n-            .catch(error => console.log('error', error));\r\n-  }}\r\n+            \r\n+  }\r\n   function unfollow_chief(){\r\n     console.log(\"@@@22\");\r\n   }\r\n   return (\r\n"
+                },
+                {
+                    "date": 1678097327171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,8 @@\n   //   }\r\n   //   fetchData();\r\n   // }, []);\r\n   function follow_chief(){\r\n-    async () => {\r\n           await axios\r\n             .put(BASE_API + `accounts/${chiefName}/follow/`,{\r\n                 params: {\r\n                   username: username\r\n@@ -64,9 +63,11 @@\n                   headers: {\r\n                     \"Content-Type\": \"application/json\",\r\n                   },\r\n               }\r\n-            )}\r\n+            ).then(response => response.text())\r\n+            .then(result => console.log(\"2222\"))\r\n+            .catch(error => console.log('error', error));}\r\n             \r\n   }\r\n   function unfollow_chief(){\r\n     console.log(\"@@@22\");\r\n"
+                },
+                {
+                    "date": 1678097340736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n   //   }\r\n   //   fetchData();\r\n   // }, []);\r\n   function follow_chief(){\r\n-          await axios\r\n+        axios\r\n             .put(BASE_API + `accounts/${chiefName}/follow/`,{\r\n                 params: {\r\n                   username: username\r\n                 },\r\n"
+                },
+                {
+                    "date": 1678097351921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -160,7 +160,7 @@\n       </Grid>\r\n     </>\r\n   );\r\n \r\n-                  }\r\n+                  \r\n export default ForumDetail;\r\n                 \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678097383711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,9 +67,9 @@\n             ).then(response => response.text())\r\n             .then(result => console.log(\"2222\"))\r\n             .catch(error => console.log('error', error));}\r\n             \r\n-  }\r\n+  \r\n   function unfollow_chief(){\r\n     console.log(\"@@@22\");\r\n   }\r\n   return (\r\n"
+                },
+                {
+                    "date": 1678097584599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,9 +63,9 @@\n                   headers: {\r\n                     \"Content-Type\": \"application/json\",\r\n                   },\r\n               }\r\n-            ).then(response => response.text())\r\n+            ).then(response => response.data())\r\n             .then(result => console.log(\"2222\"))\r\n             .catch(error => console.log('error', error));}\r\n             \r\n   \r\n@@ -160,7 +160,7 @@\n       </Grid>\r\n     </>\r\n   );\r\n \r\n-                  \r\n+                  }        \r\n export default ForumDetail;\r\n                 \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678097600618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,9 +63,9 @@\n                   headers: {\r\n                     \"Content-Type\": \"application/json\",\r\n                   },\r\n               }\r\n-            ).then(response => response.data())\r\n+            ).then((response => response.data())\r\n             .then(result => console.log(\"2222\"))\r\n             .catch(error => console.log('error', error));}\r\n             \r\n   \r\n"
+                },
+                {
+                    "date": 1678097687526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,11 +63,12 @@\n                   headers: {\r\n                     \"Content-Type\": \"application/json\",\r\n                   },\r\n               }\r\n-            ).then((response => response.data())\r\n-            .then(result => console.log(\"2222\"))\r\n-            .catch(error => console.log('error', error));}\r\n+            ).then((response)  => {\r\n+              console.log(response.data)\r\n+            })\r\n+            .catch((error) => {})\r\n             \r\n   \r\n   function unfollow_chief(){\r\n     console.log(\"@@@22\");\r\n"
+                },
+                {
+                    "date": 1678097702450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,9 +67,9 @@\n             ).then((response)  => {\r\n               console.log(response.data)\r\n             })\r\n             .catch((error) => {})\r\n-            \r\n+          }      \r\n   \r\n   function unfollow_chief(){\r\n     console.log(\"@@@22\");\r\n   }\r\n"
+                },
+                {
+                    "date": 1678098240951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n   //   fetchData();\r\n   // }, []);\r\n   function follow_chief(){\r\n         axios\r\n-            .put(BASE_API + `accounts/${chiefName}/follow/`,{\r\n+            .post(BASE_API + `accounts/${chiefName}/follow/`,{\r\n                 params: {\r\n                   username: username\r\n                 },\r\n                   headers: {\r\n"
+                },
+                {
+                    "date": 1678098252903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n   //   fetchData();\r\n   // }, []);\r\n   function follow_chief(){\r\n         axios\r\n-            .post(BASE_API + `accounts/${chiefName}/follow/`,{\r\n+            .put(BASE_API + `accounts/${chiefName}/follow/`,{\r\n                 params: {\r\n                   username: username\r\n                 },\r\n                   headers: {\r\n"
+                },
+                {
+                    "date": 1678098279803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,9 +57,9 @@\n   function follow_chief(){\r\n         axios\r\n             .put(BASE_API + `accounts/${chiefName}/follow/`,{\r\n                 params: {\r\n-                  username: username\r\n+                  username: localStorage.getItem(\"username\")\r\n                 },\r\n                   headers: {\r\n                     \"Content-Type\": \"application/json\",\r\n                   },\r\n"
+                },
+                {
+                    "date": 1678098291685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,9 +57,9 @@\n   function follow_chief(){\r\n         axios\r\n             .put(BASE_API + `accounts/${chiefName}/follow/`,{\r\n                 params: {\r\n-                  username: localStorage.getItem(\"username\")\r\n+                  username: username\r\n                 },\r\n                   headers: {\r\n                     \"Content-Type\": \"application/json\",\r\n                   },\r\n"
+                },
+                {
+                    "date": 1678098339955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,11 +59,11 @@\n             .put(BASE_API + `accounts/${chiefName}/follow/`,{\r\n                 params: {\r\n                   username: username\r\n                 },\r\n-                  headers: {\r\n-                    \"Content-Type\": \"application/json\",\r\n-                  },\r\n+                headers: {\r\n+                  \"Content-Type\": \"application/json\",\r\n+                },\r\n               }\r\n             ).then((response)  => {\r\n               console.log(response.data)\r\n             })\r\n"
+                },
+                {
+                    "date": 1678100092797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n   //   fetchData();\r\n   // }, []);\r\n   function follow_chief(){\r\n         axios\r\n-            .put(BASE_API + `accounts/${chiefName}/follow/`,{\r\n+            .post(BASE_API + `accounts/${chiefName}/follow/`,{\r\n                 params: {\r\n                   username: username\r\n                 },\r\n                 headers: {\r\n"
+                },
+                {
+                    "date": 1678100104630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n   //   fetchData();\r\n   // }, []);\r\n   function follow_chief(){\r\n         axios\r\n-            .post(BASE_API + `accounts/${chiefName}/follow/`,{\r\n+            .put(BASE_API + `accounts/${chiefName}/follow/`,{\r\n                 params: {\r\n                   username: username\r\n                 },\r\n                 headers: {\r\n"
+                },
+                {
+                    "date": 1678100328782,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n   //   fetchData();\r\n   // }, []);\r\n   function follow_chief(){\r\n         axios\r\n-            .put(BASE_API + `accounts/${chiefName}/follow/`,{\r\n+            .get(BASE_API + `accounts/${chiefName}/follow/?username`,{\r\n                 params: {\r\n                   username: username\r\n                 },\r\n                 headers: {\r\n"
+                },
+                {
+                    "date": 1678100334489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n   //   fetchData();\r\n   // }, []);\r\n   function follow_chief(){\r\n         axios\r\n-            .get(BASE_API + `accounts/${chiefName}/follow/?username`,{\r\n+            .get(BASE_API + `accounts/${chiefName}/follow/?username=${}`,{\r\n                 params: {\r\n                   username: username\r\n                 },\r\n                 headers: {\r\n"
+                },
+                {
+                    "date": 1678100342121,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,12 +55,9 @@\n   //   fetchData();\r\n   // }, []);\r\n   function follow_chief(){\r\n         axios\r\n-            .get(BASE_API + `accounts/${chiefName}/follow/?username=${}`,{\r\n-                params: {\r\n-                  username: username\r\n-                },\r\n+            .get(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{\r\n                 headers: {\r\n                   \"Content-Type\": \"application/json\",\r\n                 },\r\n               }\r\n"
+                }
+            ],
+            "date": 1678093468152,
+            "name": "Commit-0",
+            "content": "import React, { useEffect, useState } from \"react\";\r\nimport { useParams } from \"react-router-dom\";\r\nimport element from \"../../images/nodel-ba-panir.jpg\";\r\nimport author from \"../../images/author.jpg\";\r\nimport Rating from \"@mui/material/Rating\";\r\nimport PageBanner from \"../Banner/PageBanner.js\";\r\nimport chief_profile_img from \"../../images/chief_profile.jpg\";\r\nimport author_avatar from \"../../images/author-avatar.png\";\r\nimport axios from \"axios\";\r\nimport {BASE_API} from \"../../App\";\r\n\r\nimport {\r\n  ChiefCard,\r\n  ChiefContainer,\r\n  ChiefH1,\r\n  ChiefH2,\r\n  ChiefImage,\r\n  ChiefP,\r\n  ChiefWrapper,\r\n} from \"./ForumStyle\";\r\nimport Sidebar from \"../Sidebar\";\r\nimport Navbar from \"../Navbar-second\";\r\nimport Grid from \"@mui/material/Grid\";\r\nimport { useForm } from \"react-hook-form\";\r\nfunction ForumDetail() {\r\n  const [Forum, setForum] = useState({});\r\n  const { register, handleSubmit } = useForm();\r\n  const [chiefDetail, setChiefDetail] = useState({});\r\n  const { chiefName, forumName, forumId } = useParams();\r\n  const \r\n  console.log(chiefName);\r\n  console.log(forumName);\r\n  console.log(forumId);\r\n\r\n  useEffect(() => {\r\n    const fetchData = async () => {\r\n      await axios\r\n        .get(BASE_API + `forums/${forumId}/view`,{\r\n            params: {\r\n              username: localStorage.getItem(\"username\")\r\n            },\r\n              headers: {\r\n                \"Content-Type\": \"application/json\",\r\n              },\r\n          }\r\n        )\r\n        .then((response) => {\r\n          console.log(response.data);\r\n          setForum(response.data); //results\r\n        })\r\n        .catch((error) => {\r\n          console.log(\"error in get forum info.\");\r\n        });\r\n    }\r\n    fetchData();\r\n  }, []);\r\n\r\n  return (\r\n    <>\r\n      <Sidebar />\r\n      <Navbar />\r\n      <Grid container spacing={2}>\r\n        <Grid container item spacing={2} xs={12} sm={12} md={3}>\r\n          <Grid item xs={12} sm={12} md={12}>\r\n            <ChiefContainer>\r\n              <ChiefH1>پروفایل آشپز {chiefDetail.username}</ChiefH1>\r\n              <ChiefWrapper>\r\n                <ChiefCard>\r\n                  <ChiefImage src={chief_profile_img}></ChiefImage>\r\n                  <ChiefH2>\r\n                    {chiefDetail.first_name} {chiefDetail.last_name}\r\n                  </ChiefH2>\r\n                  <ChiefP>{chiefDetail.bio}</ChiefP>\r\n\r\n                  <a\r\n                    href={\r\n                      \"mailto: \" +\r\n                      chiefDetail.email +\r\n                      \"?subject=Mail from Cookommunity\"\r\n                    }\r\n                  >\r\n                    سوالات خود را بپرسید!\r\n                  </a>\r\n                  <button class=\"mbtn\">دنبال کن !</button>\r\n                  <button class=\"mbtn2\">دنبال نکن :(</button>\r\n                </ChiefCard>\r\n              </ChiefWrapper>\r\n            </ChiefContainer>\r\n          </Grid>\r\n        </Grid>\r\n        <Grid container item spacing={2} xs={12} sm={12} md={9}>\r\n          <Grid item xs={12} sm={12} md={12}>\r\n            <div className=\"forum_body_area\">\r\n              <div className=\"f-p-container\">\r\n                <h1 className=\"f-title\">فوروم 1</h1>\r\n                <button class=\"mbtn\">دنبال کن !</button>\r\n                <button class=\"mbtn2\">دنبال نکن :(</button>\r\n              </div>\r\n              <div class=\"forum-post-top\">\r\n                <a class=\"author-avatar\" href=\"#\">\r\n                  <img src={author_avatar} alt=\"author avatar\" />\r\n                </a>\r\n                <div class=\"forum-post-author\">\r\n                  <a class=\"author-name\" href=\"#\">\r\n                    Eh Jewel\r\n                  </a>\r\n                  <div class=\"forum-author-meta\">\r\n                    <div class=\"author-badge\">\r\n                      <span>Conversation Starter</span>\r\n                    </div>\r\n                    <div class=\"author-badge\">\r\n                      <i class=\"icon_calendar\"></i>\r\n                      <p>January 16 at 10:32 PM</p>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"comment-content\">\r\n                    <p>\r\n                      Cheeky chap jolly good mufty a load of old tosh I don't\r\n                      want no agro a chinwag amongst tickety-boo, tosser\r\n                      victoria sponge horse play happy days give us a bell nice\r\n                      one cup of tea young delinquent wellies, cockup absolutely\r\n                      bladdered barmy bleeding.!\r\n                    </p>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <form id=\"review-form\" className=\"review-form\">\r\n                <h4>نظر خود را بنویسید</h4>\r\n                <br />\r\n                <input\r\n                  type=\"text\"\r\n                  placeholder=\"متن\"\r\n                  className=\"form-control\"\r\n                  {...register(\"last_name\")}\r\n                />\r\n                <button class=\"btn action_btn thm_btn\" type=\"submit\">\r\n                  ثبت نظر\r\n                </button>\r\n              </form>\r\n            </div>\r\n          </Grid>\r\n        </Grid>\r\n      </Grid>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default ForumDetail;\r\n"
+        }
+    ]
+}
