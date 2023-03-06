@@ -28,6 +28,8 @@ function ForumDetail() {
   const { register, handleSubmit } = useForm();
   const [chiefDetail, setChiefDetail] = useState({});
   const { chiefName, forumName, forumId } = useParams();
+  const username = localStorage.getItem("username");
+
   console.log(chiefName);
   console.log(forumName);
   console.log(forumId);
@@ -78,19 +80,36 @@ function ForumDetail() {
     checkFollowed();
     fetchData();
   }, []);
-    
+  
   function follow_chief(){
-        axios
-            .get(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              }
-            ).then((response)  => {
-              console.log(response.data)
-            })
-            .catch((error) => {})
+    axios
+        .get(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
+            headers: {
+              "Content-Type": "application/json",
+            },
           }
+        ).then((response)  => {
+          console.log(response.data)
+        })
+        .catch((error) => {
+          console.log("error in follow chief.");
+        })
+  }
+
+  function unfollow_chief(){
+    axios
+        .get(BASE_API + `accounts/${chiefName}/unfollow/?username=${username}`,{
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        ).then((response)  => {
+          console.log(response.data)
+        })
+        .catch((error) => {
+          console.log("error in follow chief.");
+        })
+    }  
   
   const followForum = () => {
     axios
