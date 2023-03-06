@@ -28,16 +28,38 @@ function ForumDetail() {
   const { register, handleSubmit } = useForm();
   const [chiefDetail, setChiefDetail] = useState({});
   const { chiefName, forumName, forumId } = useParams();
-  const username=localStorage.getItem("username");
   console.log(chiefName);
   console.log(forumName);
   console.log(forumId);
-
+  
   useEffect(() => {
+    const checkFollowed = async () => {
+      await axios
+        .get(BASE_API + `forums/${forumId}/checkFollowed`,{
+            params: {
+              username: localStorage.getItem("username")
+            },
+              headers: {
+                "Content-Type": "application/json",
+              },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          if (response.data == "True")
+            setFollowed(true); //results
+          else
+            setFollowed(false); //results
+        })
+        .catch((error) => {
+          console.log("error in get checking followed forum or not.");
+        });
+    }
     const fetchData = async () => {
       await axios
-        .get(BASE_API + `forums/${forumId}/view`,{
+        .get(BASE_API + "forums/view",{
             params: {
+              forumId: 1,
               username: localStorage.getItem("username")
             },
               headers: {
@@ -53,8 +75,62 @@ function ForumDetail() {
           console.log("error in get forum info.");
         });
     }
+    checkFollowed();
     fetchData();
   }, []);
+    
+  function follow_chief(){
+        axios
+            .get(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            ).then((response)  => {
+              console.log(response.data)
+            })
+            .catch((error) => {})
+          }
+  
+  const followForum = () => {
+    axios
+        .get(BASE_API + `forums/${forumId}/join`,{
+            params: {
+              username: localStorage.getItem("username")
+            },
+              headers: {
+                "Content-Type": "application/json",
+              },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          setFollowed(true); //results
+        })
+        .catch((error) => {
+          console.log("error in get forum info.");
+        });
+  }
+
+  const unfollowForum = () => {
+    axios
+        .get(BASE_API + `forums/${forumId}/leave`,{
+            params: {
+              username: localStorage.getItem("username")
+            },
+              headers: {
+                "Content-Type": "application/json",
+              },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          setFollowed(false); //results
+        })
+        .catch((error) => {
+          console.log("error in get forum info.");
+        });
+  }
 
   return (
     <>
@@ -82,8 +158,8 @@ function ForumDetail() {
                   >
                     سوالات خود را بپرسید!
                   </a>
-                  <button class="mbtn">دنبال کن !</button>
-                  <button class="mbtn2">دنبال نکن :(</button>
+                  <button class="mbtn" onClick={follow_chief}>دنبال کن !</button>
+                  <button class="mbtn2" onClick={unfollow_chief}>دنبال نکن :(</button>
                 </ChiefCard>
               </ChiefWrapper>
             </ChiefContainer>
@@ -144,7 +220,6 @@ function ForumDetail() {
       </Grid>
     </>
   );
+}
 
-                  }        
 export default ForumDetail;
-                
