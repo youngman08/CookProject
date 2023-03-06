@@ -439,7 +439,21 @@ def post_on_forum(request, forum_id):
 
 
 @require_http_methods(["GET"])
-def view_forum(request, forum_id):
+def view_forum(request):
+    username = request.GET.get('username')
+    forum_id = request.GET.get('forumId')
+    user: SystemUser = get_object_else('username', username, SystemUser)
+    if not user:
+        return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
+    forum: Forum = get_object_else('forum_id', forum_id, Forum)
+    if not forum:
+        return HttpResponse(ErrorResponse(InternalError.FORUM_NOT_FOUND).json)
+    # if not check_forum_membership(user, forum_id):
+    #     return HttpResponse(ErrorResponse(InternalError.UNAUTHORIZED).json)
+    return HttpResponse(ForumDetailedResponse(forum).json)
+
+@require_http_methods(["GET"])
+def exist_user_in_forum(request, forum_id):
     username = request.GET.get('username')
     user: SystemUser = get_object_else('username', username, SystemUser)
     if not user:
@@ -448,9 +462,8 @@ def view_forum(request, forum_id):
     if not forum:
         return HttpResponse(ErrorResponse(InternalError.FORUM_NOT_FOUND).json)
     if not check_forum_membership(user, forum_id):
-        return HttpResponse(ErrorResponse(InternalError.UNAUTHORIZED).json)
-    return HttpResponse(ForumDetailedResponse(forum).json)
-
+        return HttpResponse("False")
+    return HttpResponse("True")
 
 @require_http_methods(["POST", "GET"])
 def comments(request):

@@ -24,18 +24,42 @@ import Grid from "@mui/material/Grid";
 import { useForm } from "react-hook-form";
 function ForumDetail() {
   const [Forum, setForum] = useState({});
+  const [followed, setFollowed] = useState(false);
   const { register, handleSubmit } = useForm();
   const [chiefDetail, setChiefDetail] = useState({});
   const { chiefName, forumName, forumId } = useParams();
   console.log(chiefName);
   console.log(forumName);
   console.log(forumId);
-
+  
   useEffect(() => {
+    const checkFollowed = async () => {
+      await axios
+        .get(BASE_API + `forums/${forumId}/checkFollowed`,{
+            params: {
+              username: localStorage.getItem("username")
+            },
+              headers: {
+                "Content-Type": "application/json",
+              },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          if (response.data == "True")
+            setFollowed(true); //results
+          else
+            setFollowed(false); //results
+        })
+        .catch((error) => {
+          console.log("error in get checking followed forum or not.");
+        });
+    }
     const fetchData = async () => {
       await axios
-        .get(BASE_API + `forums/${forumId}/view`,{
+        .get(BASE_API + "forums/view",{
             params: {
+              forumId: 1,
               username: localStorage.getItem("username")
             },
               headers: {
@@ -51,8 +75,49 @@ function ForumDetail() {
           console.log("error in get forum info.");
         });
     }
+    checkFollowed();
     fetchData();
   }, []);
+
+  const followForum = () => {
+    axios
+        .get(BASE_API + `forums/${forumId}/join`,{
+            params: {
+              username: localStorage.getItem("username")
+            },
+              headers: {
+                "Content-Type": "application/json",
+              },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          setFollowed(true); //results
+        })
+        .catch((error) => {
+          console.log("error in get forum info.");
+        });
+  }
+
+  const unfollowForum = () => {
+    axios
+        .get(BASE_API + `forums/${forumId}/leave`,{
+            params: {
+              username: localStorage.getItem("username")
+            },
+              headers: {
+                "Content-Type": "application/json",
+              },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          setFollowed(false); //results
+        })
+        .catch((error) => {
+          console.log("error in get forum info.");
+        });
+  }
 
   return (
     <>
@@ -80,8 +145,8 @@ function ForumDetail() {
                   >
                     سوالات خود را بپرسید!
                   </a>
-                  <button class="mbtn">دنبال کن !</button>
-                  <button class="mbtn2">دنبال نکن :(</button>
+                  <button disabled={!followed} class="mbtn">دنبال کن !</button>
+                  <button disabled={followed} class="mbtn2">دنبال نکن :(</button>
                 </ChiefCard>
               </ChiefWrapper>
             </ChiefContainer>
@@ -91,9 +156,9 @@ function ForumDetail() {
           <Grid item xs={12} sm={12} md={12}>
             <div className="forum_body_area">
               <div className="f-p-container">
-                <h1 className="f-title">فوروم 1</h1>
-                <button class="mbtn">دنبال کن !</button>
-                <button class="mbtn2">دنبال نکن :(</button>
+                <h1 className="f-title">فوروم {forumId}</h1>
+                <button class="mbtn" onClick={followForum()}>دنبال کن !</button>
+                <button class="mbtn2" onClick={unfollowForum()}>دنبال نکن :(</button>
               </div>
               <div class="forum-post-top">
                 <a class="author-avatar" href="#">
