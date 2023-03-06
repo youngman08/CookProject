@@ -80,69 +80,72 @@ function ForumDetail() {
     fetchData();
   }, []);
   
-  function follow_chief(){
-    axios
-        .put(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        ).then((response)  => {
-          console.log(response.data)
-        })
-        .catch((error) => {
-          console.log("error in follow chief.");
-        })
-  }
 
-  function unfollow_chief(){
-    axios
-        .delete(BASE_API + `accounts/${chiefName}/unfollow/?username=${username}`,{
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        ).then((response)  => {
-          console.log(response.data)
-        })
-        .catch((error) => {
-          console.log("error in follow chief.");
-        })
-    }  
+  // Read: With using following functions, this page doesn't work, implicitly put codes below in html code line 207 -> 278 
+
+  // function follow_chief() {
+  //   axios
+  //       .put(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //         }
+  //       ).then((response)  => {
+  //         console.log(response.data)
+  //       })
+  //       .catch((error) => {
+  //         console.log("error in follow chief.");
+  //       });
+  // }
+
+  // function unfollow_chief() {
+  //   axios
+  //       .delete(BASE_API + `accounts/${chiefName}/unfollow/?username=${username}`,{
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //         }
+  //       ).then((response)  => {
+  //         console.log(response.data)
+  //       })
+  //       .catch((error) => {
+  //         console.log("error in follow chief.");
+  //       });
+  // }  
   
-  function followForum() {
-    axios
-        .patch(BASE_API + `forums/${forumId}/join/?username=${localStorage.getItem("username")}`,{
-              headers: {
-                "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response.data);
-          setFollowed(true); //results
-        })
-        .catch((error) => {
-          console.log("error in get forum info.");
-        });
-  }
+  // function followForum() {
+  //   axios
+  //       .patch(BASE_API + `forums/${forumId}/join/?username=${localStorage.getItem("username")}`,{
+  //             headers: {
+  //               "Content-Type": "application/json",
+  //           },
+  //         }
+  //       )
+  //       .then((response) => {
+  //         console.log(response.data);
+  //         setFollowed(true); //results
+  //       })
+  //       .catch((error) => {
+  //         console.log("error in get forum info.");
+  //       });
+  // }
 
-  function unfollowForum() {
-    axios
-        .patch(BASE_API + `forums/${forumId}/leave/?username=${localStorage.getItem("username")}`,{
-              headers: {
-                "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response.data);
-          setFollowed(false); //results
-        })
-        .catch((error) => {
-          console.log("error in get forum info.");
-        });
-  }
+  // function unfollowForum() {
+  //   axios
+  //       .patch(BASE_API + `forums/${forumId}/leave/?username=${localStorage.getItem("username")}`,{
+  //             headers: {
+  //               "Content-Type": "application/json",
+  //           },
+  //         }
+  //       )
+  //       .then((response) => {
+  //         console.log(response.data);
+  //         setFollowed(false); //results
+  //       })
+  //       .catch((error) => {
+  //         console.log("error in get forum info.");
+  //       });
+  // }
 
   const onSubmit = (data) => {
     console.log("on submit text:");
@@ -170,7 +173,7 @@ function ForumDetail() {
         })
         .catch((error) => {
         });
-};
+  };
 
   while (Forum.messages == undefined){
     return <>Still loading...</>;
@@ -202,8 +205,36 @@ function ForumDetail() {
                   >
                     سوالات خود را بپرسید!
                   </a>
-                  <button class="mbtn" onClick={follow_chief()}>دنبال کن !</button>
-                  <button class="mbtn2" onClick={unfollow_chief()}>دنبال نکن :(</button>
+                  <button class="mbtn" onClick={() => {
+                                                        axios
+                                                        .put(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
+                                                            headers: {
+                                                              "Content-Type": "application/json",
+                                                            },
+                                                          }
+                                                        ).then((response)  => {
+                                                          console.log(response.data)
+                                                          alert("این آشپز به لیست دنبال کننده ها اضافه شد.");
+                                                        })
+                                                        .catch((error) => {
+                                                          console.log("error in follow chief.");
+                                                        });
+                  }}>دنبال کن !</button>
+                  <button class="mbtn2" onClick={() => {
+                                                        axios
+                                                        .delete(BASE_API + `accounts/${chiefName}/unfollow/?username=${username}`,{
+                                                            headers: {
+                                                              "Content-Type": "application/json",
+                                                            },
+                                                          }
+                                                        ).then((response)  => {
+                                                          console.log(response.data)
+                                                          alert("این آشپز از لیست دنبال کننده ها حذف شد.");
+                                                        })
+                                                        .catch((error) => {
+                                                          console.log("error in follow chief.");
+                                                        });
+                  }}>دنبال نکن :(</button>
                 </ChiefCard>
               </ChiefWrapper>
             </ChiefContainer>
@@ -214,8 +245,38 @@ function ForumDetail() {
             <div className="forum_body_area">
               <div className="f-p-container">
                 <h1 className="f-title">فوروم {forumId}</h1>
-                {/* <button class="mbtn" onClick={followForum()}>دنبال کن !</button>
-                <button class="mbtn2" onClick={unfollowForum()}>دنبال نکن :(</button> */}
+                <button class="mbtn" onClick={() => {axios
+                                                        .patch(BASE_API + `forums/${forumId}/join/?username=${localStorage.getItem("username")}`,{
+                                                              headers: {
+                                                                "Content-Type": "application/json",
+                                                            },
+                                                          }
+                                                        )
+                                                        .then((response) => {
+                                                          console.log(response.data);
+                                                          setFollowed(true); //results
+                                                          alert("به این فرم اضافه شدی.");
+                                                        })
+                                                        .catch((error) => {
+                                                          console.log("error in get following forum.");
+                                                        });}
+                }>دنبال کن !</button>
+                <button class="mbtn2" onClick={() => {axios
+                                                        .patch(BASE_API + `forums/${forumId}/leave/?username=${localStorage.getItem("username")}`,{
+                                                              headers: {
+                                                                "Content-Type": "application/json",
+                                                            },
+                                                          }
+                                                        )
+                                                        .then((response) => {
+                                                          console.log(response.data);
+                                                          setFollowed(false); //results
+                                                          alert("از این فرم خارج شدی.");
+                                                        })
+                                                        .catch((error) => {
+                                                          console.log("error in unfollowing forum.");
+                                                        });}
+                }>دنبال نکن :(</button>
               </div>
               <div class="forum-post-top">
                 <a class="author-avatar" href="#">
