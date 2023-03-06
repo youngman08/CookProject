@@ -78,7 +78,20 @@ function ForumDetail() {
     checkFollowed();
     fetchData();
   }, []);
-
+    
+  function follow_chief(){
+        axios
+            .get(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            ).then((response)  => {
+              console.log(response.data)
+            })
+            .catch((error) => {})
+          }
+  
   const followForum = () => {
     axios
         .get(BASE_API + `forums/${forumId}/join`,{
@@ -145,8 +158,8 @@ function ForumDetail() {
                   >
                     سوالات خود را بپرسید!
                   </a>
-                  <button disabled={!followed} class="mbtn">دنبال کن !</button>
-                  <button disabled={followed} class="mbtn2">دنبال نکن :(</button>
+                  <button class="mbtn" onClick={follow_chief}>دنبال کن !</button>
+                  <button class="mbtn2" onClick={unfollow_chief}>دنبال نکن :(</button>
                 </ChiefCard>
               </ChiefWrapper>
             </ChiefContainer>
