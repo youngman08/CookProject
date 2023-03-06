@@ -42,7 +42,7 @@ function ForumDetail() {
             },
               headers: {
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
+                //"Access-Control-Allow-Origin": "*",
             },
           }
         )
@@ -66,7 +66,7 @@ function ForumDetail() {
             },
               headers: {
                 "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+                //"Access-Control-Allow-Origin": "*",
             },
           }
         )
@@ -87,7 +87,7 @@ function ForumDetail() {
         .get(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
             headers: {
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+              //"Access-Control-Allow-Origin": "*",
             },
           }
         ).then((response)  => {
@@ -103,7 +103,7 @@ function ForumDetail() {
         .get(BASE_API + `accounts/${chiefName}/unfollow/?username=${username}`,{
             headers: {
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
+              //"Access-Control-Allow-Origin": "*",
             },
           }
         ).then((response)  => {
@@ -122,7 +122,7 @@ function ForumDetail() {
             },
               headers: {
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
+                //"Access-Control-Allow-Origin": "*",
             },
           }
         )
@@ -143,7 +143,7 @@ function ForumDetail() {
             },
               headers: {
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
+                //"Access-Control-Allow-Origin": "*",
             },
           }
         )
