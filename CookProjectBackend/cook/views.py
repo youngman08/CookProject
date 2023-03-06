@@ -103,7 +103,7 @@ def tickets(request):
 
 def create_ticket(request):
     request_model = CreateTicketRequest(request)
-    user: SystemUser = get_object_else('username', request_model.username, SystemUser)
+    user: SystemUser = get_object_else('username', request_model.username.replace('"', ""), SystemUser)
     if not user:
         return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND))
     ticket = Ticket(user=user, category=request_model.category, status=TicketStatus.NEW.value, text=request_model.text)

@@ -28,6 +28,8 @@ const DashPromotionComponent = () => {
           }
         )
         .then((response) => {
+          console.log("useeffect");
+          console.log(response.data);
           setTickets(response.data); //results
         })
         .catch((error) => {
@@ -55,8 +57,11 @@ const DashPromotionComponent = () => {
         },
       })
       .then((response) => {
+        console.log("halamadrid");
+        console.log(response);
+        console.log(response.data);
         alert("تیکت با موفقیت ثبت شد.");
-        navigate("/dashboard/tickets");
+        window.location.reload(false);
       })
       .catch((error) => {
         alert("خطایی رخ داده است. لطفا مجددا تلاش کنید.");
