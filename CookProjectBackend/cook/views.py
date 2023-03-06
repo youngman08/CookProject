@@ -112,7 +112,7 @@ def create_ticket(request):
 
 
 def view_all_tickets(request):
-    username = request.GET.get('username')
+    username = request.GET.get('username').replace('"', "")
     user: SystemUser = get_object_else('username', username, SystemUser)
     if not user:
         return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND))

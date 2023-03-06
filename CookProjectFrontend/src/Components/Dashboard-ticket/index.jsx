@@ -73,7 +73,6 @@ const DashPromotionComponent = () => {
   
   return (
     <Grid container spacing={2}>
-      <Container>
         <Grid container item spacing={2} xs={12} sm={12} md={3}>
           <DashboardSidebar />
         </Grid>
@@ -83,13 +82,10 @@ const DashPromotionComponent = () => {
             <div className="ticket_body_area">
               <div className="f-p-container">
                 <h1 className="f-title">تیکت های من</h1>
-
               </div>
-
               {tickets.map((ticket) => (
                 <TicketCard ticket={ticket} />
               ))}
-
               <form id="review-form" className="review-form" onSubmit={handleSubmit(onSubmit)}>
                 <h4>نظر خود را بنویسید</h4>
                 <br />
@@ -106,7 +102,6 @@ const DashPromotionComponent = () => {
             </div>
           </Grid>
         </Grid>
-      </Container>
     </Grid>
   );
 };
