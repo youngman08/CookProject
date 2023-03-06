@@ -49,7 +49,7 @@ function ForumProfile({ Forums }) {
     axios
       .get("http://127.0.0.1:8000/api/forums/", {
         params: {
-          owned: 1,
+          owned: chiefName == localStorage.getItem("username") ? 1 : 0,
           username: chiefName,
         },
         headers: {
@@ -150,7 +150,7 @@ function ForumProfile({ Forums }) {
                     {chiefForum.map((Forum) => (
                       <TableRow>
                         <TableCell>{Forum.id}</TableCell>
-                        <TableCell><Link to={`/forum-profile/${chiefName}/forumList/${Forum.name}`} >{Forum.name}</Link></TableCell>
+                        <TableCell><Link to={`/forum-profile/${chiefName}/forumList/${Forum.name}/h/${Forum.id}`} >{Forum.name}</Link></TableCell>
                         <TableCell>{Forum.members_count}</TableCell>
                       </TableRow>
                     ))}

@@ -340,6 +340,7 @@ def get_forums(request):
         chief: Chief = get_object_else('user__username', username, Chief)
         if not chief:
             return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
+        
         return HttpResponse(ObjectListResponse(chief.forum_set.all()).json)
     user: SystemUser = get_object_else('username', username, SystemUser)
     if not user:

@@ -61,7 +61,7 @@ function App() {
         <Route path="/advanced_search" element={<AdvancedSearchPage setFoods={setFoods} />} exact />
         <Route path="/foods" element={<Foods fetchFood={fetchFood}/>} exact />
         <Route path="/foods/:food_id" element={<FoodDetail />} exact />
-        <Route path="/forum-profile/:chiefName/forumList/:forumName" element={<ForumDetail />} exact />
+        <Route path="/forum-profile/:chiefName/forumList/:forumName/h/:forumId" element={<ForumDetail />} exact />
         <Route path="/forum-profile/:chiefName/forumList" element={<Forum />} exact />
         <Route path="/forum-profile/:chiefName" element={<ForumProfile />} exact />
         <Route path="/create_recipe" element={<CreateRecipePage />} exact />

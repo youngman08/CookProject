@@ -10,8 +10,6 @@ import {BASE_API} from "../../App";
 function FoodDetail() {
   const [food, setFood] = useState({});
   const { food_id } = useParams();
-  console.log(food_id);
-  console.log("first kh");
   useEffect(() => {
     const fetchData = async () => {
       await axios

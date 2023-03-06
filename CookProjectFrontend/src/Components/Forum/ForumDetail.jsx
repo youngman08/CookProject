@@ -6,6 +6,9 @@ import Rating from "@mui/material/Rating";
 import PageBanner from "../Banner/PageBanner.js";
 import chief_profile_img from "../../images/chief_profile.jpg";
 import author_avatar from "../../images/author-avatar.png";
+import axios from "axios";
+import {BASE_API} from "../../App";
+
 import {
   ChiefCard,
   ChiefContainer,
@@ -23,12 +26,34 @@ function ForumDetail() {
   const [Forum, setForum] = useState({});
   const { register, handleSubmit } = useForm();
   const [chiefDetail, setChiefDetail] = useState({});
-  const { ForumID } = useParams();
-  // useEffect(() => {
-  //   // fetch("http://localhost:9000/movies")
-  //   //   .then((res) => res.json())
-  //   //   .then((movie) => console.log(movie));
-  // }, []);
+  const { chiefName, forumName, forumId } = useParams();
+  console.log(chiefName);
+  console.log(forumName);
+  console.log(forumId);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await axios
+        .get(BASE_API + `forums/${forumId}/view`,{
+            params: {
+              username: localStorage.getItem("username")
+            },
+              headers: {
+                "Content-Type": "application/json",
+              },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          setForum(response.data); //results
+        })
+        .catch((error) => {
+          console.log("error in get forum info.");
+        });
+    }
+    fetchData();
+  }, []);
+
   return (
     <>
       <Sidebar />
