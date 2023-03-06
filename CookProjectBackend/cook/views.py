@@ -279,7 +279,7 @@ def advanced_filter_recipe(request):
 
 @require_http_methods(["PUT"])
 def follow(request, jesus_username):
-    disciple_username = request.GET.get('username')
+    disciple_username = request.GET.get('username').replace('"', "")
     disciple: SystemUser = get_object_else('username', disciple_username, SystemUser)
     if not disciple:
         return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
@@ -299,7 +299,7 @@ def follow(request, jesus_username):
 
 @require_http_methods(["DELETE"])
 def unfollow(request, jesus_username):
-    disciple_username = request.GET.get('username')
+    disciple_username = request.GET.get('username').replace('"', "")
     disciple: SystemUser = get_object_else('username', disciple_username, SystemUser)
     if not disciple:
         return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
@@ -354,7 +354,7 @@ def get_forums(request):
 
 @require_http_methods(["PATCH"])
 def join_forum(request, forum_id):
-    username = request.GET.get('username')
+    username = request.GET.get('username').replace('"', "")
     forum: Forum = get_object_else('forum_id', forum_id, Forum)
     if not forum:
         return HttpResponse(ErrorResponse(InternalError.FORUM_NOT_FOUND).json)
@@ -373,7 +373,9 @@ def join_forum(request, forum_id):
 
 @require_http_methods(["PATCH"])
 def leave_forum(request, forum_id):
-    username = request.GET.get('username')
+    username = request.GET.get('username').replace('"', "")
+    print(username)
+    print(forum_id)
     forum: Forum = get_object_else('forum_id', forum_id, Forum)
     if not forum:
         return HttpResponse(ErrorResponse(InternalError.FORUM_NOT_FOUND).json)

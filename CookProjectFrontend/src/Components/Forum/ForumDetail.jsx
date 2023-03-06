@@ -42,7 +42,6 @@ function ForumDetail() {
             },
               headers: {
                 "Content-Type": "application/json",
-                //"Access-Control-Allow-Origin": "*",
             },
           }
         )
@@ -66,7 +65,6 @@ function ForumDetail() {
             },
               headers: {
                 "Content-Type": "application/json",
-                //"Access-Control-Allow-Origin": "*",
             },
           }
         )
@@ -84,10 +82,9 @@ function ForumDetail() {
   
   function follow_chief(){
     axios
-        .get(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
+        .put(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
             headers: {
               "Content-Type": "application/json",
-              //"Access-Control-Allow-Origin": "*",
             },
           }
         ).then((response)  => {
@@ -100,10 +97,9 @@ function ForumDetail() {
 
   function unfollow_chief(){
     axios
-        .get(BASE_API + `accounts/${chiefName}/unfollow/?username=${username}`,{
+        .delete(BASE_API + `accounts/${chiefName}/unfollow/?username=${username}`,{
             headers: {
               "Content-Type": "application/json",
-              //"Access-Control-Allow-Origin": "*",
             },
           }
         ).then((response)  => {
@@ -116,13 +112,12 @@ function ForumDetail() {
   
   const followForum = () => {
     axios
-        .get(BASE_API + `forums/${forumId}/join`,{
-            params: {
-              username: localStorage.getItem("username")
-            },
+        .patch(BASE_API + `forums/${forumId}/join/?username=${localStorage.getItem("username")}`,{
+            // params: {
+            //   username: localStorage.getItem("username")
+            // },
               headers: {
                 "Content-Type": "application/json",
-                //"Access-Control-Allow-Origin": "*",
             },
           }
         )
@@ -137,13 +132,12 @@ function ForumDetail() {
 
   const unfollowForum = () => {
     axios
-        .get(BASE_API + `forums/${forumId}/leave`,{
-            params: {
-              username: localStorage.getItem("username")
-            },
+        .patch(BASE_API + `forums/${forumId}/leave/?username=${localStorage.getItem("username")}`,{
+            // params: {
+            //   username: localStorage.getItem("username")
+            // },
               headers: {
                 "Content-Type": "application/json",
-                //"Access-Control-Allow-Origin": "*",
             },
           }
         )
@@ -182,8 +176,8 @@ function ForumDetail() {
                   >
                     سوالات خود را بپرسید!
                   </a>
-                  <button class="mbtn" onClick={follow_chief}>دنبال کن !</button>
-                  <button class="mbtn2" onClick={unfollow_chief}>دنبال نکن :(</button>
+                  <button class="mbtn" onClick={follow_chief()}>دنبال کن !</button>
+                  <button class="mbtn2" onClick={unfollow_chief()}>دنبال نکن :(</button>
                 </ChiefCard>
               </ChiefWrapper>
             </ChiefContainer>
