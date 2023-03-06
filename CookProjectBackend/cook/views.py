@@ -45,7 +45,7 @@ def logout_user(request):
 
 @require_http_methods(["GET", "PATCH"])
 def profile(request, username):
-    current_username = request.GET.get('username')
+    current_username = request.GET.get('username').replace('"', '')
     user: SystemUser = get_object_else('username', username, SystemUser)
     if not user:
         return HttpResponse(ErrorResponse(InternalError.CREDENTIAL_MISMATCH).json)
@@ -335,7 +335,7 @@ def create_forum(request):
 
 
 def get_forums(request):
-    username, is_owned = request.GET.get('username'), bool(int(request.GET.get('owned')))
+    username, is_owned = request.GET.get('username').replace('"', ''), bool(int(request.GET.get('owned')))
     if is_owned:
         chief: Chief = get_object_else('user__username', username, Chief)
         if not chief:
@@ -393,7 +393,7 @@ def leave_forum(request, forum_id):
 @require_http_methods(["DELETE"])
 def ban_from_forum(request, forum_id):
     owner_username = request.GET.get('owner')
-    username = request.GET.get('username')
+    username = request.GET.get('username').replace('"', '')
     forum: Forum = get_object_else('forum_id', forum_id, Forum)
     if not forum:
         return HttpResponse(ErrorResponse(InternalError.FORUM_NOT_FOUND).json)
@@ -428,6 +428,7 @@ def delete_forum(request, forum_id):
 
 @require_http_methods(["POST"])
 def post_on_forum(request, forum_id):
+    print("request: ", request)
     request_model = PostOnForumRequest(request)
     forum: Forum = get_object_else('forum_id', forum_id, Forum)
     if not forum:
@@ -442,7 +443,7 @@ def post_on_forum(request, forum_id):
 
 @require_http_methods(["GET"])
 def view_forum(request):
-    username = request.GET.get('username')
+    username = request.GET.get('username').replace('"', "")
     forum_id = request.GET.get('forumId')
     user: SystemUser = get_object_else('username', username, SystemUser)
     if not user:
@@ -456,7 +457,7 @@ def view_forum(request):
 
 @require_http_methods(["GET"])
 def exist_user_in_forum(request, forum_id):
-    username = request.GET.get('username')
+    username = request.GET.get('username').replace('"', '')
     user: SystemUser = get_object_else('username', username, SystemUser)
     if not user:
         return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
@@ -497,7 +498,7 @@ def view_comments(request):
 
 @require_http_methods(["DELETE"])
 def delete_comment(request, comment_id):
-    username = request.GET.get('username')
+    username = request.GET.get('username').replace('"', '')
     comment: Comment = get_object_else('comment_id', comment_id, Comment)
     if not comment:
         return HttpResponse(ErrorResponse(InternalError.COMMENT_NOT_FOUND).json)

@@ -7,7 +7,7 @@ import PageBanner from "../Banner/PageBanner.js";
 import chief_profile_img from "../../images/chief_profile.jpg";
 import author_avatar from "../../images/author-avatar.png";
 import axios from "axios";
-import {BASE_API} from "../../App";
+import {BASE_API, check_error} from "../../App";
 
 import {
   ChiefCard,
@@ -110,12 +110,9 @@ function ForumDetail() {
         })
     }  
   
-  const followForum = () => {
+  function followForum() {
     axios
         .patch(BASE_API + `forums/${forumId}/join/?username=${localStorage.getItem("username")}`,{
-            // params: {
-            //   username: localStorage.getItem("username")
-            // },
               headers: {
                 "Content-Type": "application/json",
             },
@@ -130,12 +127,9 @@ function ForumDetail() {
         });
   }
 
-  const unfollowForum = () => {
+  function unfollowForum() {
     axios
         .patch(BASE_API + `forums/${forumId}/leave/?username=${localStorage.getItem("username")}`,{
-            // params: {
-            //   username: localStorage.getItem("username")
-            // },
               headers: {
                 "Content-Type": "application/json",
             },
@@ -148,6 +142,38 @@ function ForumDetail() {
         .catch((error) => {
           console.log("error in get forum info.");
         });
+  }
+
+  const onSubmit = (data) => {
+    console.log("on submit text:");
+    console.log(data)
+    axios
+        .post(
+            BASE_API + `forums/${forumId}/post/`,
+            {
+              params: {
+                sender: localStorage.getItem("username"),
+                text: data.text
+              },
+              headers: {
+                  "Content-Type": "application/json",
+              },
+            }
+        )
+        .then((response) => {
+            if (check_error(response.data))
+                alert(response.data.err_msg)
+            else{
+                alert("نظر شما با موفقیت ثبت شد.")
+                window.location.reload(false);
+            }
+        })
+        .catch((error) => {
+        });
+};
+
+  while (Forum.messages == undefined){
+    return <>Still loading...</>;
   }
 
   return (
@@ -188,8 +214,8 @@ function ForumDetail() {
             <div className="forum_body_area">
               <div className="f-p-container">
                 <h1 className="f-title">فوروم {forumId}</h1>
-                <button class="mbtn" onClick={followForum()}>دنبال کن !</button>
-                <button class="mbtn2" onClick={unfollowForum()}>دنبال نکن :(</button>
+                {/* <button class="mbtn" onClick={followForum()}>دنبال کن !</button>
+                <button class="mbtn2" onClick={unfollowForum()}>دنبال نکن :(</button> */}
               </div>
               <div class="forum-post-top">
                 <a class="author-avatar" href="#">
@@ -220,14 +246,14 @@ function ForumDetail() {
                   </div>
                 </div>
               </div>
-              <form id="review-form" className="review-form">
+              <form id="review-form" className="review-form" onSubmit={handleSubmit(onSubmit)}>
                 <h4>نظر خود را بنویسید</h4>
                 <br />
                 <input
                   type="text"
                   placeholder="متن"
                   className="form-control"
-                  {...register("last_name")}
+                  {...register("text")}
                 />
                 <button class="btn action_btn thm_btn" type="submit">
                   ثبت نظر
