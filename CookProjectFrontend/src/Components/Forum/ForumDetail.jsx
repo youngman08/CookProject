@@ -24,6 +24,7 @@ import Grid from "@mui/material/Grid";
 import { useForm } from "react-hook-form";
 function ForumDetail() {
   const [Forum, setForum] = useState({});
+  const [followed, setFollowed] = useState(false);
   const { register, handleSubmit } = useForm();
   const [chiefDetail, setChiefDetail] = useState({});
   const { chiefName, forumName, forumId } = useParams();
@@ -32,44 +33,29 @@ function ForumDetail() {
   console.log(forumName);
   console.log(forumId);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     await axios
-  //       .get(BASE_API + `forums/${forumId}/view`,{
-  //           params: {
-  //             username: username
-  //           },
-  //             headers: {
-  //               "Content-Type": "application/json",
-  //             },
-  //         }
-  //       )
-  //       .then((response) => {
-  //         console.log(response.data);
-  //         setForum(response.data); //results
-  //       })
-  //       .catch((error) => {
-  //         console.log("error in get forum info.");
-  //       });
-  //   }
-  //   fetchData();
-  // }, []);
-  function follow_chief(){
-        axios
-            .put(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              }
-            ).then((response)  => {
-              console.log(response.data)
-            })
-            .catch((error) => {})
-          }      
-  
-  function unfollow_chief(){
-    console.log("@@@22");
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      await axios
+        .get(BASE_API + `forums/${forumId}/view`,{
+            params: {
+              username: localStorage.getItem("username")
+            },
+              headers: {
+                "Content-Type": "application/json",
+              },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          setForum(response.data); //results
+        })
+        .catch((error) => {
+          console.log("error in get forum info.");
+        });
+    }
+    fetchData();
+  }, []);
+
   return (
     <>
       <Sidebar />
@@ -96,8 +82,8 @@ function ForumDetail() {
                   >
                     سوالات خود را بپرسید!
                   </a>
-                  <button class="mbtn" onClick={follow_chief}>دنبال کن !</button>
-                  <button class="mbtn2" onClick={unfollow_chief}>دنبال نکن :(</button>
+                  <button class="mbtn">دنبال کن !</button>
+                  <button class="mbtn2">دنبال نکن :(</button>
                 </ChiefCard>
               </ChiefWrapper>
             </ChiefContainer>
@@ -107,9 +93,9 @@ function ForumDetail() {
           <Grid item xs={12} sm={12} md={12}>
             <div className="forum_body_area">
               <div className="f-p-container">
-                <h1 className="f-title">فوروم 1</h1>
-                <button class="mbtn">دنبال کن !</button>
-                <button class="mbtn2">دنبال نکن :(</button>
+                <h1 className="f-title">فوروم {forumId}</h1>
+                <button class="mbtn" onClick={followForum()}>دنبال کن !</button>
+                <button class="mbtn2" onClick={unfollowForum()}>دنبال نکن :(</button>
               </div>
               <div class="forum-post-top">
                 <a class="author-avatar" href="#">
