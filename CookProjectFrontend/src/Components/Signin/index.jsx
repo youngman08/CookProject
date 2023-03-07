@@ -7,7 +7,6 @@ import {
   FormInput,
   FormLabel,
   FormWrap,
-  Icon,
   Text,
   RegisterLink,
 } from "./SigninElements";
@@ -22,7 +21,7 @@ import { Link } from "react-router-dom";
 import { BASE_API } from "../../App";
 import { updateLogin } from "../../hooks/useLogin";
 
-const SigninForm = ({ setAuth }) => {
+const SigninForm = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const onSubmit = (data) => {

@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 
 
 let subscribers = [];
-let currentState = "unauth";
+let currentState = localStorage.getItem('login-state') === undefined ? "unauth" : JSON.parse(localStorage.getItem('login-state'));
 
 export const updateLogin = (l) => {
     currentState = l;
+    localStorage.setItem('login-state', JSON.stringify(l));
     subscribers.forEach((f) => f(l));
 };
 

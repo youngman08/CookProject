@@ -9,7 +9,7 @@ import {useForm} from "react-hook-form";
 import axios from "axios";
 import {BASE_API, check_error, ROLES} from "../../App";
 
-const EditProfile = ({removeAuth}) => {
+const EditProfile = () => {
     const {register, handleSubmit} = useForm();
     let username = JSON.parse(localStorage.getItem("username"));
     const [user, setUser] = useState(null);
@@ -58,7 +58,7 @@ const EditProfile = ({removeAuth}) => {
     return (
         <Container>
             <DashboardSidebar/>
-            <DashboardHeader removeAuth={removeAuth}/>
+            <DashboardHeader />
             {user &&
             <div className="content-edit">
                     <p> سلام {user.first_name} به سایت ما خوش آمدی</p>

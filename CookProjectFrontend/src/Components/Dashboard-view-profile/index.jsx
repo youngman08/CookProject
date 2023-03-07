@@ -4,13 +4,10 @@ import {Container} from "./ViewProfile";
 import DashboardSidebar from "../Dashboard/Dash-sidebar";
 import DashboardHeader from "../Dashboard/Dash-header";
 import "./view-profile.css";
-import url_img from "./../../images/1.jpg";
-import {useForm} from "react-hook-form";
 import axios from "axios";
 import {BASE_API, ROLES} from "../../App";
 
-const ViewProfile = ({removeAuth}) => {
-    const {register, handleSubmit} = useForm();
+const ViewProfile = () => {
     let username = JSON.parse(localStorage.getItem("username"));
     const [user, setUser] = useState(null);
 
@@ -24,11 +21,11 @@ const ViewProfile = ({removeAuth}) => {
             .catch((error) => {
                 // handle error
             });
-    }, []);
+    }, [username]);
     return (
         <Container>
             <DashboardSidebar/>
-            <DashboardHeader removeAuth={removeAuth}/>
+            <DashboardHeader />
             {user &&
             <div className="content-edit">
                 <p> سلام {user.first_name} به سایت ما خوش آمدی</p>

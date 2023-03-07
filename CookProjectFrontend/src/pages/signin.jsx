@@ -1,9 +1,9 @@
 import React from "react";
 import SigninForm from "../Components/Signin";
 
-const Signin = ({setAuth}) => {
+const Signin = () => {
   return (
-      <SigninForm setAuth={setAuth}/>
+      <SigninForm />
   );
 };
 

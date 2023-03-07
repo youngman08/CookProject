@@ -19,6 +19,7 @@ import FoodDetail from "./Components/Foods/FoodDetail";
 import Forum from "./Components/Forum/Forum";
 import ForumProfile from "./Components/Forum/ForumProfile";
 import ForumDetail from "./Components/Forum/ForumDetail";
+import { useLogin } from "./hooks/useLogin";
 
 
 export const BASE_API = "http://127.0.0.1:8000/api/"
@@ -30,26 +31,13 @@ export function check_error(response) {
 
 
 function App() {
-    let isLogin = localStorage.getItem("isLogin") === "true";
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const user = useLogin();
+    const isLogin = user !== "unauth";
     const [fetchFood, setfetchFood] = useState([]);
     const setFoods = (value) => {
         setfetchFood(value)
         console.log(fetchFood);
     };
-
-    const setAuth = (value) => {
-        localStorage.setItem("username", JSON.stringify(value));
-        localStorage.setItem("isLogin", JSON.stringify(true));
-        isLogin = true;
-    };
-
-  const removeAuth = () => {
-    localStorage.setItem("isLogin", false);
-    isLogin = false;
-    localStorage.clear();
-
-  };
   //atom globally
 
   return (
@@ -117,28 +105,28 @@ function App() {
             
           </>
         )} */}
-                <Route path="/login" element={<Signin setAuth={setAuth}/>} exact/>
+                <Route path="/login" element={<Signin />} exact/>
                 <Route path="/register" element={<Register/>} exact/>
                 {isLogin && (
                     <>
                         <Route
                             path="/dashboard"
-                            element={<Dashboard removeAuth={removeAuth}/>}
+                            element={<Dashboard />}
                             exact
                         />
                         <Route
                             path="/dashboard/view-profile"
-                            element={<DashViewProfile removeAuth={removeAuth}/>}
+                            element={<DashViewProfile />}
                             exact
                         />
                         <Route
                             path="/dashboard/edit-profile"
-                            element={<DashEditProfile removeAuth={removeAuth}/>}
+                            element={<DashEditProfile />}
                             exact
                         />
                         <Route
                             path="/dashboard/promotion"
-                            element={<DashPromotion removeAuth={removeAuth}/>}
+                            element={<DashPromotion />}
                             exact
                         />
                         <Route path="/dashboard/tickets" element={<TicketsPage/>} exact/>
