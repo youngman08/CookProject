@@ -17,6 +17,7 @@ const DashboardHeader = () => {
         updateLogin("unauth");
     }
     const user = useLogin();
+    
     return (
         <div className="web-header">
             <div className="element">

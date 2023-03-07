@@ -12,15 +12,18 @@ import Grid from "@mui/material/Grid";
 import "./dash-promotion.css";
 import {BASE_API} from "../../App";
 import { List } from "@mui/material";
+import { updateLogin, useLogin } from "../../hooks/useLogin";
 
 const DashPromotionComponent = () => {
   const [tickets, setTickets] = useState({});
+  const user = useLogin();
+  
   useEffect(() => {
     const fetchData = async () => {
       await axios
         .get(BASE_API + "tickets/",{
             params: {
-              username: localStorage.getItem("username"),
+              username: user.username,
             },
               headers: {
                 "Content-Type": "application/json",
@@ -46,7 +49,7 @@ const DashPromotionComponent = () => {
     console.log(JSON.stringify(data));
     var ticketParameter = {
       text: data.text,
-      username: localStorage.getItem("username"),
+      username: user.username,
       category: 1,
     };
     console.log(ticketParameter);

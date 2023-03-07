@@ -16,6 +16,8 @@ import Paper from "@mui/material/Paper";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Forum.css";
+import { updateLogin, useLogin } from "../../hooks/useLogin";
+
 import {
   ChiefCard,
   ChiefContainer,
@@ -44,12 +46,13 @@ function ForumProfile({ Forums }) {
   const { chiefName } = useParams();
   const [chiefDetail, setChiefDetail] = useState({});
   const [chiefForum, setchiefForum] = useState([]);
+  const user = useLogin();
 
   const getForum = (value) => {
     axios
       .get("http://127.0.0.1:8000/api/forums/", {
         params: {
-          owned: chiefName == localStorage.getItem("username") ? 1 : 0,
+          owned: chiefName == user.username ? 1 : 0,
           username: chiefName,
         },
         headers: {
@@ -66,7 +69,7 @@ function ForumProfile({ Forums }) {
       });
   };
   useEffect(() => {
-    const url = `http://127.0.0.1:8000/api/accounts/${chiefName}/profile/`;
+    const url = `http://127.0.0.1:8000/api/accounts/${chiefName}/profile/?username=${user.username}`;
     const fetchData = async () => {
       try {
         const response = await fetch(url);
