@@ -1,0 +1,3 @@
+/cook/migrations/0*.py
+venv
+__pycache__
