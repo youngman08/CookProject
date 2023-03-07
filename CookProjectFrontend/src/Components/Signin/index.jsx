@@ -17,9 +17,10 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-import HomeIcon from '@mui/icons-material/Home';
+import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "react-router-dom";
-import {BASE_API} from "../../App";
+import { BASE_API } from "../../App";
+import { updateLogin } from "../../hooks/useLogin";
 
 const SigninForm = ({ setAuth }) => {
   const { register, handleSubmit } = useForm();
@@ -35,7 +36,7 @@ const SigninForm = ({ setAuth }) => {
         console.log(response);
         console.log(response.data);
         console.log(response.data.username);
-        setAuth(response.data.username);
+        updateLogin(response.data);
         navigate("/dashboard");
       })
       .catch((error) => {
@@ -46,7 +47,9 @@ const SigninForm = ({ setAuth }) => {
   return (
     <Container>
       <FormWrap>
-        <Link className="home-div" to="/"><HomeIcon sx={{ height: "2em",width:"2em" }}/></Link>
+        <Link className="home-div" to="/">
+          <HomeIcon sx={{ height: "2em", width: "2em" }} />
+        </Link>
         <div className="eror-notif">
           <Stack sx={{ width: "100%" }} spacing={2} className="eror">
             <Alert severity="success" sx={{ margin: "20px auto" }}>
