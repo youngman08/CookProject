@@ -8,6 +8,8 @@ import chief_profile_img from "../../images/chief_profile.jpg";
 import author_avatar from "../../images/author-avatar.png";
 import axios from "axios";
 import {BASE_API, check_error} from "../../App";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   ChiefCard,
@@ -26,7 +28,8 @@ import { updateLogin, useLogin } from "../../hooks/useLogin";
 
 function ForumDetail() {
   const [Forum, setForum] = useState({});
-  const [followed, setFollowed] = useState(false);
+  const [followedForum, setFollowedForum] = useState(false);
+  const [followedChief, setFollowedChief] = useState(false);
   const { register, handleSubmit } = useForm();
   const [chiefDetail, setChiefDetail] = useState({});
   const { chiefName, forumName, forumId } = useParams();
@@ -34,7 +37,7 @@ function ForumDetail() {
   const username = user.username;
   
   useEffect(() => {
-    const checkFollowed = async () => {
+    const checkFollowedForum = async () => {
       await axios
         .get(BASE_API + `forums/${forumId}/checkFollowed`,{
             params: {
@@ -48,14 +51,38 @@ function ForumDetail() {
         .then((response) => {
           console.log(response.data);
           if (response.data == "True")
-            setFollowed(true); //results
+            setFollowedForum(true); //results
           else
-            setFollowed(false); //results
+            setFollowedForum(false); //results
         })
         .catch((error) => {
           console.log("error in get checking followed forum or not.");
         });
     }
+
+    const checkFollowedChief = async () => {
+      await axios
+        .get(BASE_API + `accounts/${chiefName}/hasFollowed`,{
+            params: {
+              username: username
+            },
+              headers: {
+                "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          if (response.data == "True")
+            setFollowedChief(true); //results
+          else
+            setFollowedChief(false); //results
+        })
+        .catch((error) => {
+          console.log("error in get checking followed forum or not.");
+        });
+    }
+
     const fetchData = async () => {
       await axios
         .get(BASE_API + "forums/view",{
@@ -76,10 +103,16 @@ function ForumDetail() {
           console.log("error in get forum info.");
         });
     }
-    checkFollowed();
+    checkFollowedForum();
+    checkFollowedChief();
     fetchData();
   }, []);
-
+  const showToastMessage = () => {
+    toast.info('Success Notification !', {
+        position: toast.POSITION.BOTTOM_LEFT,
+        className: 'toast-message'
+    });
+};
   function follow_chief() {
     axios
         .put(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
@@ -88,7 +121,8 @@ function ForumDetail() {
             },
           }
         ).then((response)  => {
-          console.log(response.data)
+          console.log(response.data);
+          setFollowedChief(true); //results
         })
         .catch((error) => {
           console.log("error in follow chief.");
@@ -104,6 +138,7 @@ function ForumDetail() {
           }
         ).then((response)  => {
           console.log(response.data)
+          setFollowedChief(false); //results
         })
         .catch((error) => {
           console.log("error in follow chief.");
@@ -120,7 +155,7 @@ function ForumDetail() {
         )
         .then((response) => {
           console.log(response.data);
-          setFollowed(true); //results
+          setFollowedForum(true); //results
         })
         .catch((error) => {
           console.log("error in get forum info.");
@@ -137,7 +172,7 @@ function ForumDetail() {
         )
         .then((response) => {
           console.log(response.data);
-          setFollowed(false); //results
+          setFollowedForum(false); //results
         })
         .catch((error) => {
           console.log("error in get forum info.");
@@ -202,8 +237,8 @@ function ForumDetail() {
                   >
                     سوالات خود را بپرسید!
                   </a>
-                  <button class="mbtn" onClick={follow_chief}>دنبال کن !</button>
-                  <button class="mbtn2" onClick={unfollow_chief}>دنبال نکن :(</button>
+                  <button class="mbtn" hidden={followedChief} onClick={follow_chief}>دنبال کن !</button>
+                  <button class="mbtn2" hidden={!followedChief} onClick={unfollow_chief}>دنبال نکن :(</button>
                 </ChiefCard>
               </ChiefWrapper>
             </ChiefContainer>
@@ -214,8 +249,8 @@ function ForumDetail() {
             <div className="forum_body_area">
               <div className="f-p-container">
                 <h1 className="f-title">فوروم {forumId}</h1>
-                <button class="mbtn" onClick={followForum}>دنبال کن !</button>
-                <button class="mbtn2" onClick={unfollowForum}>دنبال نکن :(</button>
+                <button class="mbtn" hidden={followedForum} onClick={followForum}>دنبال کن !</button>
+                <button class="mbtn2" hidden={!followedForum} onClick={unfollowForum}>دنبال نکن :(</button>
               </div>
               <div class="forum-post-top">
                 <a class="author-avatar" href="#">

@@ -83,6 +83,21 @@ def view_followers(request, jesus_username):
     followers = [relationship.disciple for relationship in chief.relationship_set.all()]
     return HttpResponse(ObjectListResponse(followers).json)
 
+@require_http_methods(["GET"])
+def has_user_followed_chief(request, jesus_username):
+    current_username = request.GET.get('username').replace('"', '')
+    user: SystemUser = get_object_else('username', jesus_username, SystemUser)
+    if not user:
+        return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
+    if user.role != Role.CHIEF.value:
+        return HttpResponse(ErrorResponse(InternalError.NOT_ALLOWED).json)
+    chief: Chief = get_object_else('user__username', jesus_username, Chief)
+    followers = [relationship.disciple for relationship in chief.relationship_set.all()]
+    for follower in followers:
+        if (follower.username == current_username):
+            return HttpResponse("True")
+    return HttpResponse("False")
+
 
 @require_http_methods(["GET"])
 def view_following(request, username):
