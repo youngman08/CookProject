@@ -9,12 +9,14 @@ import {useForm} from "react-hook-form";
 import axios from "axios";
 import {BASE_API, check_error, ROLES} from "../../App";
 import { updateLogin, useLogin } from "../../hooks/useLogin";
+import Swal from 'sweetalert2';
 
 const EditProfile = () => {
     const {register, handleSubmit} = useForm();
     const user = useLogin();
     let username = user.username;
     const [user_change_info, setUser] = useState(null);
+    const Swal = require('sweetalert2')
     const onSubmit = (data) => {
         if (data.email === "")
             data.email = user_change_info.email
@@ -38,7 +40,11 @@ const EditProfile = () => {
                     alert(response.data.err_msg)
                 else{
                     setUser(response.data)
-                    alert("اطلاعات با موفقیت تغییر کرد.")
+                    Swal.fire({
+                        title: 'Edit profile',
+                        text: 'You edit profile now',
+                        icon: 'success',
+                      })
                 }
             })
             .catch((error) => {

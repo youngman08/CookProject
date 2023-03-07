@@ -8,8 +8,7 @@ import chief_profile_img from "../../images/chief_profile.jpg";
 import author_avatar from "../../images/author-avatar.png";
 import axios from "axios";
 import {BASE_API, check_error} from "../../App";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
 
 import {
   ChiefCard,
@@ -35,7 +34,8 @@ function ForumDetail() {
   const { chiefName, forumName, forumId } = useParams();
   const user = useLogin();
   const username = user.username;
-  
+  const Swal = require('sweetalert2')
+
   useEffect(() => {
     const checkFollowedForum = async () => {
       await axios
@@ -107,12 +107,7 @@ function ForumDetail() {
     checkFollowedChief();
     fetchData();
   }, []);
-  const showToastMessage = () => {
-    toast.info('Success Notification !', {
-        position: toast.POSITION.BOTTOM_LEFT,
-        className: 'toast-message'
-    });
-};
+  
   function follow_chief() {
     axios
         .put(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
@@ -122,7 +117,12 @@ function ForumDetail() {
           }
         ).then((response)  => {
           console.log(response.data);
-          setFollowedChief(true); //results
+          setFollowedChief(true); //
+          Swal.fire({
+            title: 'Follow Chief',
+            text: `You follow chief ${chiefName} now`,
+            icon: 'success',
+          })
         })
         .catch((error) => {
           console.log("error in follow chief.");
@@ -139,6 +139,11 @@ function ForumDetail() {
         ).then((response)  => {
           console.log(response.data)
           setFollowedChief(false); //results
+          Swal.fire({
+            title: 'Unfollow Chief',
+            text: `You unfollow chief ${chiefName}`,
+            icon: 'success',
+          })
         })
         .catch((error) => {
           console.log("error in follow chief.");
@@ -156,6 +161,11 @@ function ForumDetail() {
         .then((response) => {
           console.log(response.data);
           setFollowedForum(true); //results
+          Swal.fire({
+            title: 'Follow Forum',
+            text: `You follow forum ${forumId} now`,
+            icon: 'success',
+          })
         })
         .catch((error) => {
           console.log("error in get forum info.");
@@ -173,6 +183,11 @@ function ForumDetail() {
         .then((response) => {
           console.log(response.data);
           setFollowedForum(false); //results
+          Swal.fire({
+            title: 'Unfollow Forum',
+            text: `You unfollow forum ${forumId}`,
+            icon: 'success',
+          })
         })
         .catch((error) => {
           console.log("error in get forum info.");
@@ -199,8 +214,12 @@ function ForumDetail() {
             if (check_error(response.data))
                 alert(response.data.err_msg)
             else{
-                alert("نظر شما با موفقیت ثبت شد.")
-                window.location.reload(false);
+              Swal.fire({
+                title: 'Post Comment',
+                text: `You post a comment now`,
+                icon: 'success',
+              })
+              window.location.reload(false);
             }
         })
         .catch((error) => {

@@ -104,7 +104,7 @@ class PostOnForumRequest(BaseRequest):
     def __init__(self, req):
         super().__init__(req, is_post=True)
         self.sender = self.data['params']['sender'].replace('"', '')
-        self.text = self.data['params']['sender'].replace('"', '')
+        self.text = self.data['params']['text'].replace('"', '')
 
 
 class PostCommentRequest(BaseRequest):
