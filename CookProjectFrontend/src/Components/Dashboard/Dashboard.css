@@ -4,7 +4,7 @@
   bottom: 0;
   right: 0;
   z-index: 9 !important;
-  background: #f9f9a0;
+  background: #6776c6;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   width: 100%;
@@ -62,4 +62,8 @@ padding-top: 100px;
   border-radius: 10px;
   padding: 30px;
   width: 78%;
+}
+.mylogo {
+  background: white;
+  border-radius: 10px;
 }

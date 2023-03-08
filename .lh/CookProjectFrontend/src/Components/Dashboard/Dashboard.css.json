@@ -1,0 +1,66 @@
+{
+    "sourceFile": "CookProjectFrontend/src/Components/Dashboard/Dashboard.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1678303890820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678303899363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,6 +63,6 @@\n   padding: 30px;\r\n   width: 78%;\r\n }\r\n .mylogo{\r\n-  \r\n+  ba\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678303911871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,7 +62,8 @@\n   border-radius: 10px;\r\n   padding: 30px;\r\n   width: 78%;\r\n }\r\n-.mylogo{\r\n-  ba\r\n+.mylogo {\r\n+  background: white;\r\n+  bo\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678303926163,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,6 +64,6 @@\n   width: 78%;\r\n }\r\n .mylogo {\r\n   background: white;\r\n-  bo\r\n+  border-radius: 50%;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678303943701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,5 +65,6 @@\n }\r\n .mylogo {\r\n   background: white;\r\n   border-radius: 50%;\r\n+  height: ;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678303962766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,6 +65,5 @@\n }\r\n .mylogo {\r\n   background: white;\r\n   border-radius: 50%;\r\n-  height: ;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678303971257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,6 +64,6 @@\n   width: 78%;\r\n }\r\n .mylogo {\r\n   background: white;\r\n-  border-radius: 50%;\r\n+  border-radius: 40px;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678304013747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,5 +65,6 @@\n }\r\n .mylogo {\r\n   background: white;\r\n   border-radius: 40px;\r\n+  width: ;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678304024821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,6 +65,6 @@\n }\r\n .mylogo {\r\n   background: white;\r\n   border-radius: 40px;\r\n-  width: ;\r\n+  width: 80px;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678304033027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,5 +66,6 @@\n .mylogo {\r\n   background: white;\r\n   border-radius: 40px;\r\n   width: 80px;\r\n+  width: 80px;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678304052844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,7 +65,5 @@\n }\r\n .mylogo {\r\n   background: white;\r\n   border-radius: 40px;\r\n-  width: 80px;\r\n-  width: 80px;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678307617582,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   top: 0;\r\n   bottom: 0;\r\n   right: 0;\r\n   z-index: 9 !important;\r\n-  background: #f9f9a0;\r\n+  background: ##6776c6;\r\n   padding-top: 0.75rem;\r\n   padding-bottom: 0.75rem;\r\n   width: 100%;\r\n   height: 74px;\r\n@@ -64,6 +64,6 @@\n   width: 78%;\r\n }\r\n .mylogo {\r\n   background: white;\r\n-  border-radius: 40px;\r\n+  border-radius: 10px;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678307622619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   top: 0;\r\n   bottom: 0;\r\n   right: 0;\r\n   z-index: 9 !important;\r\n-  background: ##6776c6;\r\n+  background: #6776c6;\r\n   padding-top: 0.75rem;\r\n   padding-bottom: 0.75rem;\r\n   width: 100%;\r\n   height: 74px;\r\n"
+                }
+            ],
+            "date": 1678303890820,
+            "name": "Commit-0",
+            "content": ".web-header {\r\n  position: fixed;\r\n  top: 0;\r\n  bottom: 0;\r\n  right: 0;\r\n  z-index: 9 !important;\r\n  background: #f9f9a0;\r\n  padding-top: 0.75rem;\r\n  padding-bottom: 0.75rem;\r\n  width: 100%;\r\n  height: 74px;\r\n  display: flex;\r\n  flex-direction: row-reverse;\r\n  align-items: center;\r\n}\r\nul {\r\n  list-style-type: none;\r\n}\r\nli {\r\n  padding: 10px 10px;\r\n  text-align: right;\r\n  cursor: pointer;\r\n}\r\n.div-icon {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n}\r\n.m-icon {\r\n  margin-right: 2px;\r\n  width: 26px;\r\n}\r\n.m2-icon {\r\n  width: 26px;\r\n  margin: 10px;\r\n}\r\n.avatar {\r\n  background: black;\r\n  border-radius: 50%;\r\n  margin: 0px 10px;\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n.element {\r\n  display: flex;\r\n  align-items: center;\r\n  align-content: center;\r\n}\r\n.logout{\r\n  cursor: pointer;\r\n}\r\n.ticket_body_area{\r\n  height: 100%;\r\nbackground: #fff;\r\npadding: 50px 40px 30px 40px;\r\n  padding-top: 50px;\r\nborder-radius: 10px;\r\nbox-shadow: 0 30px 60px 0 rgba(2, 2, 48, 0.08);\r\npadding-top: 100px;\r\n}\r\n.side-container{\r\n  background: #dadada;\r\n  border-radius: 10px;\r\n  padding: 30px;\r\n  width: 78%;\r\n}\r\n.mylogo{\r\n  \r\n}"
+        }
+    ]
+}

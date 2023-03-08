@@ -3,7 +3,7 @@ import { animateScroll as scroll } from "react-scroll";
 import {
   Nav,
   NavBarContainer,
-  NavLogo,
+  MyNavLogo,
   MobileIcon,
   NavMenu,
   NavItem,
@@ -13,16 +13,23 @@ import {
 } from "./NavbarElements";
 import { FaBars } from "react-icons/fa";
 import { useLogin } from "../../hooks/useLogin";
-
+import Logo from "../../images/logo.svg";
+import { Link } from "react-router-dom";
 export const LoginNavbarButton = () => {
   const user = useLogin();
-  return (<NavBtn>
-    {user === "unauth" ? <NavBtnLink to="/login">ورود</NavBtnLink> : <>
-      <NavBtnLink to="/dashboard">داشبورد</NavBtnLink>
-      <NavBtnLink to="/create_recipe">ساخت غذای جدید</NavBtnLink>
-    </>}
-  </NavBtn>);
-}
+  return (
+    <NavBtn>
+      {user === "unauth" ? (
+        <NavBtnLink to="/login">ورود</NavBtnLink>
+      ) : (
+        <>
+          <NavBtnLink to="/dashboard">داشبورد</NavBtnLink>
+          <NavBtnLink to="/create_recipe">ساخت غذای جدید</NavBtnLink>
+        </>
+      )}
+    </NavBtn>
+  );
+};
 
 const Navbar = ({ toggle }) => {
   const [scrolNav, setScrolNav] = useState(false);
@@ -34,37 +41,50 @@ const Navbar = ({ toggle }) => {
     }
   };
   useEffect(() => {
-    window.addEventListener("scroll", changeNav)
+    window.addEventListener("scroll", changeNav);
   }, []);
   const toggleHome = () => {
     scroll.scrollToTop();
-  }
+  };
   return (
     <>
       <Nav scrolNav={scrolNav}>
         <NavBarContainer>
-          <NavLogo to="/" onClick={toggleHome} smooth duration={1000} spy>AshpazBashi</NavLogo>
+          <img src={Logo} alt="logo" className="mylogo">
+          </img>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="/" onClick={toggleHome} smooth duration={1000} spy>خانه</NavLinks>
+              <NavLinks to="/" onClick={toggleHome} smooth duration={1000} spy>
+                خانه
+              </NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="About" smooth duration={1000} spy offset={-80}>درباره ی ما</NavLinks>
+              <NavLinks to="About" smooth duration={1000} spy offset={-80}>
+                درباره ی ما
+              </NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="About1" smooth duration={1000} spy offset={-80}>تیم ما</NavLinks>
+              <NavLinks to="About1" smooth duration={1000} spy offset={-80}>
+                تیم ما
+              </NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="Cheif" smooth duration={1000} spy offset={-80}>همکاری با ما</NavLinks>
+              <NavLinks to="Cheif" smooth duration={1000} spy offset={-80}>
+                همکاری با ما
+              </NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="Blog" smooth duration={1000} spy offset={-80}>بلاگ</NavLinks>
+              <NavLinks to="Blog" smooth duration={1000} spy offset={-80}>
+                بلاگ
+              </NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="Experience" smooth duration={1000} spy offset={-80}>شرکت ها</NavLinks>
+              <NavLinks to="Experience" smooth duration={1000} spy offset={-80}>
+                شرکت ها
+              </NavLinks>
             </NavItem>
           </NavMenu>
           <LoginNavbarButton />

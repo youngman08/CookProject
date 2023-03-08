@@ -10,7 +10,7 @@ export const Container = styled.div`
   top: 0;
   z-index: 0;
   overflow: hidden;
-  background: #35334d;
+  background: #6776c6;
 `;
 
 export const Sidebar = styled.div`
@@ -25,7 +25,7 @@ export const Sidebar = styled.div`
   right: 0;
   color: #fff;
   z-index: 99;
-  background: #282f53;
+  background: #6776c6;
 `;
 export const Image = styled.img`
   text-align: center;

@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 export const NavLogo = styled(LinkR)`
-  color: #fff;
-  justify-self: flext-start;
   cursor: pointer;
   font-size: 1rem;
   display: flex;
@@ -68,6 +66,9 @@ export const NavLinks = styled(LinkS)`
   &.active {
     border-bottom: 3px solid #fab209;
   }
+`;
+export const MyNavLogo = styled(LinkS)`
+
 `;
 export const NavBtn = styled.div`
   display: flex;

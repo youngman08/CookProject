@@ -1,0 +1,78 @@
+{
+    "sourceFile": "CookProjectFrontend/src/Components/Navbar/NavbarElements.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 15,
+            "patches": [
+                {
+                    "date": 1678303294550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678303302861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n   padding: 0px 24px;\r\n   max-width: 1100px;\r\n `;\r\n export const Nav = styled.div`\r\n-  background: ${({scrolNav})=>(scrolNav?'#000':'##6776c6')};\r\n+  background: ${({scrolNav})=>(scrolNav?'##6776c6':'#6776c6')};\r\n   height: 80px;\r\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n"
+                },
+                {
+                    "date": 1678303309562,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n   padding: 0px 24px;\r\n   max-width: 1100px;\r\n `;\r\n export const Nav = styled.div`\r\n-  background: ${({scrolNav})=>(scrolNav?'##6776c6':'#6776c6')};\r\n+  background: ${({scrolNav})=>(scrolNav?'##d4d6e5':'#6776c6')};\r\n   height: 80px;\r\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n"
+                },
+                {
+                    "date": 1678303320593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n   padding: 0px 24px;\r\n   max-width: 1100px;\r\n `;\r\n export const Nav = styled.div`\r\n-  background: ${({scrolNav})=>(scrolNav?'##d4d6e5':'#6776c6')};\r\n+  background: ${({scrolNav})=>(scrolNav?'##7a85d5':'#6776c6')};\r\n   height: 80px;\r\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n"
+                },
+                {
+                    "date": 1678303329474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n   padding: 0px 24px;\r\n   max-width: 1100px;\r\n `;\r\n export const Nav = styled.div`\r\n-  background: ${({scrolNav})=>(scrolNav?'##7a85d5':'#6776c6')};\r\n+  background: ${({scrolNav})=>(scrolNav?'#000':'#6776c6')};\r\n   height: 80px;\r\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n"
+                },
+                {
+                    "date": 1678303378164,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n   padding: 0px 24px;\r\n   max-width: 1100px;\r\n `;\r\n export const Nav = styled.div`\r\n-  background: ${({scrolNav})=>(scrolNav?'#000':'#6776c6')};\r\n+  background: ${({scrolNav})=>(scrolNav?'#000':'#35334d')};\r\n   height: 80px;\r\n   display: flex;\r\n   justify-content: center;\r\n   align-items: center;\r\n"
+                },
+                {
+                    "date": 1678303627894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import styled from \"styled-components\";\r\n import { Link as LinkR } from \"react-router-dom\";\r\n import { Link as LinkS } from \"react-scroll\";\r\n export const NavLogo = styled(LinkR)`\r\n-  color: #fff;\r\n+\r\n   justify-self: flext-start;\r\n   cursor: pointer;\r\n   font-size: 1rem;\r\n   display: flex;\r\n"
+                },
+                {
+                    "date": 1678303716312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n import { Link as LinkR } from \"react-router-dom\";\r\n import { Link as LinkS } from \"react-scroll\";\r\n export const NavLogo = styled(LinkR)`\r\n \r\n-  justify-self: flext-start;\r\n   cursor: pointer;\r\n   font-size: 1rem;\r\n   display: flex;\r\n   align-items: center;\r\n"
+                },
+                {
+                    "date": 1678303724224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n import styled from \"styled-components\";\r\n import { Link as LinkR } from \"react-router-dom\";\r\n import { Link as LinkS } from \"react-scroll\";\r\n export const NavLogo = styled(LinkR)`\r\n-\r\n   cursor: pointer;\r\n   font-size: 1rem;\r\n   display: flex;\r\n   align-items: center;\r\n"
+                },
+                {
+                    "date": 1678303814066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,9 @@\n import styled from \"styled-components\";\r\n import { Link as LinkR } from \"react-router-dom\";\r\n import { Link as LinkS } from \"react-scroll\";\r\n export const NavLogo = styled(LinkR)`\r\n-  cursor: pointer;\r\n-  font-size: 1rem;\r\n-  display: flex;\r\n-  align-items: center;\r\n-  margin-left: 24px;\r\n-  font-weight: bold;\r\n-  text-decoration: none;\r\n+\r\n `;\r\n export const NavBarContainer = styled.div`\r\n   display: flex;\r\n   justify-content: space-between;\r\n"
+                },
+                {
+                    "date": 1678303825875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,15 @@\n import styled from \"styled-components\";\r\n import { Link as LinkR } from \"react-router-dom\";\r\n import { Link as LinkS } from \"react-scroll\";\r\n export const NavLogo = styled(LinkR)`\r\n-\r\n+  cursor: pointer;\r\n+  font-size: 1rem;\r\n+  display: flex;\r\n+  align-items: center;\r\n+  margin-left: 24px;\r\n+  font-weight: bold;\r\n+  text-decoration: none;\r\n `;\r\n export const NavBarContainer = styled.div`\r\n   display: flex;\r\n   justify-content: space-between;\r\n"
+                },
+                {
+                    "date": 1678303997766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n `;\r\n export const NavBarContainer = styled.div`\r\n   display: flex;\r\n   justify-content: space-between;\r\n-  height: 80px;\r\n+  height: 90px;\r\n   width: 100%;\r\n   padding: 0px 24px;\r\n   max-width: 1100px;\r\n `;\r\n"
+                },
+                {
+                    "date": 1678304068821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n `;\r\n export const NavBarContainer = styled.div`\r\n   display: flex;\r\n   justify-content: space-between;\r\n-  height: 90px;\r\n+  height: 80px;\r\n   width: 100%;\r\n   padding: 0px 24px;\r\n   max-width: 1100px;\r\n `;\r\n"
+                },
+                {
+                    "date": 1678304137103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,8 +66,19 @@\n   &.active {\r\n     border-bottom: 3px solid #fab209;\r\n   }\r\n `;\r\n+export const NavLinks = styled(LinkS)`\r\n+  color: #fff;\r\n+  display: flex;\r\n+  align-items: center;\r\n+  text-decoration: none;\r\n+  padding: 0 1rem;\r\n+  height: 100%;\r\n+  &.active {\r\n+    border-bottom: 3px solid #fab209;\r\n+  }\r\n+`;\r\n export const NavBtn = styled.div`\r\n   display: flex;\r\n   align-items: center;\r\n   @media screen and (max-width: 800px) {\r\n"
+                },
+                {
+                    "date": 1678304155927,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,9 +66,9 @@\n   &.active {\r\n     border-bottom: 3px solid #fab209;\r\n   }\r\n `;\r\n-export const NavLinks = styled(LinkS)`\r\n+export const MyNavLogo = styled(LinkS)`\r\n   color: #fff;\r\n   display: flex;\r\n   align-items: center;\r\n   text-decoration: none;\r\n"
+                },
+                {
+                    "date": 1678304205218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,17 +67,9 @@\n     border-bottom: 3px solid #fab209;\r\n   }\r\n `;\r\n export const MyNavLogo = styled(LinkS)`\r\n-  color: #fff;\r\n-  display: flex;\r\n-  align-items: center;\r\n-  text-decoration: none;\r\n-  padding: 0 1rem;\r\n-  height: 100%;\r\n-  &.active {\r\n-    border-bottom: 3px solid #fab209;\r\n-  }\r\n+\r\n `;\r\n export const NavBtn = styled.div`\r\n   display: flex;\r\n   align-items: center;\r\n"
+                }
+            ],
+            "date": 1678303294550,
+            "name": "Commit-0",
+            "content": "import styled from \"styled-components\";\r\nimport { Link as LinkR } from \"react-router-dom\";\r\nimport { Link as LinkS } from \"react-scroll\";\r\nexport const NavLogo = styled(LinkR)`\r\n  color: #fff;\r\n  justify-self: flext-start;\r\n  cursor: pointer;\r\n  font-size: 1rem;\r\n  display: flex;\r\n  align-items: center;\r\n  margin-left: 24px;\r\n  font-weight: bold;\r\n  text-decoration: none;\r\n`;\r\nexport const NavBarContainer = styled.div`\r\n  display: flex;\r\n  justify-content: space-between;\r\n  height: 80px;\r\n  width: 100%;\r\n  padding: 0px 24px;\r\n  max-width: 1100px;\r\n`;\r\nexport const Nav = styled.div`\r\n  background: ${({scrolNav})=>(scrolNav?'#000':'##6776c6')};\r\n  height: 80px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  font-size: 1rem;\r\n  position: sticky;\r\n  top: 0;\r\n  z-index: 10;\r\n`;\r\nexport const MobileIcon = styled.div`\r\n  display: none;\r\n  @media screen and (max-width: 800px) {\r\n    display: block;\r\n    color: #fff;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    transform: translate(60%, 60%);\r\n    font-size: 1.8rem;\r\n    cursor: pointer;\r\n  }\r\n`;\r\nexport const NavMenu = styled.ul`\r\n  display: flex;\r\n  align-items: center;\r\n  list-style: none;\r\n  text-align: center;\r\n  margin-right: -22px;\r\n  @media screen and (max-width: 800px) {\r\n    display: none;\r\n  }\r\n`;\r\nexport const NavItem = styled.li`\r\n  height: 80px;\r\n  cursor: pointer;\r\n`;\r\nexport const NavLinks = styled(LinkS)`\r\n  color: #fff;\r\n  display: flex;\r\n  align-items: center;\r\n  text-decoration: none;\r\n  padding: 0 1rem;\r\n  height: 100%;\r\n  &.active {\r\n    border-bottom: 3px solid #fab209;\r\n  }\r\n`;\r\nexport const NavBtn = styled.div`\r\n  display: flex;\r\n  align-items: center;\r\n  @media screen and (max-width: 800px) {\r\n    display: none;\r\n  }\r\n`;\r\nexport const NavBtnLink = styled(LinkR)`\r\n  border-radius: 50px;\r\n  background-color: #fab209;\r\n  white-space: nowrap;\r\n  padding: 10px 22px;\r\n  color: #010606;\r\n  font-size: 16px;\r\n  outline: none;\r\n  border: none;\r\n  cursor: pointer;\r\n  text-decoration: none;\r\n  transition: all 0.2s ease-in-out;\r\n  &:hover {\r\n    transition: all 0.2s ease-in-out;\r\n    background: #fff;\r\n    color: #010606;\r\n  }\r\n`;\r\n"
+        }
+    ]
+}

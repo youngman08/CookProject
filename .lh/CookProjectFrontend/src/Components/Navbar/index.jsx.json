@@ -1,0 +1,94 @@
+{
+    "sourceFile": "CookProjectFrontend/src/Components/Navbar/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 19,
+            "patches": [
+                {
+                    "date": 1678303515150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678303530518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n   return (\r\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n-          <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>AshpazBashi</NavLogo>\r\n+          <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>            <Image src={Logo} alt=\"logo\"/></NavLogo>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n           <NavMenu>\r\n"
+                },
+                {
+                    "date": 1678303541357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,15 +15,21 @@\n import { useLogin } from \"../../hooks/useLogin\";\r\n import Logo from \"../../images/logo.svg\";\r\n export const LoginNavbarButton = () => {\r\n   const user = useLogin();\r\n-  return (<NavBtn>\r\n-    {user === \"unauth\" ? <NavBtnLink to=\"/login\">ورود</NavBtnLink> : <>\r\n-      <NavBtnLink to=\"/dashboard\">داشبورد</NavBtnLink>\r\n-      <NavBtnLink to=\"/create_recipe\">ساخت غذای جدید</NavBtnLink>\r\n-    </>}\r\n-  </NavBtn>);\r\n-}\r\n+  return (\r\n+    <NavBtn>\r\n+      {user === \"unauth\" ? (\r\n+        <NavBtnLink to=\"/login\">ورود</NavBtnLink>\r\n+      ) : (\r\n+        <>\r\n+          <NavBtnLink to=\"/dashboard\">داشبورد</NavBtnLink>\r\n+          <NavBtnLink to=\"/create_recipe\">ساخت غذای جدید</NavBtnLink>\r\n+        </>\r\n+      )}\r\n+    </NavBtn>\r\n+  );\r\n+};\r\n \r\n const Navbar = ({ toggle }) => {\r\n   const [scrolNav, setScrolNav] = useState(false);\r\n   const changeNav = () => {\r\n@@ -33,39 +39,54 @@\n       setScrolNav(false);\r\n     }\r\n   };\r\n   useEffect(() => {\r\n-    window.addEventListener(\"scroll\", changeNav)\r\n+    window.addEventListener(\"scroll\", changeNav);\r\n   }, []);\r\n   const toggleHome = () => {\r\n     scroll.scrollToTop();\r\n-  }\r\n+  };\r\n   return (\r\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n-          <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>            <Image src={Logo} alt=\"logo\"/></NavLogo>\r\n+          <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n+            {\" \"}\r\n+            <ima src={Logo} alt=\"logo\" />\r\n+          </NavLogo>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n           <NavMenu>\r\n             <NavItem>\r\n-              <NavLinks to=\"/\" onClick={toggleHome} smooth duration={1000} spy>خانه</NavLinks>\r\n+              <NavLinks to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n+                خانه\r\n+              </NavLinks>\r\n             </NavItem>\r\n             <NavItem>\r\n-              <NavLinks to=\"About\" smooth duration={1000} spy offset={-80}>درباره ی ما</NavLinks>\r\n+              <NavLinks to=\"About\" smooth duration={1000} spy offset={-80}>\r\n+                درباره ی ما\r\n+              </NavLinks>\r\n             </NavItem>\r\n             <NavItem>\r\n-              <NavLinks to=\"About1\" smooth duration={1000} spy offset={-80}>تیم ما</NavLinks>\r\n+              <NavLinks to=\"About1\" smooth duration={1000} spy offset={-80}>\r\n+                تیم ما\r\n+              </NavLinks>\r\n             </NavItem>\r\n             <NavItem>\r\n-              <NavLinks to=\"Cheif\" smooth duration={1000} spy offset={-80}>همکاری با ما</NavLinks>\r\n+              <NavLinks to=\"Cheif\" smooth duration={1000} spy offset={-80}>\r\n+                همکاری با ما\r\n+              </NavLinks>\r\n             </NavItem>\r\n             <NavItem>\r\n-              <NavLinks to=\"Blog\" smooth duration={1000} spy offset={-80}>بلاگ</NavLinks>\r\n+              <NavLinks to=\"Blog\" smooth duration={1000} spy offset={-80}>\r\n+                بلاگ\r\n+              </NavLinks>\r\n             </NavItem>\r\n             <NavItem>\r\n-              <NavLinks to=\"Experience\" smooth duration={1000} spy offset={-80}>شرکت ها</NavLinks>\r\n+              <NavLinks to=\"Experience\" smooth duration={1000} spy offset={-80}>\r\n+                شرکت ها\r\n+              </NavLinks>\r\n             </NavItem>\r\n           </NavMenu>\r\n           <LoginNavbarButton />\r\n         </NavBarContainer>\r\n"
+                },
+                {
+                    "date": 1678303559017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n           <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n             {\" \"}\r\n-            <ima src={Logo} alt=\"logo\" />\r\n+            <image src={Logo} alt=\"logo\" >\r\n           </NavLogo>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n"
+                },
+                {
+                    "date": 1678303564082,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n           <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n             {\" \"}\r\n-            <image src={Logo} alt=\"logo\" >\r\n+            <image src={Logo} alt=\"logo\" ><image/>\r\n           </NavLogo>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n"
+                },
+                {
+                    "date": 1678303607706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,10 +49,10 @@\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n           <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n-            {\" \"}\r\n-            <image src={Logo} alt=\"logo\" ><image/>\r\n+\\\\\r\n+            <image src={Logo} alt=\"logo\"></image>\r\n           </NavLogo>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n"
+                },
+                {
+                    "date": 1678303764610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,10 +49,9 @@\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n           <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n-\\\\\r\n-            <image src={Logo} alt=\"logo\"></image>\r\n+            <img src={Logo} alt=\"logo\"></img>\r\n           </NavLogo>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n"
+                },
+                {
+                    "date": 1678303835961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n   return (\r\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n-          <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n+       \r\n             <img src={Logo} alt=\"logo\"></img>\r\n           </NavLogo>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n"
+                },
+                {
+                    "date": 1678303857358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,10 +49,9 @@\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n        \r\n-            <img src={Logo} alt=\"logo\"></img>\r\n-          </NavLogo>\r\n+          <img src={Logo} alt=\"logo\"></img>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n           <NavMenu>\r\n"
+                },
+                {
+                    "date": 1678303866004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n        \r\n-          <img src={Logo} alt=\"logo\"></img>\r\n+          <img src={Logo} alt=\"logo\" className=\"My\"></img>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n           <NavMenu>\r\n"
+                },
+                {
+                    "date": 1678303872742,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n        \r\n-          <img src={Logo} alt=\"logo\" className=\"My\"></img>\r\n+          <img src={Logo} alt=\"logo\" className=\"mylogo\"></img>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n           <NavMenu>\r\n"
+                },
+                {
+                    "date": 1678304163244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { animateScroll as scroll } from \"react-scroll\";\r\n import {\r\n   Nav,\r\n   NavBarContainer,\r\n-  NavLogo,\r\n+  MyNavLogo,\r\n   MobileIcon,\r\n   NavMenu,\r\n   NavItem,\r\n   NavLinks,\r\n"
+                },
+                {
+                    "date": 1678304169164,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n   return (\r\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n-       \r\n+        MyNavLogo\r\n           <img src={Logo} alt=\"logo\" className=\"mylogo\"></img>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n"
+                },
+                {
+                    "date": 1678304174496,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n   return (\r\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n-        MyNavLogo\r\n+        <MyNavLogo></MyNavLogo>\r\n           <img src={Logo} alt=\"logo\" className=\"mylogo\"></img>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n"
+                },
+                {
+                    "date": 1678304180747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,10 +48,11 @@\n   return (\r\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n-        <MyNavLogo></MyNavLogo>\r\n-          <img src={Logo} alt=\"logo\" className=\"mylogo\"></img>\r\n+          <MyNavLogo>\r\n+            <img src={Logo} alt=\"logo\" className=\"mylogo\"></img>\r\n+          </MyNavLogo>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n           <NavMenu>\r\n"
+                },
+                {
+                    "date": 1678304221558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n   return (\r\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n-          <MyNavLogo>\r\n+          <MyNavLogo to=\"/\" onClick={toggleHome}>\r\n             <img src={Logo} alt=\"logo\" className=\"mylogo\"></img>\r\n           </MyNavLogo>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n"
+                },
+                {
+                    "date": 1678304229192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n   return (\r\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n-          <MyNavLogo to=\"/\" onClick={toggleHome}>\r\n+          <MyNavLogo>\r\n             <img src={Logo} alt=\"logo\" className=\"mylogo\"></img>\r\n           </MyNavLogo>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n"
+                },
+                {
+                    "date": 1678304241877,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,11 +48,11 @@\n   return (\r\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n-          <MyNavLogo>\r\n+          <Link>\r\n             <img src={Logo} alt=\"logo\" className=\"mylogo\"></img>\r\n-          </MyNavLogo>\r\n+          </Link>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n           <NavMenu>\r\n"
+                },
+                {
+                    "date": 1678304251257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n } from \"./NavbarElements\";\r\n import { FaBars } from \"react-icons/fa\";\r\n import { useLogin } from \"../../hooks/useLogin\";\r\n import Logo from \"../../images/logo.svg\";\r\n+import { Link } from \"react-router-dom\";\r\n export const LoginNavbarButton = () => {\r\n   const user = useLogin();\r\n   return (\r\n     <NavBtn>\r\n@@ -48,9 +49,9 @@\n   return (\r\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n-          <Link>\r\n+          <Link to=\"/\">\r\n             <img src={Logo} alt=\"logo\" className=\"mylogo\"></img>\r\n           </Link>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n"
+                },
+                {
+                    "date": 1678304258758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n   return (\r\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n-          <Link to=\"/\">\r\n+\r\n             <img src={Logo} alt=\"logo\" className=\"mylogo\"></img>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n"
+                }
+            ],
+            "date": 1678303515150,
+            "name": "Commit-0",
+            "content": "import React, { useEffect, useState } from \"react\";\r\nimport { animateScroll as scroll } from \"react-scroll\";\r\nimport {\r\n  Nav,\r\n  NavBarContainer,\r\n  NavLogo,\r\n  MobileIcon,\r\n  NavMenu,\r\n  NavItem,\r\n  NavLinks,\r\n  NavBtn,\r\n  NavBtnLink,\r\n} from \"./NavbarElements\";\r\nimport { FaBars } from \"react-icons/fa\";\r\nimport { useLogin } from \"../../hooks/useLogin\";\r\nimport Logo from \"../../images/logo.svg\";\r\nexport const LoginNavbarButton = () => {\r\n  const user = useLogin();\r\n  return (<NavBtn>\r\n    {user === \"unauth\" ? <NavBtnLink to=\"/login\">ورود</NavBtnLink> : <>\r\n      <NavBtnLink to=\"/dashboard\">داشبورد</NavBtnLink>\r\n      <NavBtnLink to=\"/create_recipe\">ساخت غذای جدید</NavBtnLink>\r\n    </>}\r\n  </NavBtn>);\r\n}\r\n\r\nconst Navbar = ({ toggle }) => {\r\n  const [scrolNav, setScrolNav] = useState(false);\r\n  const changeNav = () => {\r\n    if (window.scrollY >= 80) {\r\n      setScrolNav(+true);\r\n    } else {\r\n      setScrolNav(false);\r\n    }\r\n  };\r\n  useEffect(() => {\r\n    window.addEventListener(\"scroll\", changeNav)\r\n  }, []);\r\n  const toggleHome = () => {\r\n    scroll.scrollToTop();\r\n  }\r\n  return (\r\n    <>\r\n      <Nav scrolNav={scrolNav}>\r\n        <NavBarContainer>\r\n          <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>AshpazBashi</NavLogo>\r\n          <MobileIcon onClick={toggle}>\r\n            <FaBars />\r\n          </MobileIcon>\r\n          <NavMenu>\r\n            <NavItem>\r\n              <NavLinks to=\"/\" onClick={toggleHome} smooth duration={1000} spy>خانه</NavLinks>\r\n            </NavItem>\r\n            <NavItem>\r\n              <NavLinks to=\"About\" smooth duration={1000} spy offset={-80}>درباره ی ما</NavLinks>\r\n            </NavItem>\r\n            <NavItem>\r\n              <NavLinks to=\"About1\" smooth duration={1000} spy offset={-80}>تیم ما</NavLinks>\r\n            </NavItem>\r\n            <NavItem>\r\n              <NavLinks to=\"Cheif\" smooth duration={1000} spy offset={-80}>همکاری با ما</NavLinks>\r\n            </NavItem>\r\n            <NavItem>\r\n              <NavLinks to=\"Blog\" smooth duration={1000} spy offset={-80}>بلاگ</NavLinks>\r\n            </NavItem>\r\n            <NavItem>\r\n              <NavLinks to=\"Experience\" smooth duration={1000} spy offset={-80}>شرکت ها</NavLinks>\r\n            </NavItem>\r\n          </NavMenu>\r\n          <LoginNavbarButton />\r\n        </NavBarContainer>\r\n      </Nav>\r\n    </>\r\n  );\r\n};\r\n\r\nexport default Navbar;\r\n"
+        }
+    ]
+}

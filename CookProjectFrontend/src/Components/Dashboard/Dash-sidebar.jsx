@@ -3,7 +3,7 @@ import {Sidebar, Image, Mbutton} from "./DashboardElements";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import Logo from "../../images/logo-3.png";
+import Logo from "../../images/logo.svg";
 import ItemAccordion from "../Items";
 import {accordion1} from "../Items/Data";
 import "./Dashboard.css";
