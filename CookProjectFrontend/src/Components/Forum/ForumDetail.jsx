@@ -28,6 +28,7 @@ function ForumDetail() {
   const { register, handleSubmit } = useForm();
   const [chiefDetail, setChiefDetail] = useState({});
   const { chiefName, forumName, forumId } = useParams();
+  const username=localStorage.getItem("username");
   console.log(chiefName);
   console.log(forumName);
   console.log(forumId);
@@ -159,7 +160,7 @@ function ForumDetail() {
                     سوالات خود را بپرسید!
                   </a>
                   <button class="mbtn" onClick={follow_chief}>دنبال کن !</button>
-                  <button class="mbtn2" onClick={unfollow_chief}>دنبال نکن :(</button>
+                 {/* <button class="mbtn2" onClick={unfollow_chief}>دنبال نکن :(</button> */}
                 </ChiefCard>
               </ChiefWrapper>
             </ChiefContainer>
