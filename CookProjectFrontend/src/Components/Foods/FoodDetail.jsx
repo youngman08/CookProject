@@ -6,10 +6,14 @@ import Rating from "@mui/material/Rating";
 import PageBanner from "../Banner/PageBanner.js";
 import axios from "axios";
 import {BASE_API} from "../../App";
+import { updateRating, useRating } from "../../hooks/useRating";
+import Swal from "sweetalert2";
 
 function FoodDetail() {
   const [food, setFood] = useState({});
   const { food_id } = useParams();
+  const myRatings = useRating();
+  const score = myRatings[food.id] || food.score;  
   useEffect(() => {
     const fetchData = async () => {
       await axios
@@ -51,7 +55,10 @@ function FoodDetail() {
             <h6>{food.chief.first_name} {food.chief.last_name}</h6>
           </div>
           <div className="rating">
-            <Rating name="read-only" value={food.rate} readOnly />
+            <Rating value={score} onChange={(v) => {
+              updateRating(food.id, v.target.value);
+              Swal.fire("نظر شما با موفقیت ثبت شد");
+            }}/>
             <span className="price">{food.price}</span>
           </div>
           <div className="detail-description">

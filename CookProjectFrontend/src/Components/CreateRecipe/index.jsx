@@ -49,8 +49,7 @@ const FoodCategoryOptions = [
   },
 ];
 // selected value:  {category}
-const FoodCategoryMultipleCheckBoxComponent = () => {
-  const [category, setCategory] = useState("1");
+const FoodCategoryMultipleCheckBoxComponent = ({ category, setCategory }) => {
   function handleChange(event) {
     setCategory(event.target.value);
   }
@@ -80,8 +79,7 @@ const FoodCategoryMultipleCheckBoxComponent = () => {
 
 // Enum: DifficultyType
 //selected value: {difficulty}
-const Difficulty = () => {
-  const [difficulty, setDifficulty] = useState("2");
+const Difficulty = ({ difficulty, setDifficulty }) => {
   function onChangeValue(event) {
     setDifficulty(event.target.value);
   }
@@ -120,8 +118,7 @@ const Difficulty = () => {
 
 // Enum: DurationType
 //selected value: {preparation_time}
-const PreparationTime = () => {
-  const [preparation_time, setPreparation_time] = useState("2");
+const PreparationTime = ({ preparation_time, setPreparation_time }) => {
   function onChangeValue(event) {
     setPreparation_time(event.target.value);
   }
@@ -229,7 +226,9 @@ const Ingredients = () => {
     setInputFields([...inputFields, newfield]);
   };
   const removeFields = (index) => {
-    if (index == 0) return;
+
+    if(index===0)
+      return;
     let data = [...inputFields];
     data.splice(index, 1);
     setInputFields(data);
@@ -329,6 +328,10 @@ const Ingredients = () => {
 
 const CreateRecipe = () => {
   const { register, handleSubmit } = useForm();
+  const [category, setCategory] = useState("1");
+  const [difficulty, setDifficulty] = useState("2");
+  const [preparation_time, setPreparation_time] = useState("2");
+
   const user = useLogin();
 
   if (user === "unauth") {
@@ -339,11 +342,24 @@ const CreateRecipe = () => {
 
   const onSubmit = (data) => {
     axios
-      .post(`http://127.0.0.1:8000/api/recipes/`, JSON.stringify(data), {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+
+      .post(
+        `http://127.0.0.1:8000/api/recipes/`,
+        JSON.stringify({
+          ...data,
+          chief,
+          category,
+          difficulty,
+          preparation_time,
+          ingredients: "",
+        }), 
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+
       .then((response) => {
         alert(JSON.stringify(response));
         //results
@@ -424,18 +440,65 @@ const CreateRecipe = () => {
                 <Ingredients />
               </div>
 
-              <div className="d-button">
-                <button type="submit" className="f-button-ing">
-                  بساز !
-                </button>
-              </div>
-            </form>
-          </Searchcontainer>
-          <br />
-        </HeroContent>
-      </HeroBg>
-    </HeroContainer>
-  );
+
+          <div> 
+              <HeroLabel style={{marginRight: '100px'}}>آشپز: {chief}</HeroLabel>
+            <br/>
+            <div> 
+              <HeroLabel>نام غذا:</HeroLabel>
+              <input
+                type="text"
+                placeholder="نام غذا را وارد کنید"
+                id="name"
+                class="f-input"
+                style={{textAlign: 'center', width: '100%',  fontSize: '14px'}}
+                {...register("name")}
+              />
+            </div>
+            <br/>
+            <div> 
+              <HeroLabel>دستور پخت:</HeroLabel>
+              <textarea
+                placeholder="طرز تهیه غذا را بنویسید..."
+                id="description"
+                class="f-input"
+                style={{width: '100%',  fontSize: '14px', height: '187px', marginBottom: '10px'}}
+                {...register("description")}
+              />
+            </div>
+            <FoodCategoryMultipleCheckBoxComponent category={category} setCategory={setCategory}/>
+            <br/>
+            <Difficulty difficulty={difficulty} setDifficulty={setDifficulty}/>
+            <br/>
+            <PreparationTime preparation_time={preparation_time} setPreparation_time={setPreparation_time}/>
+            <br/>
+            <div> 
+              <input
+                type="text"
+                placeholder="شامل چه تگ‌هایی باشد؟  مثلا: #صبحانه"
+                id="meal_tags"
+                class="f-input"
+                style={{textAlign: 'center', width: '100%',  fontSize: '14px'}}
+                {...register("meal_tags")}
+              />
+            </div>
+            <br/>
+            <Ingredients/>
+          </div>
+
+          <div className="d-button">
+            <button type="submit" className="f-button">
+          بساز !
+            </button>
+          </div>
+        </form>
+      </Searchcontainer>
+      <br/>
+      
+    </HeroContent>
+  </HeroContainer>
+);
+
 };
 
 export default CreateRecipe;

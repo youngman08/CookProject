@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 
 let subscribers = [];
-let currentState = localStorage.getItem('login-state') === undefined ? "unauth" : JSON.parse(localStorage.getItem('login-state'));
+let currentState = localStorage.getItem('login-state') === null ? "unauth" : JSON.parse(localStorage.getItem('login-state'));
 
 export const updateLogin = (l) => {
     currentState = l;

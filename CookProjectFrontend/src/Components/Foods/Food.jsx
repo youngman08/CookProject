@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import FoodList from "./FoodList";
-import element from "../../images/nodel-ba-panir.jpg";
-import Rating from "@mui/material/Rating";
 import Grid from "@mui/material/Grid";
 import "./Food.css";
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar-second";
-import Footer from "../Footer";
 function Foods({ fetchFood }) {
   return (
     <>

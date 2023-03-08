@@ -13,6 +13,17 @@ import {
 } from "./NavbarElements";
 import { FaBars } from "react-icons/fa";
 import { useLogin } from "../../hooks/useLogin";
+
+export const LoginNavbarButton = () => {
+  const user = useLogin();
+  return (<NavBtn>
+    {user === "unauth" ? <NavBtnLink to="/login">ورود</NavBtnLink> : <>
+      <NavBtnLink to="/dashboard">داشبورد</NavBtnLink>
+      <NavBtnLink to="/create_recipe">ساخت غذای جدید</NavBtnLink>
+    </>}
+  </NavBtn>);
+}
+
 const Navbar = ({ toggle }) => {
   const [scrolNav, setScrolNav] = useState(false);
   const changeNav = () => {
@@ -28,7 +39,6 @@ const Navbar = ({ toggle }) => {
   const toggleHome = () => {
     scroll.scrollToTop();
   }
-  const user = useLogin();
   return (
     <>
       <Nav scrolNav={scrolNav}>
@@ -57,12 +67,7 @@ const Navbar = ({ toggle }) => {
               <NavLinks to="Experience" smooth duration={1000} spy offset={-80}>شرکت ها</NavLinks>
             </NavItem>
           </NavMenu>
-          <NavBtn>
-            {user === "unauth" ? <NavBtnLink to="/login">ورود</NavBtnLink> : <>
-              <NavBtnLink to="/dashboard">داشبورد</NavBtnLink>
-              <NavBtnLink to="/create_recipe">ساخت غذای جدید</NavBtnLink>
-            </>}
-          </NavBtn>
+          <LoginNavbarButton />
         </NavBarContainer>
       </Nav>
     </>
