@@ -1,7 +1,7 @@
 import React from "react";
 import DashPromotionComponent from "../Components/Dashboard-promotion";
 
-const DashPromotion = ({removeAuth}) => {
+const DashPromotion = () => {
   return <DashPromotionComponent />;
 };
 

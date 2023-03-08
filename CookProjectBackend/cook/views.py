@@ -45,7 +45,7 @@ def logout_user(request):
 
 @require_http_methods(["GET", "PATCH"])
 def profile(request, username):
-    current_username = request.GET.get('username')
+    current_username = request.GET.get('username').replace('"', '')
     user: SystemUser = get_object_else('username', username, SystemUser)
     if not user:
         return HttpResponse(ErrorResponse(InternalError.CREDENTIAL_MISMATCH).json)
@@ -83,6 +83,21 @@ def view_followers(request, jesus_username):
     followers = [relationship.disciple for relationship in chief.relationship_set.all()]
     return HttpResponse(ObjectListResponse(followers).json)
 
+@require_http_methods(["GET"])
+def has_user_followed_chief(request, jesus_username):
+    current_username = request.GET.get('username').replace('"', '')
+    user: SystemUser = get_object_else('username', jesus_username, SystemUser)
+    if not user:
+        return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
+    if user.role != Role.CHIEF.value:
+        return HttpResponse(ErrorResponse(InternalError.NOT_ALLOWED).json)
+    chief: Chief = get_object_else('user__username', jesus_username, Chief)
+    followers = [relationship.disciple for relationship in chief.relationship_set.all()]
+    for follower in followers:
+        if (follower.username == current_username):
+            return HttpResponse("True")
+    return HttpResponse("False")
+
 
 @require_http_methods(["GET"])
 def view_following(request, username):
@@ -103,7 +118,7 @@ def tickets(request):
 
 def create_ticket(request):
     request_model = CreateTicketRequest(request)
-    user: SystemUser = get_object_else('username', request_model.username, SystemUser)
+    user: SystemUser = get_object_else('username', request_model.username.replace('"', ""), SystemUser)
     if not user:
         return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND))
     ticket = Ticket(user=user, category=request_model.category, status=TicketStatus.NEW.value, text=request_model.text)
@@ -279,7 +294,7 @@ def advanced_filter_recipe(request):
 
 @require_http_methods(["PUT"])
 def follow(request, jesus_username):
-    disciple_username = request.GET.get('username')
+    disciple_username = request.GET.get('username').replace('"', "")
     disciple: SystemUser = get_object_else('username', disciple_username, SystemUser)
     if not disciple:
         return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
@@ -299,7 +314,7 @@ def follow(request, jesus_username):
 
 @require_http_methods(["DELETE"])
 def unfollow(request, jesus_username):
-    disciple_username = request.GET.get('username')
+    disciple_username = request.GET.get('username').replace('"', "")
     disciple: SystemUser = get_object_else('username', disciple_username, SystemUser)
     if not disciple:
         return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
@@ -335,7 +350,7 @@ def create_forum(request):
 
 
 def get_forums(request):
-    username, is_owned = request.GET.get('username'), bool(int(request.GET.get('owned')))
+    username, is_owned = request.GET.get('username').replace('"', ''), bool(int(request.GET.get('owned')))
     if is_owned:
         chief: Chief = get_object_else('user__username', username, Chief)
         if not chief:
@@ -354,7 +369,7 @@ def get_forums(request):
 
 @require_http_methods(["PATCH"])
 def join_forum(request, forum_id):
-    username = request.GET.get('username')
+    username = request.GET.get('username').replace('"', "")
     forum: Forum = get_object_else('forum_id', forum_id, Forum)
     if not forum:
         return HttpResponse(ErrorResponse(InternalError.FORUM_NOT_FOUND).json)
@@ -373,7 +388,9 @@ def join_forum(request, forum_id):
 
 @require_http_methods(["PATCH"])
 def leave_forum(request, forum_id):
-    username = request.GET.get('username')
+    username = request.GET.get('username').replace('"', "")
+    print(username)
+    print(forum_id)
     forum: Forum = get_object_else('forum_id', forum_id, Forum)
     if not forum:
         return HttpResponse(ErrorResponse(InternalError.FORUM_NOT_FOUND).json)
@@ -391,7 +408,7 @@ def leave_forum(request, forum_id):
 @require_http_methods(["DELETE"])
 def ban_from_forum(request, forum_id):
     owner_username = request.GET.get('owner')
-    username = request.GET.get('username')
+    username = request.GET.get('username').replace('"', '')
     forum: Forum = get_object_else('forum_id', forum_id, Forum)
     if not forum:
         return HttpResponse(ErrorResponse(InternalError.FORUM_NOT_FOUND).json)
@@ -426,6 +443,7 @@ def delete_forum(request, forum_id):
 
 @require_http_methods(["POST"])
 def post_on_forum(request, forum_id):
+    print("request: ", request)
     request_model = PostOnForumRequest(request)
     forum: Forum = get_object_else('forum_id', forum_id, Forum)
     if not forum:
@@ -440,7 +458,7 @@ def post_on_forum(request, forum_id):
 
 @require_http_methods(["GET"])
 def view_forum(request):
-    username = request.GET.get('username')
+    username = request.GET.get('username').replace('"', "")
     forum_id = request.GET.get('forumId')
     user: SystemUser = get_object_else('username', username, SystemUser)
     if not user:
@@ -454,7 +472,7 @@ def view_forum(request):
 
 @require_http_methods(["GET"])
 def exist_user_in_forum(request, forum_id):
-    username = request.GET.get('username')
+    username = request.GET.get('username').replace('"', '')
     user: SystemUser = get_object_else('username', username, SystemUser)
     if not user:
         return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
@@ -495,7 +513,7 @@ def view_comments(request):
 
 @require_http_methods(["DELETE"])
 def delete_comment(request, comment_id):
-    username = request.GET.get('username')
+    username = request.GET.get('username').replace('"', '')
     comment: Comment = get_object_else('comment_id', comment_id, Comment)
     if not comment:
         return HttpResponse(ErrorResponse(InternalError.COMMENT_NOT_FOUND).json)

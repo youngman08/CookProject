@@ -7,7 +7,8 @@ import PageBanner from "../Banner/PageBanner.js";
 import chief_profile_img from "../../images/chief_profile.jpg";
 import author_avatar from "../../images/author-avatar.png";
 import axios from "axios";
-import {BASE_API} from "../../App";
+import {BASE_API, check_error} from "../../App";
+import Swal from 'sweetalert2';
 
 import {
   ChiefCard,
@@ -22,50 +23,84 @@ import Sidebar from "../Sidebar";
 import Navbar from "../Navbar-second";
 import Grid from "@mui/material/Grid";
 import { useForm } from "react-hook-form";
+import { updateLogin, useLogin } from "../../hooks/useLogin";
+
 function ForumDetail() {
   const [Forum, setForum] = useState({});
-  const [followed, setFollowed] = useState(false);
+  const [followedForum, setFollowedForum] = useState(false);
+  const [followedChief, setFollowedChief] = useState(false);
   const { register, handleSubmit } = useForm();
   const [chiefDetail, setChiefDetail] = useState({});
   const { chiefName, forumName, forumId } = useParams();
+<<<<<<< HEAD
   const username=localStorage.getItem("username");
   console.log(chiefName);
   console.log(forumName);
   console.log(forumId);
   
+=======
+  const user = useLogin();
+  const username = user.username;
+  const Swal = require('sweetalert2')
+
+>>>>>>> 356cc53f3220420567c52a7556f4ca2fc1c17e59
   useEffect(() => {
-    const checkFollowed = async () => {
+    const checkFollowedForum = async () => {
       await axios
         .get(BASE_API + `forums/${forumId}/checkFollowed`,{
             params: {
-              username: localStorage.getItem("username")
+              username: username
             },
               headers: {
                 "Content-Type": "application/json",
-              },
+            },
           }
         )
         .then((response) => {
           console.log(response.data);
           if (response.data == "True")
-            setFollowed(true); //results
+            setFollowedForum(true); //results
           else
-            setFollowed(false); //results
+            setFollowedForum(false); //results
         })
         .catch((error) => {
           console.log("error in get checking followed forum or not.");
         });
     }
+
+    const checkFollowedChief = async () => {
+      await axios
+        .get(BASE_API + `accounts/${chiefName}/hasFollowed`,{
+            params: {
+              username: username
+            },
+              headers: {
+                "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          if (response.data == "True")
+            setFollowedChief(true); //results
+          else
+            setFollowedChief(false); //results
+        })
+        .catch((error) => {
+          console.log("error in get checking followed forum or not.");
+        });
+    }
+
     const fetchData = async () => {
       await axios
         .get(BASE_API + "forums/view",{
             params: {
               forumId: 1,
-              username: localStorage.getItem("username")
+              username: username
             },
               headers: {
                 "Content-Type": "application/json",
-              },
+            },
           }
         )
         .then((response) => {
@@ -76,61 +111,131 @@ function ForumDetail() {
           console.log("error in get forum info.");
         });
     }
-    checkFollowed();
+    checkFollowedForum();
+    checkFollowedChief();
     fetchData();
   }, []);
-    
-  function follow_chief(){
-        axios
-            .get(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              }
-            ).then((response)  => {
-              console.log(response.data)
-            })
-            .catch((error) => {})
-          }
   
-  const followForum = () => {
+  function follow_chief() {
     axios
-        .get(BASE_API + `forums/${forumId}/join`,{
-            params: {
-              username: localStorage.getItem("username")
+        .put(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
+            headers: {
+              "Content-Type": "application/json",
             },
+          }
+        ).then((response)  => {
+          console.log(response.data);
+          setFollowedChief(true); //
+          Swal.fire({
+            title: 'Follow Chief',
+            text: `You follow chief ${chiefName} now`,
+            icon: 'success',
+          })
+        })
+        .catch((error) => {
+          console.log("error in follow chief.");
+        });
+  }
+
+  function unfollow_chief() {
+    axios
+        .delete(BASE_API + `accounts/${chiefName}/unfollow/?username=${username}`,{
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        ).then((response)  => {
+          console.log(response.data)
+          setFollowedChief(false); //results
+          Swal.fire({
+            title: 'Unfollow Chief',
+            text: `You unfollow chief ${chiefName}`,
+            icon: 'success',
+          })
+        })
+        .catch((error) => {
+          console.log("error in follow chief.");
+        });
+  }  
+  
+  function followForum() {
+    axios
+        .patch(BASE_API + `forums/${forumId}/join/?username=${username}`,{
               headers: {
                 "Content-Type": "application/json",
-              },
+            },
           }
         )
         .then((response) => {
           console.log(response.data);
-          setFollowed(true); //results
+          setFollowedForum(true); //results
+          Swal.fire({
+            title: 'Follow Forum',
+            text: `You follow forum ${forumId} now`,
+            icon: 'success',
+          })
         })
         .catch((error) => {
           console.log("error in get forum info.");
         });
   }
 
-  const unfollowForum = () => {
+  function unfollowForum() {
     axios
-        .get(BASE_API + `forums/${forumId}/leave`,{
-            params: {
-              username: localStorage.getItem("username")
-            },
+        .patch(BASE_API + `forums/${forumId}/leave/?username=${username}`,{
               headers: {
                 "Content-Type": "application/json",
-              },
+            },
           }
         )
         .then((response) => {
           console.log(response.data);
-          setFollowed(false); //results
+          setFollowedForum(false); //results
+          Swal.fire({
+            title: 'Unfollow Forum',
+            text: `You unfollow forum ${forumId}`,
+            icon: 'success',
+          })
         })
         .catch((error) => {
           console.log("error in get forum info.");
         });
+  }
+
+  const onSubmit = (data) => {
+    console.log("on submit text:");
+    console.log(data)
+    axios
+        .post(
+            BASE_API + `forums/${forumId}/post/`,
+            {
+              params: {
+                sender: username,
+                text: data.text
+              },
+              headers: {
+                  "Content-Type": "application/json",
+              },
+            }
+        )
+        .then((response) => {
+            if (check_error(response.data))
+                alert(response.data.err_msg)
+            else{
+              Swal.fire({
+                title: 'Post Comment',
+                text: `You post a comment now`,
+                icon: 'success',
+              })
+              window.location.reload(false);
+            }
+        })
+        .catch((error) => {
+        });
+  };
+
+  while (Forum.messages == undefined){
+    return <>Still loading...</>;
   }
 
   return (
@@ -159,8 +264,13 @@ function ForumDetail() {
                   >
                     سوالات خود را بپرسید!
                   </a>
+<<<<<<< HEAD
                   <button class="mbtn" onClick={follow_chief}>دنبال کن !</button>
                  {/* <button class="mbtn2" onClick={unfollow_chief}>دنبال نکن :(</button> */}
+=======
+                  <button class="mbtn" hidden={followedChief} onClick={follow_chief}>دنبال کن !</button>
+                  <button class="mbtn2" hidden={!followedChief} onClick={unfollow_chief}>دنبال نکن :(</button>
+>>>>>>> 356cc53f3220420567c52a7556f4ca2fc1c17e59
                 </ChiefCard>
               </ChiefWrapper>
             </ChiefContainer>
@@ -171,45 +281,46 @@ function ForumDetail() {
             <div className="forum_body_area">
               <div className="f-p-container">
                 <h1 className="f-title">فوروم {forumId}</h1>
-                <button class="mbtn" onClick={followForum()}>دنبال کن !</button>
-                <button class="mbtn2" onClick={unfollowForum()}>دنبال نکن :(</button>
+                <button class="mbtn" hidden={followedForum} onClick={followForum}>دنبال کن !</button>
+                <button class="mbtn2" hidden={!followedForum} onClick={unfollowForum}>دنبال نکن :(</button>
               </div>
               <div class="forum-post-top">
                 <a class="author-avatar" href="#">
                   <img src={author_avatar} alt="author avatar" />
                 </a>
                 <div class="forum-post-author">
-                  <a class="author-name" href="#">
-                    Eh Jewel
-                  </a>
-                  <div class="forum-author-meta">
-                    <div class="author-badge">
-                      <span>Conversation Starter</span>
-                    </div>
-                    <div class="author-badge">
-                      <i class="icon_calendar"></i>
-                      <p>January 16 at 10:32 PM</p>
-                    </div>
-                  </div>
+                  
                   <div class="comment-content">
-                    <p>
-                      Cheeky chap jolly good mufty a load of old tosh I don't
-                      want no agro a chinwag amongst tickety-boo, tosser
-                      victoria sponge horse play happy days give us a bell nice
-                      one cup of tea young delinquent wellies, cockup absolutely
-                      bladdered barmy bleeding.!
-                    </p>
+                    {Forum.messages.map((comment) => (
+                      <Grid>
+                        <a class="author-name" href="#">
+                          {comment.sender}
+                        </a>
+                        <div class="forum-author-meta">
+                          <div class="author-badge">
+                            <span>Conversation Starter</span>
+                          </div>
+                          <div class="author-badge">
+                            <i class="icon_calendar"></i>
+                            <p>{comment.date}</p>
+                          </div>
+                        </div>
+                        <p>
+                          {comment.text}
+                        </p>
+                      </Grid>
+                    ))}
                   </div>
                 </div>
               </div>
-              <form id="review-form" className="review-form">
+              <form id="review-form" className="review-form" onSubmit={handleSubmit(onSubmit)}>
                 <h4>نظر خود را بنویسید</h4>
                 <br />
                 <input
                   type="text"
                   placeholder="متن"
                   className="form-control"
-                  {...register("last_name")}
+                  {...register("text")}
                 />
                 <button class="btn action_btn thm_btn" type="submit">
                   ثبت نظر

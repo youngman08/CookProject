@@ -17,9 +17,9 @@ function FoodDetail() {
             params: {
               recipe_id: food_id
             },
-              headers: {
-                "Content-Type": "application/json",
-              },
+            headers: {
+              "Content-Type": "application/json",
+            },
           }
         )
         .then((response) => {

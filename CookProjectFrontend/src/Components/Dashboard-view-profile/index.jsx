@@ -4,15 +4,14 @@ import {Container} from "./ViewProfile";
 import DashboardSidebar from "../Dashboard/Dash-sidebar";
 import DashboardHeader from "../Dashboard/Dash-header";
 import "./view-profile.css";
-import url_img from "./../../images/1.jpg";
-import {useForm} from "react-hook-form";
 import axios from "axios";
 import {BASE_API, ROLES} from "../../App";
+import { updateLogin, useLogin } from "../../hooks/useLogin";
 
-const ViewProfile = ({removeAuth}) => {
-    const {register, handleSubmit} = useForm();
-    let username = JSON.parse(localStorage.getItem("username"));
-    const [user, setUser] = useState(null);
+const ViewProfile = () => {
+    const [user_info, setUser] = useState(null);
+    const user = useLogin();
+    let username = user.username;
 
     useEffect(() => {
         console.log(username)
@@ -24,45 +23,45 @@ const ViewProfile = ({removeAuth}) => {
             .catch((error) => {
                 // handle error
             });
-    }, []);
+    }, [username]);
     return (
         <Container>
             <DashboardSidebar/>
-            <DashboardHeader removeAuth={removeAuth}/>
-            {user &&
+            <DashboardHeader />
+            {user_info &&
             <div className="content-edit">
-                <p> سلام {user.first_name} به سایت ما خوش آمدی</p>
+                <p> سلام {user_info.first_name} به سایت ما خوش آمدی</p>
                 <div className="form-text">
                     <div className="row">
                         <div className="col1">
                             <label htmlFor="fname">نام</label>
                             <br/>
-                            <h6>{user.first_name}</h6>
+                            <h6>{user_info.first_name}</h6>
                         </div>
                         <div className="col1">
                             <label htmlFor="lname">نام خانوادگی</label>
                             <br/>
-                            <h6>{user.last_name}</h6>
+                            <h6>{user_info.last_name}</h6>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col1">
                             <label htmlFor="lname">ایمیل</label>
                             <br/>
-                            <h6>{user.email}</h6>
+                            <h6>{user_info.email}</h6>
                         </div>
-                        {user.role === 2 &&
+                        {user_info.role === 2 &&
                         <div className="col1">
                             <label htmlFor="bio">شرح حال</label>
                             <br/>
-                            <h6>{user.bio}</h6>
+                            <h6>{user_info.bio}</h6>
                         </div>
                         }
                     </div>
                     <div className="col1">
                         <label htmlFor="lname">نقش کاربری</label>
                         <br/>
-                        <h6>{ROLES[user.role]}</h6>
+                        <h6>{ROLES[user_info.role]}</h6>
                     </div>
                 </div>
             </div>}

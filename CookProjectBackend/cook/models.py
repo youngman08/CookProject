@@ -191,19 +191,20 @@ class Forum(models.Model):
     banned = models.ManyToManyField(SystemUser, related_name='banned')
     members_count = models.IntegerField(default=0)
     name = models.CharField(max_length=100)
+    forum_text = models.CharField(max_length=1000, default='This is default forum text for previous forums. rest in peace.')
 
     class Meta:
         unique_together = ['owner', 'name']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.data_dict = dict(id=self.forum_id, owner=self.owner.user.username, name=self.name,
-                              members_count=self.members_count)
+        self.data_dict = dict(id=self.forum_id, owner=self.owner.user.username, name=self.name, 
+                              forum_text=self.forum_text, members_count=self.members_count)
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         super().save(force_insert, force_update, using, update_fields)
         self.data_dict = dict(id=self.forum_id, owner=self.owner.user.username, name=self.name,
-                              members_count=self.members_count)
+                              forum_text=self.forum_text, members_count=self.members_count)
 
     def __str__(self) -> str:
         return f"Forum {self.name} by {self.owner.user}"

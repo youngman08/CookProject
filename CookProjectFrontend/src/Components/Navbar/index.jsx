@@ -12,6 +12,7 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 import { FaBars } from "react-icons/fa";
+import { useLogin } from "../../hooks/useLogin";
 const Navbar = ({ toggle }) => {
   const [scrolNav, setScrolNav] = useState(false);
   const changeNav = () => {
@@ -27,6 +28,7 @@ const Navbar = ({ toggle }) => {
   const toggleHome = () => {
     scroll.scrollToTop();
   }
+  const user = useLogin();
   return (
     <>
       <Nav scrolNav={scrolNav}>
@@ -56,7 +58,10 @@ const Navbar = ({ toggle }) => {
             </NavItem>
           </NavMenu>
           <NavBtn>
-            <NavBtnLink to="/login">ورود</NavBtnLink>
+            {user === "unauth" ? <NavBtnLink to="/login">ورود</NavBtnLink> : <>
+              <NavBtnLink to="/dashboard">داشبورد</NavBtnLink>
+              <NavBtnLink to="/create_recipe">ساخت غذای جدید</NavBtnLink>
+            </>}
           </NavBtn>
         </NavBarContainer>
       </Nav>

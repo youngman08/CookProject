@@ -8,18 +8,22 @@ import url_img from "./../../images/1.jpg";
 import {useForm} from "react-hook-form";
 import axios from "axios";
 import {BASE_API, check_error, ROLES} from "../../App";
+import { updateLogin, useLogin } from "../../hooks/useLogin";
+import Swal from 'sweetalert2';
 
-const EditProfile = ({removeAuth}) => {
+const EditProfile = () => {
     const {register, handleSubmit} = useForm();
-    let username = JSON.parse(localStorage.getItem("username"));
-    const [user, setUser] = useState(null);
+    const user = useLogin();
+    let username = user.username;
+    const [user_change_info, setUser] = useState(null);
+    const Swal = require('sweetalert2')
     const onSubmit = (data) => {
         if (data.email === "")
-            data.email = user.email
+            data.email = user_change_info.email
         if (data.first_name === "")
-            data.first_name = user.first_name
+            data.first_name = user_change_info.first_name
         if (data.last_name === "")
-            data.last_name = user.last_name
+            data.last_name = user_change_info.last_name
         console.log(data)
         axios
             .patch(
@@ -34,9 +38,14 @@ const EditProfile = ({removeAuth}) => {
             .then((response) => {
                 if (check_error(response.data))
                     alert(response.data.err_msg)
-                else
+                else{
                     setUser(response.data)
-
+                    Swal.fire({
+                        title: 'Edit profile',
+                        text: 'You edit profile now',
+                        icon: 'success',
+                      })
+                }
             })
             .catch((error) => {
             });
@@ -57,10 +66,10 @@ const EditProfile = ({removeAuth}) => {
     return (
         <Container>
             <DashboardSidebar/>
-            <DashboardHeader removeAuth={removeAuth}/>
-            {user &&
+            <DashboardHeader />
+            {user_change_info &&
             <div className="content-edit">
-                    <p> سلام {user.first_name} به سایت ما خوش آمدی</p>
+                    <p> سلام {user_change_info.first_name} به سایت ما خوش آمدی</p>
                 <div className="form-edit">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="row">
@@ -69,7 +78,7 @@ const EditProfile = ({removeAuth}) => {
                                 <br/>
                                 <input
                                     type="text"
-                                    placeholder={user.first_name}
+                                    placeholder={user_change_info.first_name}
                                     className="f-input"
                                     {...register("first_name")}
                                 />
@@ -79,7 +88,7 @@ const EditProfile = ({removeAuth}) => {
                                 <br/>
                                 <input
                                     type="text"
-                                    placeholder={user.last_name}
+                                    placeholder={user_change_info.last_name}
                                     className="f-input"
                                     {...register("last_name")}
                                 />
@@ -91,7 +100,7 @@ const EditProfile = ({removeAuth}) => {
                                 <br/>
                                 <input
                                     type="email"
-                                    placeholder={user.email}
+                                    placeholder={user_change_info.email}
                                     className="f-input"
                                     {...register("email")}
                                 />
@@ -102,7 +111,7 @@ const EditProfile = ({removeAuth}) => {
                             <br/>
                             <input
                                 type="text"
-                                value={ROLES[user.role]}
+                                value={ROLES[user_change_info.role]}
                                 className="f-input"
                                 readOnly={true}
                             />

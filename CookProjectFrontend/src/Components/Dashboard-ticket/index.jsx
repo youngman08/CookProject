@@ -12,15 +12,20 @@ import Grid from "@mui/material/Grid";
 import "./dash-promotion.css";
 import {BASE_API} from "../../App";
 import { List } from "@mui/material";
+import { updateLogin, useLogin } from "../../hooks/useLogin";
+import Swal from 'sweetalert2';
 
 const DashPromotionComponent = () => {
   const [tickets, setTickets] = useState({});
+  const user = useLogin();
+  const Swal = require('sweetalert2')
+
   useEffect(() => {
     const fetchData = async () => {
       await axios
         .get(BASE_API + "tickets/",{
             params: {
-              username: localStorage.getItem("username"),
+              username: user.username,
             },
               headers: {
                 "Content-Type": "application/json",
@@ -28,6 +33,8 @@ const DashPromotionComponent = () => {
           }
         )
         .then((response) => {
+          console.log("useeffect");
+          console.log(response.data);
           setTickets(response.data); //results
         })
         .catch((error) => {
@@ -44,7 +51,7 @@ const DashPromotionComponent = () => {
     console.log(JSON.stringify(data));
     var ticketParameter = {
       text: data.text,
-      username: localStorage.getItem("username"),
+      username: user.username,
       category: 1,
     };
     console.log(ticketParameter);
@@ -55,8 +62,12 @@ const DashPromotionComponent = () => {
         },
       })
       .then((response) => {
-        alert("تیکت با موفقیت ثبت شد.");
-        navigate("/dashboard/tickets");
+        Swal.fire({
+            title: 'Post ticket',
+            text: 'You post a ticket now',
+            icon: 'success',
+          })
+        window.location.reload(false);
       })
       .catch((error) => {
         alert("خطایی رخ داده است. لطفا مجددا تلاش کنید.");

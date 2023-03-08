@@ -18,6 +18,7 @@ import {
   ArrowForward,
   ArrowRight,
 } from "./createRecipe";
+import { useLogin } from "../../hooks/useLogin";
 
 
 // Enum: FoodCategory
@@ -244,7 +245,13 @@ const Ingredients = () => {
 
 const CreateRecipe = () => {
   const { register, handleSubmit } = useForm();
-  let chief = "ysh";//localStorage.getItem("chief");
+  const user = useLogin();
+
+  if (user === "unauth") {
+    return <div>ابتدا وارد شوید</div>;
+  }
+  
+  let chief = user.username;
 
   const onSubmit = (data) => {
     axios
@@ -258,6 +265,7 @@ const CreateRecipe = () => {
         }
       )
       .then((response) => {
+        alert(JSON.stringify(response));
         //results
       })
       .catch((error) => {

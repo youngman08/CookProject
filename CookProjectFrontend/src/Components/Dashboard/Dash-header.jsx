@@ -8,16 +8,20 @@ import "./Dashboard.css";
 import url_img from "./../../images/1.jpg";
 import axios from "axios";
 import {BASE_API, check_error} from "../../App";
+import { updateLogin, useLogin } from "../../hooks/useLogin";
 
-const DashboardHeader = ({removeAuth}) => {
+const DashboardHeader = () => {
     const navigate = useNavigate();
     const logout = () => {
         navigate('/');
-        removeAuth();
+        updateLogin("unauth");
     }
+    const user = useLogin();
+    
     return (
         <div className="web-header">
             <div className="element">
+                <div>خوش آمدید {user.username}</div>
                 <NotificationsOutlinedIcon className="m2-icon"/>
                 <ChatBubbleOutlineOutlinedIcon className="m2-icon"/>
                 <ShoppingCartOutlinedIcon className="m2-icon"/>
