@@ -12,6 +12,7 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 import { FaBars } from "react-icons/fa";
+import { LoginNavbarButton } from "../Navbar";
 const Navbar = ({ toggle }) => {
   const [scrolNav, setScrolNav] = useState(false);
   const changeNav = () => {
@@ -41,9 +42,7 @@ const Navbar = ({ toggle }) => {
                 خانه
               </NavLinks>
         </NavBarContainer>
-        <NavBtn>
-          <NavBtnLink to="/login">ورود</NavBtnLink>
-        </NavBtn>
+        <LoginNavbarButton/>
       </Nav>
     </>
   );
