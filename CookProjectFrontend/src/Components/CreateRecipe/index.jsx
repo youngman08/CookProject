@@ -226,9 +226,7 @@ const Ingredients = () => {
     setInputFields([...inputFields, newfield]);
   };
   const removeFields = (index) => {
-
-    if(index===0)
-      return;
+    if (index === 0) return;
     let data = [...inputFields];
     data.splice(index, 1);
     setInputFields(data);
@@ -352,7 +350,7 @@ const CreateRecipe = () => {
           difficulty,
           preparation_time,
           ingredients: "",
-        }), 
+        }),
         {
           headers: {
             "Content-Type": "application/json",
@@ -440,65 +438,87 @@ const CreateRecipe = () => {
                 <Ingredients />
               </div>
 
+              <div>
+                <HeroLabel style={{ marginRight: "100px" }}>
+                  آشپز: {chief}
+                </HeroLabel>
+                <br />
+                <div>
+                  <HeroLabel>نام غذا:</HeroLabel>
+                  <input
+                    type="text"
+                    placeholder="نام غذا را وارد کنید"
+                    id="name"
+                    class="f-input"
+                    style={{
+                      textAlign: "center",
+                      width: "100%",
+                      fontSize: "14px",
+                    }}
+                    {...register("name")}
+                  />
+                </div>
+                <br />
+                <div>
+                  <HeroLabel>دستور پخت:</HeroLabel>
+                  <textarea
+                    placeholder="طرز تهیه غذا را بنویسید..."
+                    id="description"
+                    class="f-input"
+                    style={{
+                      width: "100%",
+                      fontSize: "14px",
+                      height: "187px",
+                      marginBottom: "10px",
+                    }}
+                    {...register("description")}
+                  />
+                </div>
+                <FoodCategoryMultipleCheckBoxComponent
+                  category={category}
+                  setCategory={setCategory}
+                />
+                <br />
+                <Difficulty
+                  difficulty={difficulty}
+                  setDifficulty={setDifficulty}
+                />
+                <br />
+                <PreparationTime
+                  preparation_time={preparation_time}
+                  setPreparation_time={setPreparation_time}
+                />
+                <br />
+                <div>
+                  <input
+                    type="text"
+                    placeholder="شامل چه تگ‌هایی باشد؟  مثلا: #صبحانه"
+                    id="meal_tags"
+                    class="f-input"
+                    style={{
+                      textAlign: "center",
+                      width: "100%",
+                      fontSize: "14px",
+                    }}
+                    {...register("meal_tags")}
+                  />
+                </div>
+                <br />
+                <Ingredients />
+              </div>
 
-          <div> 
-              <HeroLabel style={{marginRight: '100px'}}>آشپز: {chief}</HeroLabel>
-            <br/>
-            <div> 
-              <HeroLabel>نام غذا:</HeroLabel>
-              <input
-                type="text"
-                placeholder="نام غذا را وارد کنید"
-                id="name"
-                class="f-input"
-                style={{textAlign: 'center', width: '100%',  fontSize: '14px'}}
-                {...register("name")}
-              />
-            </div>
-            <br/>
-            <div> 
-              <HeroLabel>دستور پخت:</HeroLabel>
-              <textarea
-                placeholder="طرز تهیه غذا را بنویسید..."
-                id="description"
-                class="f-input"
-                style={{width: '100%',  fontSize: '14px', height: '187px', marginBottom: '10px'}}
-                {...register("description")}
-              />
-            </div>
-            <FoodCategoryMultipleCheckBoxComponent category={category} setCategory={setCategory}/>
-            <br/>
-            <Difficulty difficulty={difficulty} setDifficulty={setDifficulty}/>
-            <br/>
-            <PreparationTime preparation_time={preparation_time} setPreparation_time={setPreparation_time}/>
-            <br/>
-            <div> 
-              <input
-                type="text"
-                placeholder="شامل چه تگ‌هایی باشد؟  مثلا: #صبحانه"
-                id="meal_tags"
-                class="f-input"
-                style={{textAlign: 'center', width: '100%',  fontSize: '14px'}}
-                {...register("meal_tags")}
-              />
-            </div>
-            <br/>
-            <Ingredients/>
-          </div>
-
-          <div className="d-button">
-            <button type="submit" className="f-button">
-          بساز !
-            </button>
-          </div>
-        </form>
-      </Searchcontainer>
-      <br/>
-      
-    </HeroContent>
-  </HeroContainer>
-);
-
+              <div className="d-button">
+                <button type="submit" className="f-button">
+                  بساز !
+                </button>
+              </div>
+            </form>
+          </Searchcontainer>
+          <br />
+        </HeroContent>
+      </HeroBg>
+    </HeroContainer>
+  );
 };
 
 export default CreateRecipe;
