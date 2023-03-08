@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 20,
+            "activePatchIndex": 81,
             "patches": [
                 {
                     "date": 1678278629529,
@@ -88,6 +88,250 @@
                 {
                     "date": 1678283625537,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -358,8 +358,9 @@\n                       }}\r\n                       {...register(\"name\")}\r\n                     />\r\n                   </div>\r\n+                  </div>\r\n                   <br />\r\n                   <div>\r\n                     <HeroLabel>دستور پخت:</HeroLabel>\r\n                     <textarea\r\n"
+                },
+                {
+                    "date": 1678285943168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -334,18 +334,16 @@\n \r\n   return (\r\n     <HeroContainer style={{ backgroundImage: `url(${create_recipe_img})` }}>\r\n       <HeroBg>\r\n-          <HeroContent>\r\n-            <HeroH1 >غذای جدیدی تعریف کنید!</HeroH1>\r\n-            <Searchcontainer>\r\n-              <form onSubmit={handleSubmit(onSubmit)} className=\"my-form\">\r\n+        <HeroContent>\r\n+          <HeroH1>غذای جدیدی تعریف کنید!</HeroH1>\r\n+          <Searchcontainer>\r\n+            <form onSubmit={handleSubmit(onSubmit)} className=\"my-form\">\r\n+              <div>\r\n+                <HeroLabel style={>آشپز: {chief}</HeroLabel>\r\n                 <div>\r\n-                  <HeroLabel >\r\n-                    آشپز: {chief}\r\n-                  </HeroLabel>\r\n                   <div>\r\n-                    <div>\r\n                     <HeroLabel>نام غذا:</HeroLabel>\r\n                     <input\r\n                       type=\"text\"\r\n                       placeholder=\"نام غذا را وارد کنید\"\r\n@@ -358,58 +356,58 @@\n                       }}\r\n                       {...register(\"name\")}\r\n                     />\r\n                   </div>\r\n-                  </div>\r\n-                  <br />\r\n-                  <div>\r\n-                    <HeroLabel>دستور پخت:</HeroLabel>\r\n-                    <textarea\r\n-                      placeholder=\"طرز تهیه غذا را بنویسید...\"\r\n-                      id=\"description\"\r\n-                      class=\"f-input\"\r\n-                      style={{\r\n-                        width: \"100%\",\r\n-                        fontSize: \"14px\",\r\n-                        height: \"187px\",\r\n-                        marginBottom: \"10px\",\r\n-                      }}\r\n-                      {...register(\"description\")}\r\n-                    />\r\n-                  </div>\r\n-                  <FoodCategoryMultipleCheckBoxComponent />\r\n-                  <br />\r\n-                  <Difficulty />\r\n-                  <br />\r\n-                  <PreparationTime />\r\n-                  <br />\r\n-                  <div>\r\n-                    <input\r\n-                      type=\"text\"\r\n-                      placeholder=\"شامل چه تگ‌هایی باشد؟  مثلا: #صبحانه\"\r\n-                      id=\"meal_tags\"\r\n-                      class=\"f-input\"\r\n-                      style={{\r\n-                        textAlign: \"center\",\r\n-                        width: \"100%\",\r\n-                        fontSize: \"14px\",\r\n-                      }}\r\n-                      {...register(\"meal_tags\")}\r\n-                    />\r\n-                  </div>\r\n-                  <br />\r\n-                  <Ingredients />\r\n                 </div>\r\n+                <br />\r\n+                <div>\r\n+                  <HeroLabel>دستور پخت:</HeroLabel>\r\n+                  <textarea\r\n+                    placeholder=\"طرز تهیه غذا را بنویسید...\"\r\n+                    id=\"description\"\r\n+                    class=\"f-input\"\r\n+                    style={{\r\n+                      width: \"100%\",\r\n+                      fontSize: \"14px\",\r\n+                      height: \"187px\",\r\n+                      marginBottom: \"10px\",\r\n+                    }}\r\n+                    {...register(\"description\")}\r\n+                  />\r\n+                </div>\r\n+                <FoodCategoryMultipleCheckBoxComponent />\r\n+                <br />\r\n+                <Difficulty />\r\n+                <br />\r\n+                <PreparationTime />\r\n+                <br />\r\n+                <div>\r\n+                  <input\r\n+                    type=\"text\"\r\n+                    placeholder=\"شامل چه تگ‌هایی باشد؟  مثلا: #صبحانه\"\r\n+                    id=\"meal_tags\"\r\n+                    class=\"f-input\"\r\n+                    style={{\r\n+                      textAlign: \"center\",\r\n+                      width: \"100%\",\r\n+                      fontSize: \"14px\",\r\n+                    }}\r\n+                    {...register(\"meal_tags\")}\r\n+                  />\r\n+                </div>\r\n+                <br />\r\n+                <Ingredients />\r\n+              </div>\r\n \r\n-                <div className=\"d-button\">\r\n-                  <button type=\"submit\" className=\"f-button\">\r\n-                    بساز !\r\n-                  </button>\r\n-                </div>\r\n-              </form>\r\n-            </Searchcontainer>\r\n-            <br />\r\n-          </HeroContent>\r\n+              <div className=\"d-button\">\r\n+                <button type=\"submit\" className=\"f-button\">\r\n+                  بساز !\r\n+                </button>\r\n+              </div>\r\n+            </form>\r\n+          </Searchcontainer>\r\n+          <br />\r\n+        </HeroContent>\r\n       </HeroBg>\r\n     </HeroContainer>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1678285962105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -339,9 +339,9 @@\n           <HeroH1>غذای جدیدی تعریف کنید!</HeroH1>\r\n           <Searchcontainer>\r\n             <form onSubmit={handleSubmit(onSubmit)} className=\"my-form\">\r\n               <div>\r\n-                <HeroLabel style={>آشپز: {chief}</HeroLabel>\r\n+                <HeroLabel style={\"\"}>آشپز: {chief}</HeroLabel>\r\n                 <div>\r\n                   <div>\r\n                     <HeroLabel>نام غذا:</HeroLabel>\r\n                     <input\r\n"
+                },
+                {
+                    "date": 1678285968800,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -339,9 +339,9 @@\n           <HeroH1>غذای جدیدی تعریف کنید!</HeroH1>\r\n           <Searchcontainer>\r\n             <form onSubmit={handleSubmit(onSubmit)} className=\"my-form\">\r\n               <div>\r\n-                <HeroLabel style={\"\"}>آشپز: {chief}</HeroLabel>\r\n+                <HeroLabel style={}>آشپز: {chief}</HeroLabel>\r\n                 <div>\r\n                   <div>\r\n                     <HeroLabel>نام غذا:</HeroLabel>\r\n                     <input\r\n"
+                },
+                {
+                    "date": 1678285976664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -339,9 +339,9 @@\n           <HeroH1>غذای جدیدی تعریف کنید!</HeroH1>\r\n           <Searchcontainer>\r\n             <form onSubmit={handleSubmit(onSubmit)} className=\"my-form\">\r\n               <div>\r\n-                <HeroLabel style={}>آشپز: {chief}</HeroLabel>\r\n+                <HeroLabel style={{fo}}>آشپز: {chief}</HeroLabel>\r\n                 <div>\r\n                   <div>\r\n                     <HeroLabel>نام غذا:</HeroLabel>\r\n                     <input\r\n"
+                },
+                {
+                    "date": 1678285982971,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -339,9 +339,9 @@\n           <HeroH1>غذای جدیدی تعریف کنید!</HeroH1>\r\n           <Searchcontainer>\r\n             <form onSubmit={handleSubmit(onSubmit)} className=\"my-form\">\r\n               <div>\r\n-                <HeroLabel style={{fo}}>آشپز: {chief}</HeroLabel>\r\n+                <HeroLabel style={{fontSize:20px}}>آشپز: {chief}</HeroLabel>\r\n                 <div>\r\n                   <div>\r\n                     <HeroLabel>نام غذا:</HeroLabel>\r\n                     <input\r\n"
+                },
+                {
+                    "date": 1678285996961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -339,9 +339,9 @@\n           <HeroH1>غذای جدیدی تعریف کنید!</HeroH1>\r\n           <Searchcontainer>\r\n             <form onSubmit={handleSubmit(onSubmit)} className=\"my-form\">\r\n               <div>\r\n-                <HeroLabel style={{fontSize:20px}}>آشپز: {chief}</HeroLabel>\r\n+                <HeroLabel style={{fontSize:`20px'}}>آشپز: {chief}</HeroLabel>\r\n                 <div>\r\n                   <div>\r\n                     <HeroLabel>نام غذا:</HeroLabel>\r\n                     <input\r\n"
+                },
+                {
+                    "date": 1678286009553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -339,9 +339,9 @@\n           <HeroH1>غذای جدیدی تعریف کنید!</HeroH1>\r\n           <Searchcontainer>\r\n             <form onSubmit={handleSubmit(onSubmit)} className=\"my-form\">\r\n               <div>\r\n-                <HeroLabel style={{fontSize:`20px'}}>آشپز: {chief}</HeroLabel>\r\n+                <HeroLabel style={{fontSize:`30px`}}>آشپز: {chief}</HeroLabel>\r\n                 <div>\r\n                   <div>\r\n                     <HeroLabel>نام غذا:</HeroLabel>\r\n                     <input\r\n"
+                },
+                {
+                    "date": 1678286184404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,9 +64,9 @@\n         style={{\r\n           borderRadius: \"25px\",\r\n           textAlign: \"center\",\r\n           width: \"55%\",\r\n-          fontSize: \"16px\",\r\n+          fontSize: \"20px\",\r\n         }}\r\n       >\r\n         {FoodCategoryOptions.map((option) => (\r\n           <option value={option.value}>{option.label}</option>\r\n"
+                },
+                {
+                    "date": 1678286191069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,8 +65,9 @@\n           borderRadius: \"25px\",\r\n           textAlign: \"center\",\r\n           width: \"55%\",\r\n           fontSize: \"20px\",\r\n+          height: 48px,\r\n         }}\r\n       >\r\n         {FoodCategoryOptions.map((option) => (\r\n           <option value={option.value}>{option.label}</option>\r\n"
+                },
+                {
+                    "date": 1678286221712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,9 @@\n           borderRadius: \"25px\",\r\n           textAlign: \"center\",\r\n           width: \"55%\",\r\n           fontSize: \"20px\",\r\n-          height: 48px,\r\n+          height: \"40px\",\r\n         }}\r\n       >\r\n         {FoodCategoryOptions.map((option) => (\r\n           <option value={option.value}>{option.label}</option>\r\n"
+                },
+                {
+                    "date": 1678286466619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -390,8 +390,9 @@\n                     style={{\r\n                       textAlign: \"center\",\r\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n+                      \r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n                   />\r\n                 </div>\r\n"
+                },
+                {
+                    "date": 1678286472242,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -390,9 +390,11 @@\n                     style={{\r\n                       textAlign: \"center\",\r\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n-                      \r\n+                      height: 40px;\r\n+border-radius: 10px;\r\n+margin-bottom: 20px;\r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n                   />\r\n                 </div>\r\n"
+                },
+                {
+                    "date": 1678286477743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -391,10 +391,10 @@\n                       textAlign: \"center\",\r\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n                       height: 40px;\r\n-border-radius: 10px;\r\n-margin-bottom: 20px;\r\n+                      border-radius: 10px;\r\n+                      margin-bottom: 20px;\r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n                   />\r\n                 </div>\r\n"
+                },
+                {
+                    "date": 1678286484467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -390,9 +390,9 @@\n                     style={{\r\n                       textAlign: \"center\",\r\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n-                      height: 40px;\r\n+                      height: \"40px\";\r\n                       border-radius: 10px;\r\n                       margin-bottom: 20px;\r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n"
+                },
+                {
+                    "date": 1678286490785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -391,10 +391,10 @@\n                       textAlign: \"center\",\r\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n                       height: \"40px\";\r\n-                      border-radius: 10px;\r\n-                      margin-bottom: 20px;\r\n+                      border-radius: \"10px\";\r\n+                      margin-bottom: \"20px\";\r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n                   />\r\n                 </div>\r\n"
+                },
+                {
+                    "date": 1678286495939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -390,11 +390,11 @@\n                     style={{\r\n                       textAlign: \"center\",\r\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n-                      height: \"40px\";\r\n-                      border-radius: \"10px\";\r\n-                      margin-bottom: \"20px\";\r\n+                      height: \"40px\",\r\n+                      border-radius: \"10px\",\r\n+                      margin-bottom: \"20px\",\r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n                   />\r\n                 </div>\r\n"
+                },
+                {
+                    "date": 1678286510445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -391,9 +391,9 @@\n                       textAlign: \"center\",\r\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n                       height: \"40px\",\r\n-                      border-radius: \"10px\",\r\n+                      border: \"10px\",\r\n                       margin-bottom: \"20px\",\r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n                   />\r\n"
+                },
+                {
+                    "date": 1678286518715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -391,9 +391,9 @@\n                       textAlign: \"center\",\r\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n                       height: \"40px\",\r\n-                      border: \"10px\",\r\n+                      border-radios: \"10px\",\r\n                       margin-bottom: \"20px\",\r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n                   />\r\n"
+                },
+                {
+                    "date": 1678286525447,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -391,9 +391,8 @@\n                       textAlign: \"center\",\r\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n                       height: \"40px\",\r\n-                      border-radios: \"10px\",\r\n                       margin-bottom: \"20px\",\r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n                   />\r\n"
+                },
+                {
+                    "date": 1678286534483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -391,9 +391,8 @@\n                       textAlign: \"center\",\r\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n                       height: \"40px\",\r\n-                      margin-bottom: \"20px\",\r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n                   />\r\n                 </div>\r\n"
+                },
+                {
+                    "date": 1678286541416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -391,8 +391,9 @@\n                       textAlign: \"center\",\r\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n                       height: \"40px\",\r\n+                      marginB\r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n                   />\r\n                 </div>\r\n"
+                },
+                {
+                    "date": 1678286546780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -391,9 +391,9 @@\n                       textAlign: \"center\",\r\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n                       height: \"40px\",\r\n-                      marginB\r\n+                      marginBottom:\r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n                   />\r\n                 </div>\r\n"
+                },
+                {
+                    "date": 1678286555538,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -391,9 +391,10 @@\n                       textAlign: \"center\",\r\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n                       height: \"40px\",\r\n-                      marginBottom:\r\n+                      marginBottom:\"10px\",\r\n+                      borderRa\r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n                   />\r\n                 </div>\r\n"
+                },
+                {
+                    "date": 1678286563038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -392,9 +392,9 @@\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n                       height: \"40px\",\r\n                       marginBottom:\"10px\",\r\n-                      borderRa\r\n+                      borderRadius:\"10px\"\r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n                   />\r\n                 </div>\r\n"
+                },
+                {
+                    "date": 1678286628932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -402,9 +402,9 @@\n                 <Ingredients />\r\n               </div>\r\n \r\n               <div className=\"d-button\">\r\n-                <button type=\"submit\" className=\"f-button\">\r\n+                <button type=\"submit\" className=\"f-button-\">\r\n                   بساز !\r\n                 </button>\r\n               </div>\r\n             </form>\r\n"
+                },
+                {
+                    "date": 1678286634546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -402,9 +402,9 @@\n                 <Ingredients />\r\n               </div>\r\n \r\n               <div className=\"d-button\">\r\n-                <button type=\"submit\" className=\"f-button-\">\r\n+                <button type=\"submit\" className=\"f-button-ing\">\r\n                   بساز !\r\n                 </button>\r\n               </div>\r\n             </form>\r\n"
+                },
+                {
+                    "date": 1678295077474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -261,9 +261,9 @@\n               id=\"name\"\r\n               name=\"name\"\r\n               placeholder=\"ماده غذایی\"\r\n               style={{\r\n-                borderRadius: \"25px\",\r\n+                borderRadius: \"10px\",\r\n                 textAlign: \"center\",\r\n                 width: \"50px\",\r\n               }}\r\n               options={ingredientList}\r\n"
+                },
+                {
+                    "date": 1678295161822,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -255,9 +255,9 @@\n       <HeroLabel>موارد لازم برای چهار نفر:</HeroLabel>\r\n       <br />\r\n       {inputFields.map((input, index) => {\r\n         return (\r\n-          <div key={index}>\r\n+          <div key={index} className>\r\n             <Select\r\n               id=\"name\"\r\n               name=\"name\"\r\n               placeholder=\"ماده غذایی\"\r\n"
+                },
+                {
+                    "date": 1678295199454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -255,9 +255,9 @@\n       <HeroLabel>موارد لازم برای چهار نفر:</HeroLabel>\r\n       <br />\r\n       {inputFields.map((input, index) => {\r\n         return (\r\n-          <div key={index} className>\r\n+          <div key={index} className=\"in\">\r\n             <Select\r\n               id=\"name\"\r\n               name=\"name\"\r\n               placeholder=\"ماده غذایی\"\r\n"
+                },
+                {
+                    "date": 1678295205758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -255,9 +255,9 @@\n       <HeroLabel>موارد لازم برای چهار نفر:</HeroLabel>\r\n       <br />\r\n       {inputFields.map((input, index) => {\r\n         return (\r\n-          <div key={index} className=\"in\">\r\n+          <div key={index} className=\"ingredients\">\r\n             <Select\r\n               id=\"name\"\r\n               name=\"name\"\r\n               placeholder=\"ماده غذایی\"\r\n"
+                },
+                {
+                    "date": 1678295340781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -261,9 +261,9 @@\n               id=\"name\"\r\n               name=\"name\"\r\n               placeholder=\"ماده غذایی\"\r\n               style={{\r\n-                borderRadius: \"10px\",\r\n+                borderRadius: \"10px !important\",\r\n                 textAlign: \"center\",\r\n                 width: \"50px\",\r\n               }}\r\n               options={ingredientList}\r\n"
+                },
+                {
+                    "date": 1678295556060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -260,13 +260,9 @@\n             <Select\r\n               id=\"name\"\r\n               name=\"name\"\r\n               placeholder=\"ماده غذایی\"\r\n-              style={{\r\n-                borderRadius: \"10px !important\",\r\n-                textAlign: \"center\",\r\n-                width: \"50px\",\r\n-              }}\r\n+        \r\n               options={ingredientList}\r\n               isSearchable\r\n             />\r\n             <input\r\n"
+                },
+                {
+                    "date": 1678295686468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -260,9 +260,13 @@\n             <Select\r\n               id=\"name\"\r\n               name=\"name\"\r\n               placeholder=\"ماده غذایی\"\r\n-        \r\n+              style={{\r\n+                borderRadius: \"10px !important\",\r\n+                textAlign: \"center\",\r\n+                width: \"50px\",\r\n+              }}\r\n               options={ingredientList}\r\n               isSearchable\r\n             />\r\n             <input\r\n"
+                },
+                {
+                    "date": 1678295752567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -256,8 +256,9 @@\n       <br />\r\n       {inputFields.map((input, index) => {\r\n         return (\r\n           <div key={index} className=\"ingredients\">\r\n+            <></>\r\n             <Select\r\n               id=\"name\"\r\n               name=\"name\"\r\n               placeholder=\"ماده غذایی\"\r\n"
+                },
+                {
+                    "date": 1678295759061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -256,9 +256,9 @@\n       <br />\r\n       {inputFields.map((input, index) => {\r\n         return (\r\n           <div key={index} className=\"ingredients\">\r\n-            <></>\r\n+            <div>\r\n             <Select\r\n               id=\"name\"\r\n               name=\"name\"\r\n               placeholder=\"ماده غذایی\"\r\n"
+                },
+                {
+                    "date": 1678295764839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -256,9 +256,9 @@\n       <br />\r\n       {inputFields.map((input, index) => {\r\n         return (\r\n           <div key={index} className=\"ingredients\">\r\n-            <div>\r\n+            <div class>\r\n             <Select\r\n               id=\"name\"\r\n               name=\"name\"\r\n               placeholder=\"ماده غذایی\"\r\n@@ -269,8 +269,9 @@\n               }}\r\n               options={ingredientList}\r\n               isSearchable\r\n             />\r\n+            </div>\r\n             <input\r\n               name=\"amount\"\r\n               type=\"number\"\r\n               placeholder=\"مقدار\"\r\n"
+                },
+                {
+                    "date": 1678295774131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -256,9 +256,9 @@\n       <br />\r\n       {inputFields.map((input, index) => {\r\n         return (\r\n           <div key={index} className=\"ingredients\">\r\n-            <div class>\r\n+            <div className=\"ingredients\">\r\n             <Select\r\n               id=\"name\"\r\n               name=\"name\"\r\n               placeholder=\"ماده غذایی\"\r\n"
+                },
+                {
+                    "date": 1678295960587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -256,9 +256,9 @@\n       <br />\r\n       {inputFields.map((input, index) => {\r\n         return (\r\n           <div key={index} className=\"ingredients\">\r\n-            <div className=\"ingredients\">\r\n+            <div className=\"ingredients-container\">\r\n             <Select\r\n               id=\"name\"\r\n               name=\"name\"\r\n               placeholder=\"ماده غذایی\"\r\n@@ -276,9 +276,9 @@\n               type=\"number\"\r\n               placeholder=\"مقدار\"\r\n               value={input.amount}\r\n               style={{\r\n-                borderRadius: \"25px\",\r\n+                borderRadius: \"10px\",\r\n                 textAlign: \"center\",\r\n                 width: \"95px\",\r\n               }}\r\n               onChange={(event) => handleFormChange(index, event)}\r\n"
+                },
+                {
+                    "date": 1678295966276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -279,8 +279,9 @@\n               style={{\r\n                 borderRadius: \"10px\",\r\n                 textAlign: \"center\",\r\n                 width: \"95px\",\r\n+                height:\"\"\r\n               }}\r\n               onChange={(event) => handleFormChange(index, event)}\r\n             />\r\n             <UnitTypeComponent />\r\n"
+                },
+                {
+                    "date": 1678295973619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -279,9 +279,10 @@\n               style={{\r\n                 borderRadius: \"10px\",\r\n                 textAlign: \"center\",\r\n                 width: \"95px\",\r\n-                height:\"\"\r\n+                height:\"45px\",\r\n+                \r\n               }}\r\n               onChange={(event) => handleFormChange(index, event)}\r\n             />\r\n             <UnitTypeComponent />\r\n"
+                },
+                {
+                    "date": 1678295983493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -280,9 +280,9 @@\n                 borderRadius: \"10px\",\r\n                 textAlign: \"center\",\r\n                 width: \"95px\",\r\n                 height:\"45px\",\r\n-                \r\n+                pa\r\n               }}\r\n               onChange={(event) => handleFormChange(index, event)}\r\n             />\r\n             <UnitTypeComponent />\r\n"
+                },
+                {
+                    "date": 1678295995865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -280,9 +280,9 @@\n                 borderRadius: \"10px\",\r\n                 textAlign: \"center\",\r\n                 width: \"95px\",\r\n                 height:\"45px\",\r\n-                pa\r\n+                padding:\"10px\"\r\n               }}\r\n               onChange={(event) => handleFormChange(index, event)}\r\n             />\r\n             <UnitTypeComponent />\r\n"
+                },
+                {
+                    "date": 1678296015620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -292,8 +292,10 @@\n               style={{\r\n                 borderRadius: \"25px\",\r\n                 textAlign: \"center\",\r\n                 width: \"72px\",\r\n+                height:\"45px\",\r\n+                padding:\"10px\"\r\n               }}\r\n             >\r\n               حذف\r\n             </button>\r\n"
+                },
+                {
+                    "date": 1678296027157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -289,9 +289,9 @@\n             &emsp;\r\n             <button\r\n               onClick={() => removeFields(index)}\r\n               style={{\r\n-                borderRadius: \"25px\",\r\n+                borderRadius: \"10px\",\r\n                 textAlign: \"center\",\r\n                 width: \"72px\",\r\n                 height:\"45px\",\r\n                 padding:\"10px\"\r\n"
+                },
+                {
+                    "date": 1678296047535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -196,9 +196,9 @@\n       onChange={handleChange}\r\n       name=\"unitType\"\r\n       id=\"unitType\"\r\n       style={{\r\n-        borderRadius: \"25px\",\r\n+        borderRadius: \"10px\",\r\n         textAlign: \"center\",\r\n         width: \"95px\",\r\n         fontSize: \"16px\",\r\n       }}\r\n"
+                },
+                {
+                    "date": 1678296063342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -200,8 +200,11 @@\n         borderRadius: \"10px\",\r\n         textAlign: \"center\",\r\n         width: \"95px\",\r\n         fontSize: \"16px\",\r\n+        height:\"45px\",\r\n+        padding:\"10px\"\r\n+        marg\r\n       }}\r\n     >\r\n       {UnitTypeOptions.map((option) => (\r\n         <option value={option.value}>{option.label}</option>\r\n"
+                },
+                {
+                    "date": 1678296072049,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,9 @@\n   ArrowForward,\r\n   ArrowRight,\r\n } from \"./createRecipe\";\r\n import { useLogin } from \"../../hooks/useLogin\";\r\n+import { margin } from \"@mui/system\";\r\n \r\n // Enum: FoodCategory\r\n const FoodCategoryOptions = [\r\n   {\r\n@@ -202,9 +203,9 @@\n         width: \"95px\",\r\n         fontSize: \"16px\",\r\n         height:\"45px\",\r\n         padding:\"10px\"\r\n-        marg\r\n+        \r\n       }}\r\n     >\r\n       {UnitTypeOptions.map((option) => (\r\n         <option value={option.value}>{option.label}</option>\r\n"
+                },
+                {
+                    "date": 1678296077180,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -202,9 +202,10 @@\n         textAlign: \"center\",\r\n         width: \"95px\",\r\n         fontSize: \"16px\",\r\n         height:\"45px\",\r\n-        padding:\"10px\"\r\n+        padding:\"10px\",\r\n+        margin\r\n         \r\n       }}\r\n     >\r\n       {UnitTypeOptions.map((option) => (\r\n"
+                },
+                {
+                    "date": 1678296083238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -203,9 +203,9 @@\n         width: \"95px\",\r\n         fontSize: \"16px\",\r\n         height:\"45px\",\r\n         padding:\"10px\",\r\n-        margin\r\n+        marginRight:\"5px\"\r\n         \r\n       }}\r\n     >\r\n       {UnitTypeOptions.map((option) => (\r\n"
+                },
+                {
+                    "date": 1678296092155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -203,9 +203,9 @@\n         width: \"95px\",\r\n         fontSize: \"16px\",\r\n         height:\"45px\",\r\n         padding:\"10px\",\r\n-        marginRight:\"5px\"\r\n+        marginRight:\"10px\",\r\n         \r\n       }}\r\n     >\r\n       {UnitTypeOptions.map((option) => (\r\n"
+                },
+                {
+                    "date": 1678296131097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -201,12 +201,11 @@\n         borderRadius: \"10px\",\r\n         textAlign: \"center\",\r\n         width: \"95px\",\r\n         fontSize: \"16px\",\r\n-        height:\"45px\",\r\n-        padding:\"10px\",\r\n-        marginRight:\"10px\",\r\n-        \r\n+        height: \"45px\",\r\n+        padding: \"10px\",\r\n+        marginRight: \"10px\",\r\n       }}\r\n     >\r\n       {UnitTypeOptions.map((option) => (\r\n         <option value={option.value}>{option.label}</option>\r\n@@ -262,20 +261,20 @@\n       {inputFields.map((input, index) => {\r\n         return (\r\n           <div key={index} className=\"ingredients\">\r\n             <div className=\"ingredients-container\">\r\n-            <Select\r\n-              id=\"name\"\r\n-              name=\"name\"\r\n-              placeholder=\"ماده غذایی\"\r\n-              style={{\r\n-                borderRadius: \"10px !important\",\r\n-                textAlign: \"center\",\r\n-                width: \"50px\",\r\n-              }}\r\n-              options={ingredientList}\r\n-              isSearchable\r\n-            />\r\n+              <Select\r\n+                id=\"name\"\r\n+                name=\"name\"\r\n+                placeholder=\"ماده غذایی\"\r\n+                style={{\r\n+                  borderRadius: \"10px !important\",\r\n+                  textAlign: \"center\",\r\n+                  width: \"50px\",\r\n+                }}\r\n+                options={ingredientList}\r\n+                isSearchable\r\n+              />\r\n             </div>\r\n             <input\r\n               name=\"amount\"\r\n               type=\"number\"\r\n@@ -284,10 +283,10 @@\n               style={{\r\n                 borderRadius: \"10px\",\r\n                 textAlign: \"center\",\r\n                 width: \"95px\",\r\n-                height:\"45px\",\r\n-                padding:\"10px\"\r\n+                height: \"45px\",\r\n+                padding: \"10px\",\r\n               }}\r\n               onChange={(event) => handleFormChange(index, event)}\r\n             />\r\n             <UnitTypeComponent />\r\n@@ -297,10 +296,10 @@\n               style={{\r\n                 borderRadius: \"10px\",\r\n                 textAlign: \"center\",\r\n                 width: \"72px\",\r\n-                height:\"45px\",\r\n-                padding:\"10px\"\r\n+                height: \"45px\",\r\n+                padding: \"10px\",\r\n               }}\r\n             >\r\n               حذف\r\n             </button>\r\n@@ -309,9 +308,9 @@\n         );\r\n       })}\r\n       <button\r\n         onClick={addFields}\r\n-        style={{ borderRadius: \"25px\", textAlign: \"center\", width: \"200px\" }}\r\n+        style={{ borderRadius: \"10px\", textAlign: \"center\", width: \"200px\" }}\r\n       >\r\n         افزودن ماده غذایی...\r\n       </button>\r\n     </div>\r\n@@ -351,9 +350,11 @@\n           <HeroH1>غذای جدیدی تعریف کنید!</HeroH1>\r\n           <Searchcontainer>\r\n             <form onSubmit={handleSubmit(onSubmit)} className=\"my-form\">\r\n               <div>\r\n-                <HeroLabel style={{fontSize:`30px`}}>آشپز: {chief}</HeroLabel>\r\n+                <HeroLabel style={{ fontSize: `30px` }}>\r\n+                  آشپز: {chief}\r\n+                </HeroLabel>\r\n                 <div>\r\n                   <div>\r\n                     <HeroLabel>نام غذا:</HeroLabel>\r\n                     <input\r\n@@ -402,10 +403,10 @@\n                       textAlign: \"center\",\r\n                       width: \"100%\",\r\n                       fontSize: \"14px\",\r\n                       height: \"40px\",\r\n-                      marginBottom:\"10px\",\r\n-                      borderRadius:\"10px\"\r\n+                      marginBottom: \"10px\",\r\n+                      borderRadius: \"10px\",\r\n                     }}\r\n                     {...register(\"meal_tags\")}\r\n                   />\r\n                 </div>\r\n"
+                },
+                {
+                    "date": 1678296136243,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -308,9 +308,10 @@\n         );\r\n       })}\r\n       <button\r\n         onClick={addFields}\r\n-        style={{ borderRadius: \"10px\", textAlign: \"center\", width: \"200px\" }}\r\n+        style={{ borderRadius: \"10px\", textAlign: \"center\", width: \"200px\"                 height:\"45px\",\r\n+        padding:\"10px\"}}\r\n       >\r\n         افزودن ماده غذایی...\r\n       </button>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1678296144696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -308,9 +308,9 @@\n         );\r\n       })}\r\n       <button\r\n         onClick={addFields}\r\n-        style={{ borderRadius: \"10px\", textAlign: \"center\", width: \"200px\"                 height:\"45px\",\r\n+        style={{ borderRadius: \"10px\", textAlign: \"center\", width: \"200px\" , height:\"45px\",\r\n         padding:\"10px\"}}\r\n       >\r\n         افزودن ماده غذایی...\r\n       </button>\r\n"
+                },
+                {
+                    "date": 1678296875728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -298,8 +298,9 @@\n                 textAlign: \"center\",\r\n                 width: \"72px\",\r\n                 height: \"45px\",\r\n                 padding: \"10px\",\r\n+                \r\n               }}\r\n             >\r\n               حذف\r\n             </button>\r\n@@ -308,10 +309,15 @@\n         );\r\n       })}\r\n       <button\r\n         onClick={addFields}\r\n-        style={{ borderRadius: \"10px\", textAlign: \"center\", width: \"200px\" , height:\"45px\",\r\n-        padding:\"10px\"}}\r\n+        style={{\r\n+          borderRadius: \"10px\",\r\n+          textAlign: \"center\",\r\n+          width: \"200px\",\r\n+          height: \"45px\",\r\n+          padding: \"10px\",\r\n+        }}\r\n       >\r\n         افزودن ماده غذایی...\r\n       </button>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1678296882760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -298,9 +298,11 @@\n                 textAlign: \"center\",\r\n                 width: \"72px\",\r\n                 height: \"45px\",\r\n                 padding: \"10px\",\r\n+                text-align: center,\r\n                 \r\n+margin: 10px auto;\r\n               }}\r\n             >\r\n               حذف\r\n             </button>\r\n"
+                },
+                {
+                    "date": 1678296894579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -298,10 +298,11 @@\n                 textAlign: \"center\",\r\n                 width: \"72px\",\r\n                 height: \"45px\",\r\n                 padding: \"10px\",\r\n-                text-align: center,\r\n-                \r\n+                textA: center,\r\n+                width: 30%,\r\n+align-items: center;\r\n margin: 10px auto;\r\n               }}\r\n             >\r\n               حذف\r\n"
+                },
+                {
+                    "date": 1678296900071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -298,9 +298,9 @@\n                 textAlign: \"center\",\r\n                 width: \"72px\",\r\n                 height: \"45px\",\r\n                 padding: \"10px\",\r\n-                textA: center,\r\n+                textAlign: \"center,\r\n                 width: 30%,\r\n align-items: center;\r\n margin: 10px auto;\r\n               }}\r\n"
+                },
+                {
+                    "date": 1678296906239,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -298,10 +298,10 @@\n                 textAlign: \"center\",\r\n                 width: \"72px\",\r\n                 height: \"45px\",\r\n                 padding: \"10px\",\r\n-                textAlign: \"center,\r\n-                width: 30%,\r\n+                textAlign: \"center\",\r\n+                width: \"30%,\r\n align-items: center;\r\n margin: 10px auto;\r\n               }}\r\n             >\r\n"
+                },
+                {
+                    "date": 1678296915019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -299,11 +299,11 @@\n                 width: \"72px\",\r\n                 height: \"45px\",\r\n                 padding: \"10px\",\r\n                 textAlign: \"center\",\r\n-                width: \"30%,\r\n-align-items: center;\r\n-margin: 10px auto;\r\n+                width: \"30%\",\r\n+                align-items: center;\r\n+                margin: 10px auto;\r\n               }}\r\n             >\r\n               حذف\r\n             </button>\r\n"
+                },
+                {
+                    "date": 1678296920849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -300,9 +300,9 @@\n                 height: \"45px\",\r\n                 padding: \"10px\",\r\n                 textAlign: \"center\",\r\n                 width: \"30%\",\r\n-                align-items: center;\r\n+                alignItems: center\"\r\n                 margin: 10px auto;\r\n               }}\r\n             >\r\n               حذف\r\n"
+                },
+                {
+                    "date": 1678296927310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -300,10 +300,10 @@\n                 height: \"45px\",\r\n                 padding: \"10px\",\r\n                 textAlign: \"center\",\r\n                 width: \"30%\",\r\n-                alignItems: center\"\r\n-                margin: 10px auto;\r\n+                alignItems: \"center\",\r\n+                margin: 10px auto\"\r\n               }}\r\n             >\r\n               حذف\r\n             </button>\r\n"
                 }
             ],
             "date": 1678278629529,

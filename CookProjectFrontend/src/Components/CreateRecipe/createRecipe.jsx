@@ -44,7 +44,8 @@ export const HeroLabel = styled.label`
   font-size: 18px;
   display: block;
   align-items: right;
-
+  margin-top: 5px;
+  margin-bottom: 5px;
 `;
 export const ImageBg = styled.img`
   width: 100%;

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1678283150475,
@@ -16,6 +16,26 @@
                 {
                     "date": 1678283164200,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -135,8 +135,9 @@\n   flex-wrap: wrap;\r\n   align-items: center;\r\n }\r\n .f-p-container .mbtn,.mbtn2 {height: 50px; margin-right: 10px;}\r\n-.my-form{element {\r\n+.my-form{\r\n   display: flex;\r\n   flex-direction: column;\r\n\\ No newline at end of file\n-}}\n+  \r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678286687884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -125,19 +125,28 @@\n   margin-right: 15px;\r\n   font-weight: 600;\r\n   display: flex;\r\n   padding: 40px 15px 30px 0;\r\n-\r\n }\r\n-.f-p-container{\r\n+.f-p-container {\r\n   margin-bottom: 30px;\r\n   border-bottom: 1px solid #5a5b5c;\r\n   display: flex;\r\n   flex-wrap: wrap;\r\n   align-items: center;\r\n }\r\n-.f-p-container .mbtn,.mbtn2 {height: 50px; margin-right: 10px;}\r\n-.my-form{\r\n+.f-p-container .mbtn,\r\n+.mbtn2 {\r\n+  height: 50px;\r\n+  margin-right: 10px;\r\n+}\r\n+.my-form {\r\n   display: flex;\r\n   flex-direction: column;\r\n-  \r\n+  justify-content: space-between;\r\n+}\r\n+.f-button {\r\n+  padding: 13px 20px;\r\n+  border-radius: 10px;\r\n+  border: 1px;\r\n+  border-color: white;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678286694743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -143,9 +143,9 @@\n   display: flex;\r\n   flex-direction: column;\r\n   justify-content: space-between;\r\n }\r\n-.f-button {\r\n+.f-button-ing {\r\n   padding: 13px 20px;\r\n   border-radius: 10px;\r\n   border: 1px;\r\n   border-color: white;\r\n"
+                },
+                {
+                    "date": 1678286700289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -148,5 +148,6 @@\n   padding: 13px 20px;\r\n   border-radius: 10px;\r\n   border: 1px;\r\n   border-color: white;\r\n+  mar\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678286706330,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -148,6 +148,6 @@\n   padding: 13px 20px;\r\n   border-radius: 10px;\r\n   border: 1px;\r\n   border-color: white;\r\n-  height: ;\r\n+  height: 40px;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1678295251464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,158 @@\n+.forum_body_area {\r\n+  height: 100%;\r\n+  background: #fff;\r\n+  padding: 50px 40px 30px 40px;\r\n+  border-radius: 10px;\r\n+  box-shadow: 0 30px 60px 0 rgba(2, 2, 48, 0.08);\r\n+}\r\n+.MuiTablePagination-toolbar {\r\n+  display: none !important;\r\n+}\r\n+.MuiTable-root {\r\n+  size: medium;\r\n+}\r\n+.MuiDataGrid-root {\r\n+  height: 700px !important;\r\n+}\r\n+.input-group {\r\n+  display: flex;\r\n+  flex-wrap: wrap;\r\n+  align-items: stretch;\r\n+  width: 100%;\r\n+  margin-bottom: 45px;\r\n+}\r\n+.btn {\r\n+  position: relative;\r\n+  background: #4c4cf1;\r\n+  width: 80px;\r\n+  padding: 0;\r\n+  border: none;\r\n+  color: #fff;\r\n+  text-align: center;\r\n+  border-top-left-radius: 25px !important;\r\n+  border-bottom-left-radius: 25px !important;\r\n+}\r\n+.btn:hover {\r\n+  background: #4c4cf1;\r\n+  color: #fff;\r\n+}\r\n+.mbtn {\r\n+  position: relative;\r\n+  background: #fab209;\r\n+  padding: 10px;\r\n+  border: none;\r\n+  color: #fff;\r\n+  text-align: center;\r\n+  margin-top: 10px;\r\n+  border-radius: 10px;\r\n+}\r\n+.mbtn2 {\r\n+  position: relative;\r\n+  background: #b658ed;\r\n+  padding: 10px;\r\n+  border: none;\r\n+  color: #fff;\r\n+  text-align: center;\r\n+  margin-top: 10px;\r\n+  border-radius: 10px;\r\n+}\r\n+.MuiTableCell-root {\r\n+  text-align: right !important;\r\n+}\r\n+.forum-post-top {\r\n+  display: flex;\r\n+}\r\n+.forum-author-meta {\r\n+  display: flex;\r\n+  font-weight: 400;\r\n+  color: #6b707f;\r\n+  letter-spacing: 0.15px;\r\n+}\r\n+.forum-post-top .author-avatar img {\r\n+  border-radius: 50%;\r\n+  margin-left: 15px;\r\n+}\r\n+.author-badge {\r\n+  margin-left: 20px;\r\n+}\r\n+.comment-content p {\r\n+  font-size: 16px;\r\n+  line-height: 1.6;\r\n+  font-weight: 400;\r\n+  color: #6b707f;\r\n+  letter-spacing: 0.15px;\r\n+}\r\n+.comment-content {\r\n+  margin-left: 60px;\r\n+  margin-top: 10px;\r\n+  border-bottom: 1px solid #e8ecee;\r\n+  padding-bottom: 28px;\r\n+}\r\n+.review-form {\r\n+  box-shadow: 10px 0 60px rgba(138, 138, 138, 0.1);\r\n+  margin-bottom: 30px;\r\n+  margin-top: 50px;\r\n+  padding: 50px;\r\n+  border-radius: 20px;\r\n+}\r\n+.form-control {\r\n+  width: 100%;\r\n+  height: auto;\r\n+  font-size: 18px;\r\n+  border-radius: 5px;\r\n+  padding: 16px 30px;\r\n+  background: #f7f7f7;\r\n+}\r\n+.review-form .thm_btn:hover {\r\n+  box-shadow: 0 20px 30px 0 rgba(76, 76, 241, 0.24);\r\n+}\r\n+.review-form .thm_btn {\r\n+  padding: 12px 35px;\r\n+  box-shadow: none;\r\n+  border-radius: 5px !important;\r\n+  width: 150px !important;\r\n+  margin-top: 20px;\r\n+}\r\n+.review-form h4 {\r\n+  font-size: 20px;\r\n+}\r\n+.forum-post-author a {\r\n+  font-size: 20px;\r\n+}\r\n+.f-title {\r\n+  font-size: 30px;\r\n+  color: #1d2746;\r\n+  margin-right: 15px;\r\n+  font-weight: 600;\r\n+  display: flex;\r\n+  padding: 40px 15px 30px 0;\r\n+}\r\n+.f-p-container {\r\n+  margin-bottom: 30px;\r\n+  border-bottom: 1px solid #5a5b5c;\r\n+  display: flex;\r\n+  flex-wrap: wrap;\r\n+  align-items: center;\r\n+}\r\n+.f-p-container .mbtn,\r\n+.mbtn2 {\r\n+  height: 50px;\r\n+  margin-right: 10px;\r\n+}\r\n+.my-form {\r\n+  display: flex;\r\n+  flex-direction: column;\r\n+  justify-content: space-between;\r\n+}\r\n+.f-button-ing {\r\n+  padding: 13px 20px;\r\n+  border-radius: 10px;\r\n+  border: 1px;\r\n+  border-color: white;\r\n+  height: 40px;\r\n+}\r\n+\r\n+.ingredients {\r\n+  border-radius: 10px;\r\n+  margin: 10px 0px;\r\n+}\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1678283150475,

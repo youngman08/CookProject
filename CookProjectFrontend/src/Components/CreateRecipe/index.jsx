@@ -19,6 +19,7 @@ import {
   ArrowRight,
 } from "./createRecipe";
 import { useLogin } from "../../hooks/useLogin";
+import { margin } from "@mui/system";
 
 // Enum: FoodCategory
 const FoodCategoryOptions = [
@@ -65,7 +66,8 @@ const FoodCategoryMultipleCheckBoxComponent = () => {
           borderRadius: "25px",
           textAlign: "center",
           width: "55%",
-          fontSize: "16px",
+          fontSize: "20px",
+          height: "40px",
         }}
       >
         {FoodCategoryOptions.map((option) => (
@@ -196,10 +198,13 @@ const UnitTypeComponent = () => {
       name="unitType"
       id="unitType"
       style={{
-        borderRadius: "25px",
+        borderRadius: "10px",
         textAlign: "center",
         width: "95px",
         fontSize: "16px",
+        height: "45px",
+        padding: "10px",
+        marginRight: "10px",
       }}
     >
       {UnitTypeOptions.map((option) => (
@@ -255,28 +260,32 @@ const Ingredients = () => {
       <br />
       {inputFields.map((input, index) => {
         return (
-          <div key={index}>
-            <Select
-              id="name"
-              name="name"
-              placeholder="ماده غذایی"
-              style={{
-                borderRadius: "25px",
-                textAlign: "center",
-                width: "50px",
-              }}
-              options={ingredientList}
-              isSearchable
-            />
+          <div key={index} className="ingredients">
+            <div className="ingredients-container">
+              <Select
+                id="name"
+                name="name"
+                placeholder="ماده غذایی"
+                style={{
+                  borderRadius: "10px !important",
+                  textAlign: "center",
+                  width: "50px",
+                }}
+                options={ingredientList}
+                isSearchable
+              />
+            </div>
             <input
               name="amount"
               type="number"
               placeholder="مقدار"
               value={input.amount}
               style={{
-                borderRadius: "25px",
+                borderRadius: "10px",
                 textAlign: "center",
                 width: "95px",
+                height: "45px",
+                padding: "10px",
               }}
               onChange={(event) => handleFormChange(index, event)}
             />
@@ -285,9 +294,15 @@ const Ingredients = () => {
             <button
               onClick={() => removeFields(index)}
               style={{
-                borderRadius: "25px",
+                borderRadius: "10px",
                 textAlign: "center",
                 width: "72px",
+                height: "45px",
+                padding: "10px",
+                textAlign: "center",
+                width: "30%",
+                alignItems: "center",
+                margin: "10px auto",
               }}
             >
               حذف
@@ -298,7 +313,13 @@ const Ingredients = () => {
       })}
       <button
         onClick={addFields}
-        style={{ borderRadius: "25px", textAlign: "center", width: "200px" }}
+        style={{
+          borderRadius: "10px",
+          textAlign: "center",
+          width: "200px",
+          height: "45px",
+          padding: "10px",
+        }}
       >
         افزودن ماده غذایی...
       </button>
@@ -340,7 +361,9 @@ const CreateRecipe = () => {
           <Searchcontainer>
             <form onSubmit={handleSubmit(onSubmit)} className="my-form">
               <div>
-                <HeroLabel>آشپز: {chief}</HeroLabel>
+                <HeroLabel style={{ fontSize: `30px` }}>
+                  آشپز: {chief}
+                </HeroLabel>
                 <div>
                   <div>
                     <HeroLabel>نام غذا:</HeroLabel>
@@ -390,6 +413,9 @@ const CreateRecipe = () => {
                       textAlign: "center",
                       width: "100%",
                       fontSize: "14px",
+                      height: "40px",
+                      marginBottom: "10px",
+                      borderRadius: "10px",
                     }}
                     {...register("meal_tags")}
                   />
@@ -399,7 +425,7 @@ const CreateRecipe = () => {
               </div>
 
               <div className="d-button">
-                <button type="submit" className="f-button">
+                <button type="submit" className="f-button-ing">
                   بساز !
                 </button>
               </div>

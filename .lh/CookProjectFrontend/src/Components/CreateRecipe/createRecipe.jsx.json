@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 37,
+            "activePatchIndex": 41,
             "patches": [
                 {
                     "date": 1678274735576,
@@ -156,6 +156,22 @@
                 {
                     "date": 1678283694000,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,10 @@\n   color: darkslategray;\r\n   font-weight: bold;\r\n   font-size: 18px;\r\n   display: block;\r\n-  align-items: center;\r\n+  align-items: right\r\n+  ;\r\n \r\n `;\r\n export const ImageBg = styled.img`\r\n   width: 100%;\r\n"
+                },
+                {
+                    "date": 1678286076628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,11 +42,10 @@\n   color: darkslategray;\r\n   font-weight: bold;\r\n   font-size: 18px;\r\n   display: block;\r\n-  align-items: right\r\n-  ;\r\n-\r\n+  align-items: right;\r\n+  MA\r\n `;\r\n export const ImageBg = styled.img`\r\n   width: 100%;\r\n   height: 100%;\r\n"
+                },
+                {
+                    "date": 1678286081817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n   font-weight: bold;\r\n   font-size: 18px;\r\n   display: block;\r\n   align-items: right;\r\n-  MA\r\n+  margin-top: 5px;\r\n `;\r\n export const ImageBg = styled.img`\r\n   width: 100%;\r\n   height: 100%;\r\n"
+                },
+                {
+                    "date": 1678286095432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,8 +44,9 @@\n   font-size: 18px;\r\n   display: block;\r\n   align-items: right;\r\n   margin-top: 5px;\r\n+  margin-top: 5px;\r\n `;\r\n export const ImageBg = styled.img`\r\n   width: 100%;\r\n   height: 100%;\r\n"
+                },
+                {
+                    "date": 1678286101254,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n   font-size: 18px;\r\n   display: block;\r\n   align-items: right;\r\n   margin-top: 5px;\r\n-  margin-top: 5px;\r\n+  margin-b: 5px;\r\n `;\r\n export const ImageBg = styled.img`\r\n   width: 100%;\r\n   height: 100%;\r\n"
                 }
             ],
             "date": 1678274735576,
