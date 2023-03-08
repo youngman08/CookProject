@@ -49,8 +49,7 @@ const FoodCategoryOptions = [
   },
 ];
 // selected value:  {category}
-const FoodCategoryMultipleCheckBoxComponent = () => {
-  const [category, setCategory] = useState("1");
+const FoodCategoryMultipleCheckBoxComponent = ({ category, setCategory }) => {
   function handleChange(event) {
     setCategory(event.target.value);
   }
@@ -74,8 +73,7 @@ const FoodCategoryMultipleCheckBoxComponent = () => {
 
 // Enum: DifficultyType
 //selected value: {difficulty}
-const Difficulty = () => {
-  const [difficulty, setDifficulty] = useState("2");
+const Difficulty = ({ difficulty, setDifficulty }) => {
   function onChangeValue(event) {
     setDifficulty(event.target.value);
   }
@@ -97,8 +95,7 @@ const Difficulty = () => {
 
 // Enum: DurationType
 //selected value: {preparation_time}
-const PreparationTime = () => {
-  const [preparation_time, setPreparation_time] = useState("2");
+const PreparationTime = ({ preparation_time, setPreparation_time }) => {
   function onChangeValue(event) {
     setPreparation_time(event.target.value);
   }
@@ -180,7 +177,7 @@ const Ingredients = () => {
     setInputFields([...inputFields, newfield])
   }
   const removeFields = (index) => {
-    if(index==0)
+    if(index===0)
       return;
     let data = [...inputFields];
     data.splice(index, 1)
@@ -245,6 +242,10 @@ const Ingredients = () => {
 
 const CreateRecipe = () => {
   const { register, handleSubmit } = useForm();
+  const [category, setCategory] = useState("1");
+  const [difficulty, setDifficulty] = useState("2");
+  const [preparation_time, setPreparation_time] = useState("2");
+
   const user = useLogin();
 
   if (user === "unauth") {
@@ -257,7 +258,14 @@ const CreateRecipe = () => {
     axios
       .post(
         `http://127.0.0.1:8000/api/recipes/`,
-        JSON.stringify(data), 
+        JSON.stringify({
+          ...data,
+          chief,
+          category,
+          difficulty,
+          preparation_time,
+          ingredients: "",
+        }), 
         {
           headers: {
             "Content-Type": "application/json",
@@ -308,11 +316,11 @@ const CreateRecipe = () => {
                 {...register("description")}
               />
             </div>
-            <FoodCategoryMultipleCheckBoxComponent/>
+            <FoodCategoryMultipleCheckBoxComponent category={category} setCategory={setCategory}/>
             <br/>
-            <Difficulty/>
+            <Difficulty difficulty={difficulty} setDifficulty={setDifficulty}/>
             <br/>
-            <PreparationTime/>
+            <PreparationTime preparation_time={preparation_time} setPreparation_time={setPreparation_time}/>
             <br/>
             <div> 
               <input
