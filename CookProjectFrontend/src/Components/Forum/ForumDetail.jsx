@@ -32,18 +32,10 @@ function ForumDetail() {
   const { register, handleSubmit } = useForm();
   const [chiefDetail, setChiefDetail] = useState({});
   const { chiefName, forumName, forumId } = useParams();
-<<<<<<< HEAD
-  const username=localStorage.getItem("username");
-  console.log(chiefName);
-  console.log(forumName);
-  console.log(forumId);
-  
-=======
   const user = useLogin();
   const username = user.username;
   const Swal = require('sweetalert2')
 
->>>>>>> 356cc53f3220420567c52a7556f4ca2fc1c17e59
   useEffect(() => {
     const checkFollowedForum = async () => {
       await axios
@@ -264,13 +256,8 @@ function ForumDetail() {
                   >
                     سوالات خود را بپرسید!
                   </a>
-<<<<<<< HEAD
-                  <button class="mbtn" onClick={follow_chief}>دنبال کن !</button>
-                 {/* <button class="mbtn2" onClick={unfollow_chief}>دنبال نکن :(</button> */}
-=======
                   <button class="mbtn" hidden={followedChief} onClick={follow_chief}>دنبال کن !</button>
                   <button class="mbtn2" hidden={!followedChief} onClick={unfollow_chief}>دنبال نکن :(</button>
->>>>>>> 356cc53f3220420567c52a7556f4ca2fc1c17e59
                 </ChiefCard>
               </ChiefWrapper>
             </ChiefContainer>

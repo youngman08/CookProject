@@ -126,13 +126,21 @@
   font-weight: 600;
   display: flex;
   padding: 40px 15px 30px 0;
-
 }
-.f-p-container{
+.f-p-container {
   margin-bottom: 30px;
   border-bottom: 1px solid #5a5b5c;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
-.f-p-container .mbtn,.mbtn2 {height: 50px; margin-right: 10px;}
+.f-p-container .mbtn,
+.mbtn2 {
+  height: 50px;
+  margin-right: 10px;
+}
+.my-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

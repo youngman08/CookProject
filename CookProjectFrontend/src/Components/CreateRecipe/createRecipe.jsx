@@ -8,12 +8,11 @@ export const HeroContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0;
-  height: 800px;
-  position: relative;
-  z-index: 1;
+  background-attachment: fixed;
+  z-index: 0;
   :before {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
@@ -24,25 +23,28 @@ export const HeroContainer = styled.div`
       rgba(0, 0, 0, 0.7) 81%,
       rgba(0, 0, 0, 0.22) 100%
     );
-    z-index: 2;
   }
 `;
 
 export const HeroBg = styled.div`
-  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+
 `;
 
 export const HeroLabel = styled.label`
   color: darkslategray;
   font-weight: bold;
-  float: right;
+  font-size: 18px;
+  display: block;
+  align-items: right;
+
 `;
 export const ImageBg = styled.img`
   width: 100%;
@@ -54,11 +56,11 @@ export const ImageBg = styled.img`
 export const HeroContent = styled.div`
   z-index: 3;
   max-width: 1200px;
-  position: absolute;
   padding: 8px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 100;
 `;
 export const HeroH1 = styled.h1`
   color: #fff;
@@ -70,6 +72,7 @@ export const HeroH1 = styled.h1`
   @media screen and(max-width:480px) {
     font-size: 32px;
   }
+  margin-top: 50px;
 `;
 export const HeroP = styled.p`
   margin-top: 32px;
@@ -108,7 +111,11 @@ export const Searchcontainer = styled.div`
   width: 100%;
   background: rgb(218, 217, 216);
   border-radius: 28px;
-  margin-top: 101px;
+  margin-top: 50px;
   margin-bottom: 0px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
 `;
