@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 85,
+            "activePatchIndex": 95,
             "patches": [
                 {
                     "date": 1678278629529,
@@ -348,6 +348,46 @@
                 {
                     "date": 1678297390320,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -225,11 +225,9 @@\n \r\n     setInputFields([...inputFields, newfield]);\r\n   };\r\n   const removeFields = (index) => {\r\n-<<<<<<< HEAD\r\n-    if (index == 0) return;\r\n-=======\r\n+\r\n     if(index===0)\r\n       return;\r\n >>>>>>> 91127842ebf14e32583b90ccff278b43997c83c4\r\n     let data = [...inputFields];\r\n"
+                },
+                {
+                    "date": 1678299301764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -228,9 +228,8 @@\n   const removeFields = (index) => {\r\n \r\n     if(index===0)\r\n       return;\r\n->>>>>>> 91127842ebf14e32583b90ccff278b43997c83c4\r\n     let data = [...inputFields];\r\n     data.splice(index, 1);\r\n     setInputFields(data);\r\n   };\r\n@@ -497,8 +496,9 @@\n       <br/>\r\n       \r\n     </HeroContent>\r\n   </HeroContainer>\r\n+  <></>\r\n );\r\n \r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1678299312615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -496,9 +496,9 @@\n       <br/>\r\n       \r\n     </HeroContent>\r\n   </HeroContainer>\r\n-  <></>\r\n+  <HeroBg>\r\n );\r\n \r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1678299347875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -496,9 +496,9 @@\n       <br/>\r\n       \r\n     </HeroContent>\r\n   </HeroContainer>\r\n-  <HeroBg>\r\n+  <HeroBg></HeroBg>\r\n );\r\n \r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1678299377833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -496,9 +496,9 @@\n       <br/>\r\n       \r\n     </HeroContent>\r\n   </HeroContainer>\r\n-  <HeroBg></HeroBg>\r\n+\r\n );\r\n \r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1678299383016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -494,8 +494,9 @@\n         </form>\r\n       </Searchcontainer>\r\n       <br/>\r\n       \r\n+    \r\n     </HeroContent>\r\n   </HeroContainer>\r\n \r\n );\r\n"
+                },
+                {
+                    "date": 1678299389367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -494,9 +494,9 @@\n         </form>\r\n       </Searchcontainer>\r\n       <br/>\r\n       \r\n-    \r\n+    </HeroBg>\r\n     </HeroContent>\r\n   </HeroContainer>\r\n \r\n );\r\n"
+                },
+                {
+                    "date": 1678299444768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -495,9 +495,8 @@\n       </Searchcontainer>\r\n       <br/>\r\n       \r\n     </HeroBg>\r\n-    </HeroContent>\r\n   </HeroContainer>\r\n \r\n );\r\n \r\n"
+                },
+                {
+                    "date": 1678299461034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -494,8 +494,9 @@\n         </form>\r\n       </Searchcontainer>\r\n       <br/>\r\n       \r\n+    \r\n     </HeroBg>\r\n   </HeroContainer>\r\n \r\n );\r\n"
+                },
+                {
+                    "date": 1678299466725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -494,9 +494,9 @@\n         </form>\r\n       </Searchcontainer>\r\n       <br/>\r\n       \r\n-    \r\n+            <HeroContent></HeroContent>\r\n     </HeroBg>\r\n   </HeroContainer>\r\n \r\n );\r\n"
+                },
+                {
+                    "date": 1678299472605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -225,11 +225,9 @@\n \r\n     setInputFields([...inputFields, newfield]);\r\n   };\r\n   const removeFields = (index) => {\r\n-\r\n-    if(index===0)\r\n-      return;\r\n+    if (index === 0) return;\r\n     let data = [...inputFields];\r\n     data.splice(index, 1);\r\n     setInputFields(data);\r\n   };\r\n@@ -351,9 +349,9 @@\n           category,\r\n           difficulty,\r\n           preparation_time,\r\n           ingredients: \"\",\r\n-        }), \r\n+        }),\r\n         {\r\n           headers: {\r\n             \"Content-Type\": \"application/json\",\r\n           },\r\n@@ -439,68 +437,88 @@\n                 <br />\r\n                 <Ingredients />\r\n               </div>\r\n \r\n+              <div>\r\n+                <HeroLabel style={{ marginRight: \"100px\" }}>\r\n+                  آشپز: {chief}\r\n+                </HeroLabel>\r\n+                <br />\r\n+                <div>\r\n+                  <HeroLabel>نام غذا:</HeroLabel>\r\n+                  <input\r\n+                    type=\"text\"\r\n+                    placeholder=\"نام غذا را وارد کنید\"\r\n+                    id=\"name\"\r\n+                    class=\"f-input\"\r\n+                    style={{\r\n+                      textAlign: \"center\",\r\n+                      width: \"100%\",\r\n+                      fontSize: \"14px\",\r\n+                    }}\r\n+                    {...register(\"name\")}\r\n+                  />\r\n+                </div>\r\n+                <br />\r\n+                <div>\r\n+                  <HeroLabel>دستور پخت:</HeroLabel>\r\n+                  <textarea\r\n+                    placeholder=\"طرز تهیه غذا را بنویسید...\"\r\n+                    id=\"description\"\r\n+                    class=\"f-input\"\r\n+                    style={{\r\n+                      width: \"100%\",\r\n+                      fontSize: \"14px\",\r\n+                      height: \"187px\",\r\n+                      marginBottom: \"10px\",\r\n+                    }}\r\n+                    {...register(\"description\")}\r\n+                  />\r\n+                </div>\r\n+                <FoodCategoryMultipleCheckBoxComponent\r\n+                  category={category}\r\n+                  setCategory={setCategory}\r\n+                />\r\n+                <br />\r\n+                <Difficulty\r\n+                  difficulty={difficulty}\r\n+                  setDifficulty={setDifficulty}\r\n+                />\r\n+                <br />\r\n+                <PreparationTime\r\n+                  preparation_time={preparation_time}\r\n+                  setPreparation_time={setPreparation_time}\r\n+                />\r\n+                <br />\r\n+                <div>\r\n+                  <input\r\n+                    type=\"text\"\r\n+                    placeholder=\"شامل چه تگ‌هایی باشد؟  مثلا: #صبحانه\"\r\n+                    id=\"meal_tags\"\r\n+                    class=\"f-input\"\r\n+                    style={{\r\n+                      textAlign: \"center\",\r\n+                      width: \"100%\",\r\n+                      fontSize: \"14px\",\r\n+                    }}\r\n+                    {...register(\"meal_tags\")}\r\n+                  />\r\n+                </div>\r\n+                <br />\r\n+                <Ingredients />\r\n+              </div>\r\n \r\n-          <div> \r\n-              <HeroLabel style={{marginRight: '100px'}}>آشپز: {chief}</HeroLabel>\r\n-            <br/>\r\n-            <div> \r\n-              <HeroLabel>نام غذا:</HeroLabel>\r\n-              <input\r\n-                type=\"text\"\r\n-                placeholder=\"نام غذا را وارد کنید\"\r\n-                id=\"name\"\r\n-                class=\"f-input\"\r\n-                style={{textAlign: 'center', width: '100%',  fontSize: '14px'}}\r\n-                {...register(\"name\")}\r\n-              />\r\n-            </div>\r\n-            <br/>\r\n-            <div> \r\n-              <HeroLabel>دستور پخت:</HeroLabel>\r\n-              <textarea\r\n-                placeholder=\"طرز تهیه غذا را بنویسید...\"\r\n-                id=\"description\"\r\n-                class=\"f-input\"\r\n-                style={{width: '100%',  fontSize: '14px', height: '187px', marginBottom: '10px'}}\r\n-                {...register(\"description\")}\r\n-              />\r\n-            </div>\r\n-            <FoodCategoryMultipleCheckBoxComponent category={category} setCategory={setCategory}/>\r\n-            <br/>\r\n-            <Difficulty difficulty={difficulty} setDifficulty={setDifficulty}/>\r\n-            <br/>\r\n-            <PreparationTime preparation_time={preparation_time} setPreparation_time={setPreparation_time}/>\r\n-            <br/>\r\n-            <div> \r\n-              <input\r\n-                type=\"text\"\r\n-                placeholder=\"شامل چه تگ‌هایی باشد؟  مثلا: #صبحانه\"\r\n-                id=\"meal_tags\"\r\n-                class=\"f-input\"\r\n-                style={{textAlign: 'center', width: '100%',  fontSize: '14px'}}\r\n-                {...register(\"meal_tags\")}\r\n-              />\r\n-            </div>\r\n-            <br/>\r\n-            <Ingredients/>\r\n-          </div>\r\n-\r\n-          <div className=\"d-button\">\r\n-            <button type=\"submit\" className=\"f-button\">\r\n-          بساز !\r\n-            </button>\r\n-          </div>\r\n-        </form>\r\n-      </Searchcontainer>\r\n-      <br/>\r\n-      \r\n-            <HeroContent></HeroContent>\r\n-    </HeroBg>\r\n-  </HeroContainer>\r\n-\r\n-);\r\n-\r\n+              <div className=\"d-button\">\r\n+                <button type=\"submit\" className=\"f-button\">\r\n+                  بساز !\r\n+                </button>\r\n+              </div>\r\n+            </form>\r\n+          </Searchcontainer>\r\n+          <br />\r\n+        </HeroContent>\r\n+      </HeroBg>\r\n+    </HeroContainer>\r\n+  );\r\n };\r\n \r\n export default CreateRecipe;\r\n"
                 }
             ],
             "date": 1678278629529,
