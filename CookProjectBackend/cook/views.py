@@ -17,6 +17,8 @@ def register_user(request):
                                      last_name=request_model.last_name, email=request_model.email)
     user.set_password(request_model.password)
     user.save()
+    chief = Chief(user=user, bio="dsdakladjsk")
+    chief.save()
     return HttpResponse()
 
 
@@ -216,6 +218,7 @@ def create_recipe(request):
     request_model = CreateRecipeRequest(request)
     if get_object_else('name', request_model.name, Recipe, True):
         return HttpResponse(ErrorResponse(InternalError.RECIPE_EXIST).json)
+    print(1)
     chief: Chief = get_object_else('user__username', request_model.chief, Chief)
     if not chief:
         return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)

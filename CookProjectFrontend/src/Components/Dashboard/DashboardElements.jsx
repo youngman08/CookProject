@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
-  min-height: 800px;
+  min-height: 100vh;
   position: flex;
   bottom: 0;
   left: 0;
@@ -18,7 +18,6 @@ export const Sidebar = styled.div`
   padding-top: 100px;
   color: #fff;
   font-size: 14px;
-  width: 250px;
   position: fixed;
   top: 0;
   bottom: 0;

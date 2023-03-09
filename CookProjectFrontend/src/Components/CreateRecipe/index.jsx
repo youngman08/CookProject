@@ -20,6 +20,7 @@ import {
 } from "./createRecipe";
 import { useLogin } from "../../hooks/useLogin";
 import { margin } from "@mui/system";
+import { useNavigate } from "react-router";
 
 // Enum: FoodCategory
 const FoodCategoryOptions = [
@@ -329,6 +330,7 @@ const CreateRecipe = () => {
   const [category, setCategory] = useState("1");
   const [difficulty, setDifficulty] = useState("2");
   const [preparation_time, setPreparation_time] = useState("2");
+  const navigate = useNavigate();
 
   const user = useLogin();
 
@@ -359,8 +361,7 @@ const CreateRecipe = () => {
       )
 
       .then((response) => {
-        alert(JSON.stringify(response));
-        //results
+        navigate(`/foods/${response.data.id}`);
       })
       .catch((error) => {
         console.log(error);
@@ -411,69 +412,6 @@ const CreateRecipe = () => {
                     {...register("description")}
                   />
                 </div>
-                <FoodCategoryMultipleCheckBoxComponent />
-                <br />
-                <Difficulty />
-                <br />
-                <PreparationTime />
-                <br />
-                <div>
-                  <input
-                    type="text"
-                    placeholder="شامل چه تگ‌هایی باشد؟  مثلا: #صبحانه"
-                    id="meal_tags"
-                    class="f-input"
-                    style={{
-                      textAlign: "center",
-                      width: "100%",
-                      fontSize: "14px",
-                      height: "40px",
-                      marginBottom: "10px",
-                      borderRadius: "10px",
-                    }}
-                    {...register("meal_tags")}
-                  />
-                </div>
-                <br />
-                <Ingredients />
-              </div>
-
-              <div>
-                <HeroLabel style={{ marginRight: "100px" }}>
-                  آشپز: {chief}
-                </HeroLabel>
-                <br />
-                <div>
-                  <HeroLabel>نام غذا:</HeroLabel>
-                  <input
-                    type="text"
-                    placeholder="نام غذا را وارد کنید"
-                    id="name"
-                    class="f-input"
-                    style={{
-                      textAlign: "center",
-                      width: "100%",
-                      fontSize: "14px",
-                    }}
-                    {...register("name")}
-                  />
-                </div>
-                <br />
-                <div>
-                  <HeroLabel>دستور پخت:</HeroLabel>
-                  <textarea
-                    placeholder="طرز تهیه غذا را بنویسید..."
-                    id="description"
-                    class="f-input"
-                    style={{
-                      width: "100%",
-                      fontSize: "14px",
-                      height: "187px",
-                      marginBottom: "10px",
-                    }}
-                    {...register("description")}
-                  />
-                </div>
                 <FoodCategoryMultipleCheckBoxComponent
                   category={category}
                   setCategory={setCategory}
@@ -499,6 +437,9 @@ const CreateRecipe = () => {
                       textAlign: "center",
                       width: "100%",
                       fontSize: "14px",
+                      height: "40px",
+                      marginBottom: "10px",
+                      borderRadius: "10px",
                     }}
                     {...register("meal_tags")}
                   />
@@ -506,7 +447,6 @@ const CreateRecipe = () => {
                 <br />
                 <Ingredients />
               </div>
-
               <div className="d-button">
                 <button type="submit" className="f-button">
                   بساز !

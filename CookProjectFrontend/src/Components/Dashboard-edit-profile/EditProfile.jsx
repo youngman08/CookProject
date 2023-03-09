@@ -13,6 +13,7 @@ export const Container = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
+  min-height: 100vh;
 `;
 export const FormWrap = styled.div`
   height: 100%;

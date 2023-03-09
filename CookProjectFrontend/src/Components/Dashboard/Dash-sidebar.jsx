@@ -11,21 +11,23 @@ import "./Dashboard.css";
 const DashboardSidebar = () => {
     return (
         <Sidebar>
-            <Image src={Logo} alt="logo"/>
-            <ul>
-                <li className="div-icon">
-                    <EditOutlinedIcon className="m-icon"/>
-                    <Mbutton to="/dashboard/view-profile">حساب من</Mbutton>
-                </li>
-                <li className="div-icon">
-                    <EditOutlinedIcon className="m-icon"/>
-                    <Mbutton to="/dashboard/edit-profile">ویرایش اطلاعات</Mbutton>
-                </li>
-                <li className="div-icon">
-                    <ConfirmationNumberOutlinedIcon className="m-icon"/>
-                    <Mbutton to="/dashboard/tickets"> تیکت های پشتیبانی </Mbutton>
-                </li>
-            </ul>
+            <div style={{ width: '100%' }}>
+                <Image src={Logo} alt="logo"/>
+                <ul>
+                    <li className="div-icon">
+                        <EditOutlinedIcon className="m-icon"/>
+                        <Mbutton to="/dashboard/view-profile">حساب من</Mbutton>
+                    </li>
+                    <li className="div-icon">
+                        <EditOutlinedIcon className="m-icon"/>
+                        <Mbutton to="/dashboard/edit-profile">ویرایش اطلاعات</Mbutton>
+                    </li>
+                    <li className="div-icon">
+                        <ConfirmationNumberOutlinedIcon className="m-icon"/>
+                        <Mbutton to="/dashboard/tickets"> تیکت های پشتیبانی </Mbutton>
+                    </li>
+                </ul>
+            </div>
         </Sidebar>
     );
 };

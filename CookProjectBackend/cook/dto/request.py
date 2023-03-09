@@ -73,6 +73,7 @@ class IngredientInfoRequest:
 class CreateRecipeRequest(BaseRequest):
     def __init__(self, req):
         super().__init__(req, is_post=True)
+        print(self.data)
         self.name = self.data['name']
         self.chief = self.data['chief']
         self.description = self.data['description']
