@@ -21,6 +21,7 @@ import {
 import { useLogin } from "../../hooks/useLogin";
 import { margin } from "@mui/system";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 // Enum: FoodCategory
 const FoodCategoryOptions = [
@@ -157,7 +158,7 @@ const PreparationTime = ({ preparation_time, setPreparation_time }) => {
 };
 
 // Enum: UnitType
-const UnitTypeOptions = [
+export const UnitTypeOptions = [
   {
     value: "1",
     label: "گرم",
@@ -184,8 +185,7 @@ const UnitTypeOptions = [
   },
 ];
 // selected value:  {category}
-const UnitTypeComponent = () => {
-  const [unitType, setUnitType] = useState("1");
+const UnitTypeComponent = ({ unitType, setUnitType }) => {
   function handleChange(event) {
     setUnitType(event.target.value);
   }
@@ -212,18 +212,14 @@ const UnitTypeComponent = () => {
   );
 };
 
-const Ingredients = () => {
-  const [inputFields, setInputFields] = useState([
-    { name: "", amount: "", unit: "" },
-  ]);
-  const handleFormChange = (index, event) => {
+const Ingredients = ({ inputFields, setInputFields }) => {
+  const handleFormChange = (index, field, value) => {
     let data = [...inputFields];
-    data[index][event.target.name] = event.target.value;
+    data[index][field] = value;
     setInputFields(data);
   };
-  const addFields = () => {
-    let newfield = { name: "", age: "" };
-
+  const addFields = (e) => {
+    let newfield = { name: "آب", unit: "1", amount: "0" };
     setInputFields([...inputFields, newfield]);
   };
   const removeFields = (index) => {
@@ -271,6 +267,8 @@ const Ingredients = () => {
                 }}
                 options={ingredientList}
                 isSearchable
+                value={{ label: input.name, value: input.name }}
+                onChange={(value) => handleFormChange(index, "name", value.label)}
               />
             </div>
             <input
@@ -285,9 +283,9 @@ const Ingredients = () => {
                 height: "45px",
                 padding: "10px",
               }}
-              onChange={(event) => handleFormChange(index, event)}
+              onChange={(event) => handleFormChange(index, "amount", event.target.value)}
             />
-            <UnitTypeComponent />
+            <UnitTypeComponent unitType={input.unit} setUnitType={(e) => handleFormChange(index, "unit", e)}/>
             &emsp;
             <button
               onClick={() => removeFields(index)}
@@ -310,7 +308,10 @@ const Ingredients = () => {
         );
       })}
       <button
-        onClick={addFields}
+        onClick={(e) => {
+          e.preventDefault();
+          addFields();
+        }}
         style={{
           borderRadius: "10px",
           textAlign: "center",
@@ -330,6 +331,9 @@ const CreateRecipe = () => {
   const [category, setCategory] = useState("1");
   const [difficulty, setDifficulty] = useState("2");
   const [preparation_time, setPreparation_time] = useState("2");
+  const [ingredients, setIngredients] = useState([
+    { name: "آب", amount: "1000", unit: "2" },
+  ]);
   const navigate = useNavigate();
 
   const user = useLogin();
@@ -351,7 +355,7 @@ const CreateRecipe = () => {
           category,
           difficulty,
           preparation_time,
-          ingredients: "",
+          ingredients,
         }),
         {
           headers: {
@@ -361,7 +365,15 @@ const CreateRecipe = () => {
       )
 
       .then((response) => {
-        navigate(`/foods/${response.data.id}`);
+        if (!response || !response.data || !response.data.id) {
+          Swal.fire({
+            title: 'خطا',
+            text: 'ثبت غذا انجام نشد',
+            icon: 'error',
+          });
+        } else {
+          navigate(`/foods/${response.data.id}`);
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -445,7 +457,7 @@ const CreateRecipe = () => {
                   />
                 </div>
                 <br />
-                <Ingredients />
+                <Ingredients inputFields={ingredients} setInputFields={setIngredients}/>
               </div>
               <div className="d-button">
                 <button type="submit" className="f-button">

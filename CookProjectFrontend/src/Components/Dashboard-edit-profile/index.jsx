@@ -41,8 +41,8 @@ const EditProfile = () => {
                 else{
                     setUser(response.data)
                     Swal.fire({
-                        title: 'Edit profile',
-                        text: 'You edit profile now',
+                        title: 'ویرایش پروفایل',
+                        text: 'تغییرات شما با موفقیت ثبت شد',
                         icon: 'success',
                       })
                 }

@@ -23,14 +23,124 @@ import Sidebar from "../Sidebar";
 import Navbar from "../Navbar-second";
 import Grid from "@mui/material/Grid";
 import { useForm } from "react-hook-form";
-import { updateLogin, useLogin } from "../../hooks/useLogin";
+import { useLogin } from "../../hooks/useLogin";
+
+export const ChiefCardComplete = () => {
+  const { chiefName } = useParams();
+  const [followedChief, setFollowedChief] = useState(false);
+  const [chiefDetail, setChiefDetail] = useState({});
+  useEffect(() => {
+    const url = `http://127.0.0.1:8000/api/accounts/${chiefName}/profile/?username=${user.username}`;
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        setChiefDetail(json);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    fetchData();
+  });
+  useEffect(() => {
+    const checkFollowedChief = async () => {
+      await axios
+        .get(BASE_API + `accounts/${chiefName}/hasFollowed`,{
+            params: {
+              username: username
+            },
+              headers: {
+                "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          if (response.data === "True")
+            setFollowedChief(true); //results
+          else
+            setFollowedChief(false); //results
+        })
+        .catch((error) => {
+          console.log("error in get checking followed forum or not.");
+        });
+    };
+    checkFollowedChief();
+  })
+  const user = useLogin();
+  const username = user.username;
+  function follow_chief() {
+    axios
+        .put(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        ).then((response)  => {
+          console.log(response.data);
+          setFollowedChief(true); //
+          Swal.fire({
+            title: 'دنبال کردن آشپز',
+            text: `شما هم اکنون آشپز ${chiefName} را دنبال می کنید.`,
+            icon: 'success',
+          })
+        })
+        .catch((error) => {
+          console.log("error in follow chief.");
+        });
+  }
+
+  function unfollow_chief() {
+    axios
+        .delete(BASE_API + `accounts/${chiefName}/unfollow/?username=${username}`,{
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        ).then((response)  => {
+          console.log(response.data)
+          setFollowedChief(false); //results
+          Swal.fire({
+            title: 'دنبال نکردن آشپز',
+            text: `شما آشپز ${chiefName} را دیگر دنبال نمی کنید.`,
+            icon: 'success',
+          })
+        })
+        .catch((error) => {
+          console.log("error in follow chief.");
+        });
+  }
+  return (<ChiefContainer>
+  <ChiefH1>پروفایل آشپز {chiefDetail.username}</ChiefH1>
+  <ChiefWrapper>
+    <ChiefCard>
+      <ChiefImage src={chief_profile_img}></ChiefImage>
+      <ChiefH2>
+        {chiefDetail.first_name} {chiefDetail.last_name}
+      </ChiefH2>
+      <ChiefP>{chiefDetail.bio}</ChiefP>
+
+      <a
+        href={
+          "mailto: " +
+          chiefDetail.email +
+          "?subject=Mail from Cookommunity"
+        }
+      >
+        سوالات خود را بپرسید!
+      </a>
+      <button class="mbtn" hidden={followedChief} onClick={follow_chief}>دنبال کن !</button>
+      <button class="mbtn2" hidden={!followedChief} onClick={unfollow_chief}>دنبال نکن :(</button>
+    </ChiefCard>
+  </ChiefWrapper>
+</ChiefContainer>);
+}
+
 
 function ForumDetail() {
   const [Forum, setForum] = useState({});
   const [followedForum, setFollowedForum] = useState(false);
-  const [followedChief, setFollowedChief] = useState(false);
   const { register, handleSubmit } = useForm();
-  const [chiefDetail, setChiefDetail] = useState({});
   const { chiefName, forumName, forumId } = useParams();
   const user = useLogin();
   const username = user.username;
@@ -60,29 +170,6 @@ function ForumDetail() {
         });
     }
 
-    const checkFollowedChief = async () => {
-      await axios
-        .get(BASE_API + `accounts/${chiefName}/hasFollowed`,{
-            params: {
-              username: username
-            },
-              headers: {
-                "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response.data);
-          if (response.data == "True")
-            setFollowedChief(true); //results
-          else
-            setFollowedChief(false); //results
-        })
-        .catch((error) => {
-          console.log("error in get checking followed forum or not.");
-        });
-    }
-
     const fetchData = async () => {
       await axios
         .get(BASE_API + "forums/view",{
@@ -104,52 +191,9 @@ function ForumDetail() {
         });
     }
     checkFollowedForum();
-    checkFollowedChief();
     fetchData();
-  }, []);
-  
-  function follow_chief() {
-    axios
-        .put(BASE_API + `accounts/${chiefName}/follow/?username=${username}`,{
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        ).then((response)  => {
-          console.log(response.data);
-          setFollowedChief(true); //
-          Swal.fire({
-            title: 'Follow Chief',
-            text: `You follow chief ${chiefName} now`,
-            icon: 'success',
-          })
-        })
-        .catch((error) => {
-          console.log("error in follow chief.");
-        });
-  }
+  });
 
-  function unfollow_chief() {
-    axios
-        .delete(BASE_API + `accounts/${chiefName}/unfollow/?username=${username}`,{
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        ).then((response)  => {
-          console.log(response.data)
-          setFollowedChief(false); //results
-          Swal.fire({
-            title: 'Unfollow Chief',
-            text: `You unfollow chief ${chiefName}`,
-            icon: 'success',
-          })
-        })
-        .catch((error) => {
-          console.log("error in follow chief.");
-        });
-  }  
-  
   function followForum() {
     axios
         .patch(BASE_API + `forums/${forumId}/join/?username=${username}`,{
@@ -162,8 +206,8 @@ function ForumDetail() {
           console.log(response.data);
           setFollowedForum(true); //results
           Swal.fire({
-            title: 'Follow Forum',
-            text: `You follow forum ${forumId} now`,
+            title: 'دنبال کردن',
+            text: `شما فوروم ${forumId} را دنبال می کنید`,
             icon: 'success',
           })
         })
@@ -184,8 +228,8 @@ function ForumDetail() {
           console.log(response.data);
           setFollowedForum(false); //results
           Swal.fire({
-            title: 'Unfollow Forum',
-            text: `You unfollow forum ${forumId}`,
+            title: 'دنبال نکردن',
+            text: `شما دیگر فوروم ${forumId} را دنبال نمی کنید.`,
             icon: 'success',
           })
         })
@@ -215,11 +259,10 @@ function ForumDetail() {
                 alert(response.data.err_msg)
             else{
               Swal.fire({
-                title: 'Post Comment',
-                text: `You post a comment now`,
+                title: 'ثبت نظر',
+                text: `نظر شما با موفقیت ثبت شد`,
                 icon: 'success',
               })
-              window.location.reload(false);
             }
         })
         .catch((error) => {
@@ -237,30 +280,7 @@ function ForumDetail() {
       <Grid container spacing={2}>
         <Grid container item spacing={2} xs={12} sm={12} md={3}>
           <Grid item xs={12} sm={12} md={12}>
-            <ChiefContainer>
-              <ChiefH1>پروفایل آشپز {chiefDetail.username}</ChiefH1>
-              <ChiefWrapper>
-                <ChiefCard>
-                  <ChiefImage src={chief_profile_img}></ChiefImage>
-                  <ChiefH2>
-                    {chiefDetail.first_name} {chiefDetail.last_name}
-                  </ChiefH2>
-                  <ChiefP>{chiefDetail.bio}</ChiefP>
-
-                  <a
-                    href={
-                      "mailto: " +
-                      chiefDetail.email +
-                      "?subject=Mail from Cookommunity"
-                    }
-                  >
-                    سوالات خود را بپرسید!
-                  </a>
-                  <button class="mbtn" hidden={followedChief} onClick={follow_chief}>دنبال کن !</button>
-                  <button class="mbtn2" hidden={!followedChief} onClick={unfollow_chief}>دنبال نکن :(</button>
-                </ChiefCard>
-              </ChiefWrapper>
-            </ChiefContainer>
+            <ChiefCardComplete />
           </Grid>
         </Grid>
         <Grid container item spacing={2} xs={12} sm={12} md={9}>
@@ -285,11 +305,8 @@ function ForumDetail() {
                         </a>
                         <div class="forum-author-meta">
                           <div class="author-badge">
-                            <span>Conversation Starter</span>
-                          </div>
-                          <div class="author-badge">
                             <i class="icon_calendar"></i>
-                            <p>{comment.date}</p>
+                            <p>{new Date(comment.date).toLocaleString('fa-IR')}</p>
                           </div>
                         </div>
                         <p>

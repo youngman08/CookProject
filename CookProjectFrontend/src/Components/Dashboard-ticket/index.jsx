@@ -64,8 +64,8 @@ const DashPromotionComponent = () => {
       })
       .then((response) => {
         Swal.fire({
-            title: 'Post ticket',
-            text: 'You post a ticket now',
+            title: 'ثبت تیکت',
+            text: 'تیکت شما با موفقیت ثبت شد',
             icon: 'success',
           });
         fetchData();
