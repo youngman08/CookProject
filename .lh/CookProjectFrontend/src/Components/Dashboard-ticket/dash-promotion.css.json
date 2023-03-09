@@ -1,0 +1,26 @@
+{
+    "sourceFile": "CookProjectFrontend/src/Components/Dashboard-ticket/dash-promotion.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1678376723584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678376732274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,7 @@\n .content-edit {\r\n   background: rgb(218, 217, 216);\r\n   border-radius: 28px;\r\n-  margin-top: 101px;\r\n-  margin-right: 270px;\r\n   margin-bottom: 0px;\r\n   padding: 20px 40px;\r\n }\r\n .content-promotion{\r\n"
+                },
+                {
+                    "date": 1678378173029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,5 @@\n-.content-edit {\r\n-  background: rgb(218, 217, 216);\r\n-  border-radius: 28px;\r\n-  margin-bottom: 0px;\r\n-  padding: 20px 40px;\r\n-}\r\n+\r\n .content-promotion{\r\n   margin: 10px 0px;\r\n }\r\n .f-button {\r\n"
+                }
+            ],
+            "date": 1678376723584,
+            "name": "Commit-0",
+            "content": ".content-edit {\r\n  background: rgb(218, 217, 216);\r\n  border-radius: 28px;\r\n  margin-top: 101px;\r\n  margin-right: 270px;\r\n  margin-bottom: 0px;\r\n  padding: 20px 40px;\r\n}\r\n.content-promotion{\r\n  margin: 10px 0px;\r\n}\r\n.f-button {\r\n  padding: 13px 20px;\r\n  border-radius: 10px;\r\n  border: 1px;\r\n  border-color: white;\r\n}\r\n.f-button{\r\n  margin-top: 10px;\r\n  display: flex;\r\n}\r\n.d-button{\r\n  display: flex;\r\n  flex-direction: row-reverse;\r\n}"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "CookProjectFrontend/src/Components/Dashboard-view-profile/view-profile.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1678377700861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678377709794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,5 @@\n .content-edit {\r\n-  padding-right: 270px;\r\n-  width: 82%;\r\n   background: rgb(218, 217, 216);\r\n   border-radius: 28px;\r\n   margin-top: 101px;\r\n   margin-bottom: 0px;\r\n"
+                },
+                {
+                    "date": 1678378367668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n   border-radius: 28px;\r\n   margin-top: 101px;\r\n   margin-bottom: 0px;\r\n   padding: 20px;\r\n+  width: 100%;\r\n }\r\n .form-edit {\r\n   display: flex;\r\n   align-content: center;\r\n"
+                }
+            ],
+            "date": 1678377700861,
+            "name": "Commit-0",
+            "content": ".content-edit {\r\n  padding-right: 270px;\r\n  width: 82%;\r\n  background: rgb(218, 217, 216);\r\n  border-radius: 28px;\r\n  margin-top: 101px;\r\n  margin-bottom: 0px;\r\n  padding: 20px;\r\n}\r\n.form-edit {\r\n  display: flex;\r\n  align-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n}\r\n.avatar2 {\r\n  border-radius: 50%;\r\n  width: 160px;\r\n}\r\n\r\n.row {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  align-content: space-between;\r\n  width: 541px;\r\n  margin: 10px auto;\r\n}\r\n.col1 {\r\n  margin: 0 31px;\r\n}\r\n.f-input,.f-button {\r\n  padding: 13px 20px;\r\n  border-radius: 10px;\r\n  border: 1px;\r\n  border-color: white;\r\n}\r\n.f-button{\r\n  margin-top: 10px;\r\n}"
+        }
+    ]
+}

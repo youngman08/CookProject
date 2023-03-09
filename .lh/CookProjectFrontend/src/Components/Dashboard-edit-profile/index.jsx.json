@@ -1,0 +1,66 @@
+{
+    "sourceFile": "CookProjectFrontend/src/Components/Dashboard-edit-profile/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1678379075372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678379109030,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,8 @@\n \r\n \r\n const EditProfile = () => {\r\n     const {register, handleSubmit} = useForm();\r\n-    const user = useLogin();\r\n     let username = user.username;\r\n     const [user_change_info, setUser] = useState(null);\r\n     const Swal = require('sweetalert2')\r\n     const onSubmit = (data) => {\r\n"
+                },
+                {
+                    "date": 1678379121749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,12 +7,14 @@\n import url_img from \"./../../images/1.jpg\";\r\n import {useForm} from \"react-hook-form\";\r\n import axios from \"axios\";\r\n import {BASE_API, check_error, ROLES} from \"../../App\";\r\n+import { updateLogin, useLogin } from \"../../hooks/useLogin\";\r\n+import Swal from 'sweetalert2';\r\n \r\n-\r\n const EditProfile = () => {\r\n     const {register, handleSubmit} = useForm();\r\n+    const user = useLogin();\r\n     let username = user.username;\r\n     const [user_change_info, setUser] = useState(null);\r\n     const Swal = require('sweetalert2')\r\n     const onSubmit = (data) => {\r\n"
+                },
+                {
+                    "date": 1678379138438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n import {useForm} from \"react-hook-form\";\r\n import axios from \"axios\";\r\n import {BASE_API, check_error, ROLES} from \"../../App\";\r\n import { updateLogin, useLogin } from \"../../hooks/useLogin\";\r\n-import Swal from 'sweetalert2';\r\n \r\n const EditProfile = () => {\r\n     const {register, handleSubmit} = useForm();\r\n     const user = useLogin();\r\n"
+                },
+                {
+                    "date": 1678379185593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n import {useState, useEffect} from \"react\";\r\n import {Container} from \"./EditProfile\";\r\n import DashboardSidebar from \"../Dashboard/Dash-sidebar\";\r\n import DashboardHeader from \"../Dashboard/Dash-header\";\r\n-import \"./edit-profile.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n import {useForm} from \"react-hook-form\";\r\n import axios from \"axios\";\r\n import {BASE_API, check_error, ROLES} from \"../../App\";\r\n"
+                },
+                {
+                    "date": 1678379200333,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n import React from \"react\";\r\n import {useState, useEffect} from \"react\";\r\n-import {Container} from \"./EditProfile\";\r\n import DashboardSidebar from \"../Dashboard/Dash-sidebar\";\r\n import DashboardHeader from \"../Dashboard/Dash-header\";\r\n import url_img from \"./../../images/1.jpg\";\r\n import {useForm} from \"react-hook-form\";\r\n"
+                },
+                {
+                    "date": 1678379207817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import React from \"react\";\r\n import {useState, useEffect} from \"react\";\r\n+import {Container} from \"./EditProfile\";\r\n import DashboardSidebar from \"../Dashboard/Dash-sidebar\";\r\n import DashboardHeader from \"../Dashboard/Dash-header\";\r\n import url_img from \"./../../images/1.jpg\";\r\n import {useForm} from \"react-hook-form\";\r\n"
+                },
+                {
+                    "date": 1678379317884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from \"react\";\r\n import {useState, useEffect} from \"react\";\r\n-import {Container} from \"./EditProfile\";\r\n+import {Container} from \"../Das/EditProfile\";\r\n import DashboardSidebar from \"../Dashboard/Dash-sidebar\";\r\n import DashboardHeader from \"../Dashboard/Dash-header\";\r\n import url_img from \"./../../images/1.jpg\";\r\n import {useForm} from \"react-hook-form\";\r\n"
+                },
+                {
+                    "date": 1678379326347,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from \"react\";\r\n import {useState, useEffect} from \"react\";\r\n-import {Container} from \"../Das/EditProfile\";\r\n+import {Container} from \"../Dashboard\";\r\n import DashboardSidebar from \"../Dashboard/Dash-sidebar\";\r\n import DashboardHeader from \"../Dashboard/Dash-header\";\r\n import url_img from \"./../../images/1.jpg\";\r\n import {useForm} from \"react-hook-form\";\r\n"
+                },
+                {
+                    "date": 1678379331918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from \"react\";\r\n import {useState, useEffect} from \"react\";\r\n-import {Container} from \"../Dashboard\";\r\n+import {Container} from \"../Dashboard/DashboardElements\";\r\n import DashboardSidebar from \"../Dashboard/Dash-sidebar\";\r\n import DashboardHeader from \"../Dashboard/Dash-header\";\r\n import url_img from \"./../../images/1.jpg\";\r\n import {useForm} from \"react-hook-form\";\r\n"
+                },
+                {
+                    "date": 1678381574396,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n import {useForm} from \"react-hook-form\";\r\n import axios from \"axios\";\r\n import {BASE_API, check_error, ROLES} from \"../../App\";\r\n import { updateLogin, useLogin } from \"../../hooks/useLogin\";\r\n-\r\n+import Grid from \"@mui/material/Grid\";\r\n const EditProfile = () => {\r\n     const {register, handleSubmit} = useForm();\r\n     const user = useLogin();\r\n     let username = user.username;\r\n"
+                },
+                {
+                    "date": 1678381583383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,8 +61,9 @@\n \r\n             });\r\n     }, []);\r\n     return (\r\n+        \r\n         <Container>\r\n             <DashboardSidebar/>\r\n             <DashboardHeader />\r\n             {user_change_info &&\r\n"
+                },
+                {
+                    "date": 1678381588663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,9 +61,9 @@\n \r\n             });\r\n     }, []);\r\n     return (\r\n-              <Grid container item spacing={2} xs={12} sm={10} md={10}>\r\n+        \r\n         <Container>\r\n             <DashboardSidebar/>\r\n             <DashboardHeader />\r\n             {user_change_info &&\r\n"
+                }
+            ],
+            "date": 1678379075372,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport {useState, useEffect} from \"react\";\r\nimport {Container} from \"./EditProfile\";\r\nimport DashboardSidebar from \"../Dashboard/Dash-sidebar\";\r\nimport DashboardHeader from \"../Dashboard/Dash-header\";\r\nimport \"./edit-profile.css\";\r\nimport url_img from \"./../../images/1.jpg\";\r\nimport {useForm} from \"react-hook-form\";\r\nimport axios from \"axios\";\r\nimport {BASE_API, check_error, ROLES} from \"../../App\";\r\n\r\n\r\nconst EditProfile = () => {\r\n    const {register, handleSubmit} = useForm();\r\n    const user = useLogin();\r\n    let username = user.username;\r\n    const [user_change_info, setUser] = useState(null);\r\n    const Swal = require('sweetalert2')\r\n    const onSubmit = (data) => {\r\n        if (data.email === \"\")\r\n            data.email = user_change_info.email\r\n        if (data.first_name === \"\")\r\n            data.first_name = user_change_info.first_name\r\n        if (data.last_name === \"\")\r\n            data.last_name = user_change_info.last_name\r\n        console.log(data)\r\n        axios\r\n            .patch(\r\n                BASE_API + `accounts/${username}/profile/?username=${username}`,\r\n                JSON.stringify(data),\r\n                {\r\n                    headers: {\r\n                        \"Content-Type\": \"application/json\",\r\n                    },\r\n                }\r\n            )\r\n            .then((response) => {\r\n                if (check_error(response.data))\r\n                    alert(response.data.err_msg)\r\n                else{\r\n                    setUser(response.data)\r\n                    Swal.fire({\r\n                        title: 'Edit profile',\r\n                        text: 'You edit profile now',\r\n                        icon: 'success',\r\n                      })\r\n                }\r\n            })\r\n            .catch((error) => {\r\n            });\r\n    };\r\n    useEffect(() => {\r\n        axios\r\n            .get(BASE_API + `accounts/${username}/profile/?username=${username}`)\r\n            .then((response) => {\r\n                if (check_error(response.data))\r\n                    alert(response.data.err_msg)\r\n                else\r\n                    setUser(response.data)\r\n            })\r\n            .catch((error) => {\r\n\r\n            });\r\n    }, []);\r\n    return (\r\n        <Container>\r\n            <DashboardSidebar/>\r\n            <DashboardHeader />\r\n            {user_change_info &&\r\n            <div className=\"content-edit\">\r\n                    <p> سلام {user_change_info.first_name} به سایت ما خوش آمدی</p>\r\n                <div className=\"form-edit\">\r\n                    <form onSubmit={handleSubmit(onSubmit)}>\r\n                        <div className=\"row\">\r\n                            <div className=\"col1\">\r\n                                <label htmlFor=\"fname\">نام</label>\r\n                                <br/>\r\n                                <input\r\n                                    type=\"text\"\r\n                                    placeholder={user_change_info.first_name}\r\n                                    className=\"f-input\"\r\n                                    {...register(\"first_name\")}\r\n                                />\r\n                            </div>\r\n                            <div className=\"col1\">\r\n                                <label htmlFor=\"lname\">نام خانوادگی</label>\r\n                                <br/>\r\n                                <input\r\n                                    type=\"text\"\r\n                                    placeholder={user_change_info.last_name}\r\n                                    className=\"f-input\"\r\n                                    {...register(\"last_name\")}\r\n                                />\r\n                            </div>\r\n                        </div>\r\n                        <div className=\"row\">\r\n                            <div className=\"col1\">\r\n                                <label htmlFor=\"lname\">ایمیل</label>\r\n                                <br/>\r\n                                <input\r\n                                    type=\"email\"\r\n                                    placeholder={user_change_info.email}\r\n                                    className=\"f-input\"\r\n                                    {...register(\"email\")}\r\n                                />\r\n                            </div>\r\n                        </div>\r\n                        <div className=\"col1\">\r\n                            <label htmlFor=\"lname\">نقش کاربری</label>\r\n                            <br/>\r\n                            <input\r\n                                type=\"text\"\r\n                                value={ROLES[user_change_info.role]}\r\n                                className=\"f-input\"\r\n                                readOnly={true}\r\n                            />\r\n                        </div>\r\n                        <div className=\"d-button\">\r\n                            <button type=\"submit\" className=\"f-button\">\r\n                                ویرایش\r\n                            </button>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>}\r\n        </Container>\r\n    );\r\n};\r\n\r\nexport default EditProfile;\r\n"
+        }
+    ]
+}

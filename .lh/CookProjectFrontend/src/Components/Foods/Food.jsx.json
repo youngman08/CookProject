@@ -1,0 +1,22 @@
+{
+    "sourceFile": "CookProjectFrontend/src/Components/Foods/Food.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1678376171682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678376180235,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,10 @@\n import Navbar from \"../Navbar-second\";\r\n function Foods({ fetchFood }) {\r\n   return (\r\n     <>\r\n-\r\n+      <Sidebar />\r\n+      <Navbar />\r\n       <Grid container spacing={2}>\r\n         <Grid container item spacing={2} xs={12} sm={12} md={3}>\r\n           <Grid item xs={12} sm={12} md={12}>\r\n           </Grid>\r\n"
+                }
+            ],
+            "date": 1678376171682,
+            "name": "Commit-0",
+            "content": "import React, { useEffect, useState } from \"react\";\r\nimport FoodList from \"./FoodList\";\r\nimport Grid from \"@mui/material/Grid\";\r\nimport \"./Food.css\";\r\nimport Sidebar from \"../Sidebar\";\r\nimport Navbar from \"../Navbar-second\";\r\nfunction Foods({ fetchFood }) {\r\n  return (\r\n    <>\r\n\r\n      <Grid container spacing={2}>\r\n        <Grid container item spacing={2} xs={12} sm={12} md={3}>\r\n          <Grid item xs={12} sm={12} md={12}>\r\n          </Grid>\r\n        </Grid>\r\n        <Grid container item spacing={2} xs={12} sm={12} md={9}>\r\n          <FoodList foods={fetchFood} />\r\n        </Grid>\r\n      </Grid>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default Foods;\r\n"
+        }
+    ]
+}

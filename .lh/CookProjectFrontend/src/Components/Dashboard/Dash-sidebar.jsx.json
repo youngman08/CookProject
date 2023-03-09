@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1678302721222,
@@ -12,6 +12,18 @@
                 {
                     "date": 1678302915072,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import {Sidebar, Image, Mbutton} from \"./DashboardElements\";\r\n import NotificationsOutlinedIcon from \"@mui/icons-material/NotificationsOutlined\";\r\n import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';\r\n import EditOutlinedIcon from \"@mui/icons-material/EditOutlined\";\r\n-import Logo from \"../../images/Untitled-15.png\";\r\n+import Logo from \"../../images/logo.png\";\r\n import ItemAccordion from \"../Items\";\r\n import {accordion1} from \"../Items/Data\";\r\n import \"./Dashboard.css\";\r\n \r\n"
+                },
+                {
+                    "date": 1678378869415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,15 +2,16 @@\n import {Sidebar, Image, Mbutton} from \"./DashboardElements\";\r\n import NotificationsOutlinedIcon from \"@mui/icons-material/NotificationsOutlined\";\r\n import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';\r\n import EditOutlinedIcon from \"@mui/icons-material/EditOutlined\";\r\n-import Logo from \"../../images/logo.png\";\r\n+import Logo from \"../../images/logo.svg\";\r\n import ItemAccordion from \"../Items\";\r\n import {accordion1} from \"../Items/Data\";\r\n import \"./Dashboard.css\";\r\n \r\n const DashboardSidebar = () => {\r\n     return (\r\n+        <></>\r\n         <Sidebar>\r\n             <Image src={Logo} alt=\"logo\"/>\r\n             <ul>\r\n                 <li className=\"div-icon\">\r\n"
+                },
+                {
+                    "date": 1678378877804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n import \"./Dashboard.css\";\r\n \r\n const DashboardSidebar = () => {\r\n     return (\r\n-        <></>\r\n+        <>\r\n         <Sidebar>\r\n             <Image src={Logo} alt=\"logo\"/>\r\n             <ul>\r\n                 <li className=\"div-icon\">\r\n@@ -27,8 +27,9 @@\n                     <Mbutton to=\"/dashboard/tickets\"> تیکت های پشتیبانی </Mbutton>\r\n                 </li>\r\n             </ul>\r\n         </Sidebar>\r\n+        \r\n     );\r\n };\r\n \r\n export default DashboardSidebar;\r\n"
+                },
+                {
+                    "date": 1678378885058,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,35 +1,35 @@\n import React from \"react\";\r\n-import {Sidebar, Image, Mbutton} from \"./DashboardElements\";\r\n+import { Sidebar, Image, Mbutton } from \"./DashboardElements\";\r\n import NotificationsOutlinedIcon from \"@mui/icons-material/NotificationsOutlined\";\r\n-import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';\r\n+import ConfirmationNumberOutlinedIcon from \"@mui/icons-material/ConfirmationNumberOutlined\";\r\n import EditOutlinedIcon from \"@mui/icons-material/EditOutlined\";\r\n import Logo from \"../../images/logo.svg\";\r\n import ItemAccordion from \"../Items\";\r\n-import {accordion1} from \"../Items/Data\";\r\n+import { accordion1 } from \"../Items/Data\";\r\n import \"./Dashboard.css\";\r\n \r\n const DashboardSidebar = () => {\r\n-    return (\r\n-        <>\r\n-        <Sidebar>\r\n-            <Image src={Logo} alt=\"logo\"/>\r\n-            <ul>\r\n-                <li className=\"div-icon\">\r\n-                    <EditOutlinedIcon className=\"m-icon\"/>\r\n-                    <Mbutton to=\"/dashboard/view-profile\">حساب من</Mbutton>\r\n-                </li>\r\n-                <li className=\"div-icon\">\r\n-                    <EditOutlinedIcon className=\"m-icon\"/>\r\n-                    <Mbutton to=\"/dashboard/edit-profile\">ویرایش اطلاعات</Mbutton>\r\n-                </li>\r\n-                <li className=\"div-icon\">\r\n-                    <ConfirmationNumberOutlinedIcon className=\"m-icon\"/>\r\n-                    <Mbutton to=\"/dashboard/tickets\"> تیکت های پشتیبانی </Mbutton>\r\n-                </li>\r\n-            </ul>\r\n-        </Sidebar>\r\n-        \r\n-    );\r\n+  return (\r\n+    <div>\r\n+      <Sidebar>\r\n+        <Image src={Logo} alt=\"logo\" />\r\n+        <ul>\r\n+          <li className=\"div-icon\">\r\n+            <EditOutlinedIcon className=\"m-icon\" />\r\n+            <Mbutton to=\"/dashboard/view-profile\">حساب من</Mbutton>\r\n+          </li>\r\n+          <li className=\"div-icon\">\r\n+            <EditOutlinedIcon className=\"m-icon\" />\r\n+            <Mbutton to=\"/dashboard/edit-profile\">ویرایش اطلاعات</Mbutton>\r\n+          </li>\r\n+          <li className=\"div-icon\">\r\n+            <ConfirmationNumberOutlinedIcon className=\"m-icon\" />\r\n+            <Mbutton to=\"/dashboard/tickets\"> تیکت های پشتیبانی </Mbutton>\r\n+          </li>\r\n+        </ul>\r\n+      </Sidebar>\r\n+    </div>\r\n+  );\r\n };\r\n \r\n export default DashboardSidebar;\r\n"
                 }
             ],
             "date": 1678302721222,

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "CookProjectFrontend/src/Components/Dashboard/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1678381885293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1678381885293,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport \"./Dashboard.css\";\r\nimport DashboardSidebar from \"./Dash-sidebar\";\r\nimport DashboardHeader from \"./Dash-header\";\r\nimport Grid from \"@mui/material/Grid\";\r\nconst DashboardForm = () => {\r\n  return (\r\n    <Grid container spacing={2}>\r\n      <Container>\r\n        <Grid container item spacing={2} xs={12} sm={12} md={3}>\r\n          <DashboardSidebar />\r\n        </Grid>\r\n        <Grid container item spacing={2} xs={12} sm={12} md={9}>\r\n          <DashboardHeader />\r\n        </Grid>\r\n      </Container>\r\n    </Grid>\r\n  );\r\n};\r\n\r\nexport default DashboardForm;\r\n"
+        }
+    ]
+}

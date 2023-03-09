@@ -1,0 +1,18 @@
+{
+    "sourceFile": "CookProjectFrontend/src/Components/Dashboard-promotion/dash-promotion.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1678378181020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1678378181020,
+            "name": "Commit-0",
+            "content": "\r\n.content-promotion{\r\n  margin: 10px 0px;\r\n}\r\n.f-button {\r\n  padding: 13px 20px;\r\n  border-radius: 10px;\r\n  border: 1px;\r\n  border-color: white;\r\n}\r\n.f-button{\r\n  margin-top: 10px;\r\n  display: flex;\r\n  cursor: pointer;\r\n}\r\n.d-button{\r\n  display: flex;\r\n  flex-direction: row-reverse;\r\n}"
+        }
+    ]
+}
