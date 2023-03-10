@@ -1,5 +1,5 @@
 # AshpazBashi website
-Ashpazbashi website created by django framework and Reactjs.
+Ashpazbashi website created with django framework and Reactjs and mysql databse.
 
 This project is made for the final project of the Web Design course taught by Dr.Yumcoder.
 
