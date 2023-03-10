@@ -7,12 +7,13 @@ import Logo from "../../images/logo.svg";
 import ItemAccordion from "../Items";
 import { accordion1 } from "../Items/Data";
 import "./Dashboard.css";
-
+import { useNavigate } from "react-router-dom";
 const DashboardSidebar = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <Sidebar>
-        <Image src={Logo} alt="logo" />
+        <Image onClick={()=>{ navigate("/");}} src={Logo} alt="logo" />
         <ul>
           <li className="div-icon">
             <EditOutlinedIcon className="m-icon" />

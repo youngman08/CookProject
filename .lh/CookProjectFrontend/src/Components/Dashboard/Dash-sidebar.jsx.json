@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1678302721222,
@@ -28,6 +28,42 @@
                 {
                     "date": 1678448197384,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n import { accordion1 } from \"../Items/Data\";\r\n import \"./Dashboard.css\";\r\n \r\n const DashboardSidebar = () => {\r\n+<<<<<<< HEAD\r\n   return (\r\n     <div>\r\n       <Sidebar>\r\n         <Image src={Logo} alt=\"logo\" />\r\n@@ -29,7 +30,8 @@\n         </ul>\r\n       </Sidebar>\r\n     </div>\r\n   );\r\n+\r\n };\r\n \r\n export default DashboardSidebar;\r\n"
+                },
+                {
+                    "date": 1678449849741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,13 +8,12 @@\n import { accordion1 } from \"../Items/Data\";\r\n import \"./Dashboard.css\";\r\n \r\n const DashboardSidebar = () => {\r\n-<<<<<<< HEAD\r\n   return (\r\n     <div>\r\n       <Sidebar>\r\n-        <Image src={Logo} alt=\"logo\" />\r\n+        <Image  src={Logo} alt=\"logo\" />\r\n         <ul>\r\n           <li className=\"div-icon\">\r\n             <EditOutlinedIcon className=\"m-icon\" />\r\n             <Mbutton to=\"/dashboard/view-profile\">حساب من</Mbutton>\r\n"
+                },
+                {
+                    "date": 1678449856502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n const DashboardSidebar = () => {\r\n   return (\r\n     <div>\r\n       <Sidebar>\r\n-        <Image  src={Logo} alt=\"logo\" />\r\n+        <Image onClick={na} src={Logo} alt=\"logo\" />\r\n         <ul>\r\n           <li className=\"div-icon\">\r\n             <EditOutlinedIcon className=\"m-icon\" />\r\n             <Mbutton to=\"/dashboard/view-profile\">حساب من</Mbutton>\r\n"
+                },
+                {
+                    "date": 1678449885360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n const DashboardSidebar = () => {\r\n   return (\r\n     <div>\r\n       <Sidebar>\r\n-        <Image onClick={na} src={Logo} alt=\"logo\" />\r\n+        <Image onClick={} src={Logo} alt=\"logo\" />\r\n         <ul>\r\n           <li className=\"div-icon\">\r\n             <EditOutlinedIcon className=\"m-icon\" />\r\n             <Mbutton to=\"/dashboard/view-profile\">حساب من</Mbutton>\r\n"
+                },
+                {
+                    "date": 1678449901996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n const DashboardSidebar = () => {\r\n   return (\r\n     <div>\r\n       <Sidebar>\r\n-        <Image onClick={} src={Logo} alt=\"logo\" />\r\n+        <Image onClick={()=>{}} src={Logo} alt=\"logo\" />\r\n         <ul>\r\n           <li className=\"div-icon\">\r\n             <EditOutlinedIcon className=\"m-icon\" />\r\n             <Mbutton to=\"/dashboard/view-profile\">حساب من</Mbutton>\r\n"
+                },
+                {
+                    "date": 1678449907806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n const DashboardSidebar = () => {\r\n   return (\r\n     <div>\r\n       <Sidebar>\r\n-        <Image onClick={()=>{}} src={Logo} alt=\"logo\" />\r\n+        <Image onClick={()=>{na}} src={Logo} alt=\"logo\" />\r\n         <ul>\r\n           <li className=\"div-icon\">\r\n             <EditOutlinedIcon className=\"m-icon\" />\r\n             <Mbutton to=\"/dashboard/view-profile\">حساب من</Mbutton>\r\n"
+                },
+                {
+                    "date": 1678449913202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,12 +8,13 @@\n import { accordion1 } from \"../Items/Data\";\r\n import \"./Dashboard.css\";\r\n \r\n const DashboardSidebar = () => {\r\n+  const navigate = useNavigate();\r\n   return (\r\n     <div>\r\n       <Sidebar>\r\n-        <Image onClick={()=>{na}} src={Logo} alt=\"logo\" />\r\n+        <Image onClick={()=>{}} src={Logo} alt=\"logo\" />\r\n         <ul>\r\n           <li className=\"div-icon\">\r\n             <EditOutlinedIcon className=\"m-icon\" />\r\n             <Mbutton to=\"/dashboard/view-profile\">حساب من</Mbutton>\r\n"
+                },
+                {
+                    "date": 1678449926469,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import Logo from \"../../images/logo.svg\";\r\n import ItemAccordion from \"../Items\";\r\n import { accordion1 } from \"../Items/Data\";\r\n import \"./Dashboard.css\";\r\n-\r\n+import { useNavigate } from \"react-router-dom\";\r\n const DashboardSidebar = () => {\r\n   const navigate = useNavigate();\r\n   return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1678449932845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   const navigate = useNavigate();\r\n   return (\r\n     <div>\r\n       <Sidebar>\r\n-        <Image onClick={()=>{}} src={Logo} alt=\"logo\" />\r\n+        <Image onClick={()=>{        navigate(\"/dashboard/view-profile\");}} src={Logo} alt=\"logo\" />\r\n         <ul>\r\n           <li className=\"div-icon\">\r\n             <EditOutlinedIcon className=\"m-icon\" />\r\n             <Mbutton to=\"/dashboard/view-profile\">حساب من</Mbutton>\r\n"
+                },
+                {
+                    "date": 1678449938502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   const navigate = useNavigate();\r\n   return (\r\n     <div>\r\n       <Sidebar>\r\n-        <Image onClick={()=>{        navigate(\"/dashboard/view-profile\");}} src={Logo} alt=\"logo\" />\r\n+        <Image onClick={()=>{ navigate(\"/\");}} src={Logo} alt=\"logo\" />\r\n         <ul>\r\n           <li className=\"div-icon\">\r\n             <EditOutlinedIcon className=\"m-icon\" />\r\n             <Mbutton to=\"/dashboard/view-profile\">حساب من</Mbutton>\r\n"
                 }
             ],
             "date": 1678302721222,

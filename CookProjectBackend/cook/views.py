@@ -251,7 +251,7 @@ def view_all_recipes(request):
 
 def view_recipe_by_id(request, recipe_id):
     recipe = Recipe.objects.get(pk=recipe_id)
-    return HttpResponse(ObjectInfoResponse(recipe).json)
+    return HttpResponse(FoodInfoResponse(recipe).json)
 
 @require_http_methods(["POST"])
 def add_recipe_photo(request, recipe_id):

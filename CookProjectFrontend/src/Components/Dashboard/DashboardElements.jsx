@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-
 export const Sidebar = styled.div`
   text-align: center;
   padding-top: 100px;
@@ -18,6 +17,7 @@ export const Sidebar = styled.div`
 export const Image = styled.img`
   text-align: center;
   margin: 0 auto !important;
+  cursor: pointer;
 `;
 export const Mbutton = styled(Link)`
   color: white;
@@ -27,7 +27,6 @@ export const Mbutton = styled(Link)`
   text-decoration: none;
   justify-content: center;
 `;
-
 
 export const FormWrap = styled.div`
   height: 100%;
