@@ -1,0 +1,18 @@
+{
+    "sourceFile": "CookProjectFrontend/src/Components/Signin/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1678447979526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1678447979526,
+            "name": "Commit-0",
+            "content": "import {\r\n  Container,\r\n  Form,\r\n  FormButton,\r\n  FormContent,\r\n  FormH1,\r\n  FormInput,\r\n  FormLabel,\r\n  FormWrap,\r\n  Text,\r\n  RegisterLink,\r\n} from \"./SigninElements\";\r\nimport React from \"react\";\r\nimport axios from \"axios\";\r\nimport { useNavigate } from \"react-router-dom\";\r\nimport { useForm } from \"react-hook-form\";\r\nimport Alert from \"@mui/material/Alert\";\r\nimport Stack from \"@mui/material/Stack\";\r\nimport HomeIcon from \"@mui/icons-material/Home\";\r\nimport { Link } from \"react-router-dom\";\r\nimport { BASE_API } from \"../../App\";\r\nimport { updateLogin } from \"../../hooks/useLogin\";\r\n\r\nconst SigninForm = () => {\r\n  const { register, handleSubmit } = useForm();\r\n  const navigate = useNavigate();\r\n  const onSubmit = (data) => {\r\n    axios\r\n      .post(BASE_API + \"accounts/login/\", JSON.stringify(data), {\r\n        headers: {\r\n          \"Content-Type\": \"application/json\",\r\n        },\r\n      })\r\n      .then((response) => {\r\n        console.log(response);\r\n        console.log(response.data);\r\n        console.log(response.data.username);\r\n        updateLogin(response.data);\r\n        navigate(\"/dashboard/view-profile\");\r\n      })\r\n      .catch((error) => {\r\n        console.log(error);\r\n      });\r\n  };\r\n\r\n  return (\r\n    <Container>\r\n      <FormWrap>\r\n        <Link className=\"home-div\" to=\"/\">\r\n          <HomeIcon sx={{ height: \"2em\", width: \"2em\" }} />\r\n        </Link>\r\n        <div className=\"eror-notif\">\r\n          <Stack sx={{ width: \"100%\" }} spacing={2} className=\"eror\">\r\n            <Alert severity=\"success\" sx={{ margin: \"20px auto\" }}>\r\n              ورود موفقیت آمیز بود\r\n            </Alert>\r\n          </Stack>\r\n        </div>\r\n        <FormContent>\r\n          <Form onSubmit={handleSubmit(onSubmit)}>\r\n            <FormH1>ورود به حساب کاربری</FormH1>\r\n            <FormLabel htmlfor=\"for\">نام کاربری</FormLabel>\r\n            <FormInput\r\n              type=\"text\"\r\n              name=\"username\"\r\n              {...register(\"username\")}\r\n              required\r\n            />\r\n            <FormLabel htmlfor=\"for\">گذرواژه</FormLabel>\r\n            <FormInput\r\n              type=\"password\"\r\n              name=\"password\"\r\n              {...register(\"password\")}\r\n              required\r\n            />\r\n            <FormButton type=\"submit\">ورود</FormButton>\r\n            <Text> گذرواژه خود را فراموش کردید؟</Text>\r\n            <RegisterLink to=\"/register\">ثبت نام</RegisterLink>\r\n          </Form>\r\n        </FormContent>\r\n      </FormWrap>\r\n    </Container>\r\n  );\r\n};\r\n\r\nexport default SigninForm;\r\n"
+        }
+    ]
+}

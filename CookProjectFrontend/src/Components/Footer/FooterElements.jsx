@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Link as LinkS } from "react-scroll";
 export const FooterContainer = styled.div`
   background-color: #101522;
 `;
@@ -8,7 +9,6 @@ export const FooterWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   max-width: 1100px;
   margin: 0 auto;
 `;
@@ -30,9 +30,7 @@ export const FooterLinksItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 16px;
   text-align: right;
-  width: 160px;
   box-sizing: border-box;
   color: #fff;
   @media screen and (max-width: 420px) {
@@ -45,16 +43,7 @@ export const FooterLinksTitle = styled.h3`
   font-size: 16px;
   margin-bottom: 16px;
 `;
-export const FooterLink = styled(Link)`
-  color: #fff;
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-  font-size: 14px;
-  &:hover {
-    color: #fab209;
-    transition: 0.3 ease-out;
-  }
-`;
+
 export const SocialMediaContainer = styled.div`
   max-width: 100%;
   width: 1100px;
@@ -95,3 +84,10 @@ export const SocialIconLinks = styled.a`
   color: #fff;
   font-size: 24px;
 `;
+export const NavLinkss = styled(LinkS)`
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  `;

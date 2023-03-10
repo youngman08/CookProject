@@ -20,7 +20,7 @@ export const homeObjectTwo = {
 };
 export const homeObjectThree = {
   id: "Blog",
-  lightBg: 0,
+  lightBg: 1,
   topLine: "بلاگ",
   heading: "هر روز یک غذا",
   description:"اگر علاقه به این که بدانید هر غذا از کجا آمده و همچنین به طور کامل با بهترین دستور پختش آشنا بشوید این بخش  می تواند دانش غذایی شما را ارتقا بدهد",

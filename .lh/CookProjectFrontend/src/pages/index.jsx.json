@@ -1,0 +1,38 @@
+{
+    "sourceFile": "CookProjectFrontend/src/pages/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1678393796394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678393801656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,11 @@\n       <HeroSection />\r\n       <AboutMe />\r\n       <InfoSection {...homeObject} />\r\n       <InfoSection {...homeObjectTwo} />\r\n+      \r\n       <InfoSection {...homeObjectThree} />\r\n-      <Projects/></Projects>\r\n+\r\n       <Footer/>\r\n     </>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1678394519146,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n       <HeroSection />\r\n       <AboutMe />\r\n       <InfoSection {...homeObject} />\r\n       <InfoSection {...homeObjectTwo} />\r\n-      \r\n+      <Projects   id: \"Blog\"/>\r\n       <InfoSection {...homeObjectThree} />\r\n \r\n       <Footer/>\r\n     </>\r\n"
+                },
+                {
+                    "date": 1678394525065,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n       <HeroSection />\r\n       <AboutMe />\r\n       <InfoSection {...homeObject} />\r\n       <InfoSection {...homeObjectTwo} />\r\n-      <Projects   id: \"Blog\"/>\r\n+      <Projects   id= \"Blog\"/>\r\n       <InfoSection {...homeObjectThree} />\r\n \r\n       <Footer/>\r\n     </>\r\n"
+                },
+                {
+                    "date": 1678394538269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n       <HeroSection />\r\n       <AboutMe />\r\n       <InfoSection {...homeObject} />\r\n       <InfoSection {...homeObjectTwo} />\r\n-      <Projects   id= \"Blog\"/>\r\n+      <Projects   id=\"Projects\"/>\r\n       <InfoSection {...homeObjectThree} />\r\n \r\n       <Footer/>\r\n     </>\r\n"
+                },
+                {
+                    "date": 1678394638633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n       <HeroSection />\r\n       <AboutMe />\r\n       <InfoSection {...homeObject} />\r\n       <InfoSection {...homeObjectTwo} />\r\n-      <Projects   id=\"Projects\"/>\r\n+      <Projects   />\r\n       <InfoSection {...homeObjectThree} />\r\n \r\n       <Footer/>\r\n     </>\r\n"
+                }
+            ],
+            "date": 1678393796394,
+            "name": "Commit-0",
+            "content": "import React, { useState } from \"react\";\r\nimport Sidebar from \"../Components/Sidebar\";\r\nimport Navbar from \"../Components/Navbar\";\r\nimport HeroSection from \"../Components/HeroSection\";\r\nimport AboutMe from \"../Components/AboutMe\";\r\nimport InfoSection from \"../Components/InfoSection\";\r\nimport { homeObject, homeObjectFour, homeObjectThree, homeObjectTwo } from \"../Components/InfoSection/Data\";\r\nimport Projects from \"../Components/Projects\";\r\nimport Footer from \"../Components/Footer\";\r\nconst Home = () => {\r\n  const [isOpen, setIsOpen] = useState(false);\r\n  const toggle = () => {\r\n    setIsOpen(!isOpen);\r\n  };\r\n  return (\r\n    <>\r\n      <Sidebar toggle={toggle} isOpen={isOpen} />\r\n      <Navbar toggle={toggle} />\r\n      <HeroSection />\r\n      <AboutMe />\r\n      <InfoSection {...homeObject} />\r\n      <InfoSection {...homeObjectTwo} />\r\n      <InfoSection {...homeObjectThree} />\r\n      <Projects/></Projects>\r\n      <Footer/>\r\n    </>\r\n  );\r\n};\r\n\r\nexport default Home;\r\n"
+        }
+    ]
+}

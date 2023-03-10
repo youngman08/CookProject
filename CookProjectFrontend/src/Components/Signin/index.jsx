@@ -36,7 +36,7 @@ const SigninForm = () => {
         console.log(response.data);
         console.log(response.data.username);
         updateLogin(response.data);
-        navigate("/dashboard");
+        navigate("/dashboard/view-profile");
       })
       .catch((error) => {
         console.log(error);

@@ -23,7 +23,7 @@ export const LoginNavbarButton = () => {
         <NavBtnLink to="/login">ورود</NavBtnLink>
       ) : (
         <>
-          <NavBtnLink to="/dashboard">داشبورد</NavBtnLink>
+          <NavBtnLink to="/dashboard/view-profile">داشبورد</NavBtnLink>
           <NavBtnLink to="/create_recipe">ساخت غذای جدید</NavBtnLink>
         </>
       )}
@@ -82,7 +82,7 @@ const Navbar = ({ toggle }) => {
               </NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="Experience" smooth duration={1000} spy offset={-80}>
+              <NavLinks to="Projects" smooth duration={1000} spy offset={-80}>
                 شرکت ها
               </NavLinks>
             </NavItem>

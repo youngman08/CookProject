@@ -1,0 +1,18 @@
+{
+    "sourceFile": "CookProjectFrontend/src/Components/InfoSection/Data.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1678393845828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1678393845828,
+            "name": "Commit-0",
+            "content": "export const homeObject = {\r\n  id: \"About1\",\r\n  lightBg: 0,\r\n  topLine: \"درباره سایت ما\",\r\n  heading: \"تیم برنامه سازی وب\",\r\n  description:\"۴ دانشجوی مهندسی کامپیوتر دانشکده مهندسی کامپیوتر پروژه ای تحت عنوان آشپزباشی برای یافتن دستور غذا ساختیم تا با فراهم کردن دستور غذا های متفاوت دیگر دانشجویان را از دست غذا های سلف راحت کنیم \",\r\n  imgStart: false,\r\n  img: require(\"../../images/image_(1).svg\").default,\r\n  alt: \"AshpazBashi\",\r\n};\r\nexport const homeObjectTwo = {\r\n  id: \"Cheif\",\r\n  lightBg: 1,\r\n  topLine: \"ایجاد شغل\",\r\n  heading: \"کسب در آمد از خانه\",\r\n  description:\"هر فرد می تواند با کسب حداقل امتیاز مورد نیاز به عنوان یک سر آشپز در سایت استخدام شود و کسب در آمد کند\",\r\n  imgStart: 1,\r\n  img: require(\"../../images/image_(2).svg\").default,\r\n  alt: \"AshpazBashi\",\r\n};\r\nexport const homeObjectThree = {\r\n  id: \"Blog\",\r\n  lightBg: 1,\r\n  topLine: \"بلاگ\",\r\n  heading: \"هر روز یک غذا\",\r\n  description:\"اگر علاقه به این که بدانید هر غذا از کجا آمده و همچنین به طور کامل با بهترین دستور پختش آشنا بشوید این بخش  می تواند دانش غذایی شما را ارتقا بدهد\",\r\n  imgStart: 0,\r\n  img: require(\"../../images/image_(3).svg\").default,\r\n  alt: \"blog\",\r\n};\r\n"
+        }
+    ]
+}

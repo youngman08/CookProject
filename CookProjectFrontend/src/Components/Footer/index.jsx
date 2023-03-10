@@ -4,7 +4,7 @@ import {
   FooterLink,
   FooterLinksContainer,
   FooterLinksItem,
-  FooterLinksTitle,
+  NavLinkss,
   FooterLinksWrapper,
   FooterWrap,
   SocialIconLinks,
@@ -23,27 +23,25 @@ const Footer = () => {
           <FooterLinksWrapper>
             <FooterLinksItem>
             <FooterLinksItem>
-              <FooterLinksTitle>درباره ما</FooterLinksTitle>
-              <FooterLink to="home">خانه</FooterLink>
-              <FooterLink to="courses">استخدام</FooterLink>
-              <FooterLink to="blog">بلاگ</FooterLink>
+              <NavLinkss to="home" >خانه</NavLinkss>
+              <NavLinkss to="About">درباره ی ما</NavLinkss>
+              <NavLinkss to="About1">تیم ما</NavLinkss>
+              <NavLinkss to="Blog">بلاگ</NavLinkss>
+              <NavLinkss to="Projects">شرکت ها</NavLinkss>
+
               
             </FooterLinksItem>
             </FooterLinksItem>
             <FooterLinksItem>
-              <FooterLinksTitle>About us</FooterLinksTitle>
-              <FooterLink to="home">Home</FooterLink>
-              <FooterLink to="courses">Courses</FooterLink>
-              <FooterLink to="blog">Blog</FooterLink>
-              <FooterLink to="rouadmap">Rouadmap</FooterLink>
+
             </FooterLinksItem>
           </FooterLinksWrapper>
           
         </FooterLinksContainer>
         <SocialMediaContainer>
           <SocialMediaWrap>
-            <SocialLogo>AshpazBashi</SocialLogo>
-            <WebsitesRights>AshpazBashi Copy Rights 2023</WebsitesRights>
+            <SocialLogo>آشپزباشی</SocialLogo>
+            <WebsitesRights>تمامی حقوق مخصوص این سایت می باشد</WebsitesRights>
             <SocialIcons>
               <SocialIconLinks>
                 <FaFacebook />

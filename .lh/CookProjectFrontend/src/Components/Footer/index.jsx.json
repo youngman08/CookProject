@@ -1,0 +1,26 @@
+{
+    "sourceFile": "CookProjectFrontend/src/Components/Footer/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1678393888336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1678393958089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n           \r\n         </FooterLinksContainer>\r\n         <SocialMediaContainer>\r\n           <SocialMediaWrap>\r\n-            <SocialLogo>آش</SocialLogo>\r\n+            <SocialLogo>آشژ</SocialLogo>\r\n             <WebsitesRights>AshpazBashi Copy Rights 2023</WebsitesRights>\r\n             <SocialIcons>\r\n               <SocialIconLinks>\r\n                 <FaFacebook />\r\n"
+                },
+                {
+                    "date": 1678394684033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         <FooterLinksContainer>\r\n           <FooterLinksWrapper>\r\n             <FooterLinksItem>\r\n             <FooterLinksItem>\r\n-              \r\n+            <FooterLink to=\"home\">خانه</FooterLink>\r\n               <FooterLinksTitle>درباره ما</FooterLinksTitle>\r\n               <FooterLink to=\"courses\">استخدام</FooterLink>\r\n               <FooterLink to=\"blog\">بلاگ</FooterLink>\r\n               \r\n"
+                }
+            ],
+            "date": 1678393888336,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport {\r\n  FooterContainer,\r\n  FooterLink,\r\n  FooterLinksContainer,\r\n  FooterLinksItem,\r\n  FooterLinksTitle,\r\n  FooterLinksWrapper,\r\n  FooterWrap,\r\n  SocialIconLinks,\r\n  SocialIcons,\r\n  SocialLogo,\r\n  SocialMediaContainer,\r\n  SocialMediaWrap,\r\n  WebsitesRights,\r\n} from \"./FooterElements\";\r\nimport { FaFacebook, FaYoutube, FaTwitter, FaInstagram } from \"react-icons/fa\";\r\nconst Footer = () => {\r\n  return (\r\n    <FooterContainer>\r\n      <FooterWrap>\r\n        <FooterLinksContainer>\r\n          <FooterLinksWrapper>\r\n            <FooterLinksItem>\r\n            <FooterLinksItem>\r\n              <FooterLinksTitle>درباره ما</FooterLinksTitle>\r\n              <FooterLink to=\"home\">خانه</FooterLink>\r\n              <FooterLink to=\"courses\">استخدام</FooterLink>\r\n              <FooterLink to=\"blog\">بلاگ</FooterLink>\r\n              \r\n            </FooterLinksItem>\r\n            </FooterLinksItem>\r\n            <FooterLinksItem>\r\n\r\n            </FooterLinksItem>\r\n          </FooterLinksWrapper>\r\n          \r\n        </FooterLinksContainer>\r\n        <SocialMediaContainer>\r\n          <SocialMediaWrap>\r\n            <SocialLogo>AshpazBashi</SocialLogo>\r\n            <WebsitesRights>AshpazBashi Copy Rights 2023</WebsitesRights>\r\n            <SocialIcons>\r\n              <SocialIconLinks>\r\n                <FaFacebook />\r\n              </SocialIconLinks>\r\n              <SocialIconLinks>\r\n                <FaYoutube />\r\n              </SocialIconLinks>\r\n              <SocialIconLinks>\r\n                <FaTwitter />\r\n              </SocialIconLinks>\r\n              <SocialIconLinks>\r\n                <FaInstagram />\r\n              </SocialIconLinks>\r\n            </SocialIcons>\r\n          </SocialMediaWrap>\r\n        </SocialMediaContainer>\r\n      </FooterWrap>\r\n    </FooterContainer>\r\n  );\r\n};\r\n\r\nexport default Footer;\r\n"
+        }
+    ]
+}
