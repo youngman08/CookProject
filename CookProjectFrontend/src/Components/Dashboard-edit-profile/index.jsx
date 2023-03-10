@@ -10,50 +10,60 @@ import { BASE_API, check_error, ROLES } from "../../App";
 import { updateLogin, useLogin } from "../../hooks/useLogin";
 import Grid from "@mui/material/Grid";
 const EditProfile = () => {
-  const { register, handleSubmit } = useForm();
-  const user = useLogin();
-  let username = user.username;
-  const [user_change_info, setUser] = useState(null);
-  const Swal = require("sweetalert2");
-  const onSubmit = (data) => {
-    if (data.email === "") data.email = user_change_info.email;
-    if (data.first_name === "") data.first_name = user_change_info.first_name;
-    if (data.last_name === "") data.last_name = user_change_info.last_name;
-    console.log(data);
-    axios
-      .patch(
-        BASE_API + `accounts/${username}/profile/?username=${username}`,
-        JSON.stringify(data),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      .then((response) => {
-        if (check_error(response.data)) alert(response.data.err_msg);
-        else {
-          setUser(response.data);
-          Swal.fire({
-            title: "Edit profile",
-            text: "You edit profile now",
-            icon: "success",
-          });
-        }
-      })
-      .catch((error) => {});
-  };
-  useEffect(() => {
-    axios
-      .get(BASE_API + `accounts/${username}/profile/?username=${username}`)
-      .then((response) => {
-        if (check_error(response.data)) alert(response.data.err_msg);
-        else setUser(response.data);
-      })
-      .catch((error) => {});
-  }, []);
-  return (
-    <Grid container spacing={2}>
+
+    const {register, handleSubmit} = useForm();
+    const user = useLogin();
+    let username = user.username;
+    const [user_change_info, setUser] = useState(null);
+    const Swal = require('sweetalert2')
+    const onSubmit = (data) => {
+        if (data.email === "")
+            data.email = user_change_info.email
+        if (data.first_name === "")
+            data.first_name = user_change_info.first_name
+        if (data.last_name === "")
+            data.last_name = user_change_info.last_name
+        console.log(data)
+        axios
+            .patch(
+                BASE_API + `accounts/${username}/profile/?username=${username}`,
+                JSON.stringify(data),
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            )
+            .then((response) => {
+                if (check_error(response.data))
+                    alert(response.data.err_msg)
+                else{
+                    setUser(response.data)
+                    Swal.fire({
+                        title: 'ویرایش پروفایل',
+                        text: 'تغییرات شما با موفقیت ثبت شد',
+                        icon: 'success',
+                      })
+                }
+            })
+            .catch((error) => {
+            });
+    };
+    useEffect(() => {
+        axios
+            .get(BASE_API + `accounts/${username}/profile/?username=${username}`)
+            .then((response) => {
+                if (check_error(response.data))
+                    alert(response.data.err_msg)
+                else
+                    setUser(response.data)
+            })
+            .catch((error) => {
+
+            });
+    }, []);
+    return (
+      <Grid container spacing={2}>
       <DashboardHeader />
         <Grid container item spacing={2} xs={12} sm={10} md={2}>
           <DashboardSidebar />

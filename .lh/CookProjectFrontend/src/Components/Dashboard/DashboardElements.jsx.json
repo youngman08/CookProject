@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 25,
+            "activePatchIndex": 27,
             "patches": [
                 {
                     "date": 1678303229172,
@@ -108,6 +108,14 @@
                 {
                     "date": 1678381852263,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,7 @@\n import styled from \"styled-components\";\r\n import { Link } from \"react-router-dom\";\r\n \r\n-export const Container = styled.div`\r\n-  position: flex;\r\n-  z-index: 0;\r\n-  background: #67c674;\r\n-`;\r\n \r\n export const Sidebar = styled.div`\r\n   text-align: center;\r\n   padding-top: 100px;\r\n"
+                },
+                {
+                    "date": 1678448256905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,21 @@\n import styled from \"styled-components\";\r\n import { Link } from \"react-router-dom\";\r\n \r\n \r\n+export const Container = styled.div`\r\n+  min-height: 100vh;\r\n+  position: flex;\r\n+  bottom: 0;\r\n+  left: 0;\r\n+  right: 0;\r\n+  top: 0;\r\n+  z-index: 0;\r\n+  overflow: hidden;\r\n+  background: #6776c6;\r\n+`;\r\n+>>>>>>> ac4a98e21a4d787643d0c98350ea65851f16eb4d\r\n+\r\n export const Sidebar = styled.div`\r\n   text-align: center;\r\n   padding-top: 100px;\r\n   color: #fff;\r\n"
+                },
+                {
+                    "date": 1678448266235,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,21 +1,8 @@\n import styled from \"styled-components\";\r\n import { Link } from \"react-router-dom\";\r\n \r\n \r\n-export const Container = styled.div`\r\n-  min-height: 100vh;\r\n-  position: flex;\r\n-  bottom: 0;\r\n-  left: 0;\r\n-  right: 0;\r\n-  top: 0;\r\n-  z-index: 0;\r\n-  overflow: hidden;\r\n-  background: #6776c6;\r\n-`;\r\n->>>>>>> ac4a98e21a4d787643d0c98350ea65851f16eb4d\r\n-\r\n export const Sidebar = styled.div`\r\n   text-align: center;\r\n   padding-top: 100px;\r\n   color: #fff;\r\n"
                 }
             ],
             "date": 1678303229172,

@@ -1,8 +1,8 @@
 import React from "react";
-import DashboardForm from "../Components/Dashboard";
+import ViewProfile from "../Components/Dashboard-view-profile";
 
 const Dashboard = () => {
-  return <DashboardForm />;
+  return <ViewProfile />;
 };
 
 export default Dashboard;

@@ -17,6 +17,8 @@ def register_user(request):
                                      last_name=request_model.last_name, email=request_model.email)
     user.set_password(request_model.password)
     user.save()
+    chief = Chief(user=user, bio="dsdakladjsk")
+    chief.save()
     return HttpResponse()
 
 
@@ -204,6 +206,7 @@ def recipes(request):
     if request.method == "GET":
         return view_all_recipes(request)
     if request.method == "POST":
+        print("gavvv")
         return create_recipe(request)
     
 @require_http_methods(["GET"])
@@ -216,6 +219,7 @@ def create_recipe(request):
     request_model = CreateRecipeRequest(request)
     if get_object_else('name', request_model.name, Recipe, True):
         return HttpResponse(ErrorResponse(InternalError.RECIPE_EXIST).json)
+    print(1000)
     chief: Chief = get_object_else('user__username', request_model.chief, Chief)
     if not chief:
         return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
@@ -234,6 +238,7 @@ def create_recipe(request):
                 return HttpResponse(ErrorResponse(InternalError.FOODSTUFF_NOT_FOUND).json)
             ingredient = Ingredient(foodstuff=foodstuff, amount=item.amount, unit=item.unit)
             ingredient.save()
+        print("xxxx", ingredient.amount)
         recipe.price += ingredient.amount * ingredient.foodstuff.price
         recipe.ingredients.add(ingredient)
     recipe.save()

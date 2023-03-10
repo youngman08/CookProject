@@ -16,31 +16,32 @@ import { updateLogin, useLogin } from "../../hooks/useLogin";
 import Swal from 'sweetalert2';
 
 const DashPromotionComponent = () => {
-  const [tickets, setTickets] = useState({});
+  const [tickets, setTickets] = useState([]);
   const user = useLogin();
   const Swal = require('sweetalert2')
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await axios
-        .get(BASE_API + "tickets/",{
-            params: {
-              username: user.username,
+  const fetchData = async () => {
+    await axios
+      .get(BASE_API + "tickets/",{
+          params: {
+            username: user.username,
+          },
+            headers: {
+              "Content-Type": "application/json",
             },
-              headers: {
-                "Content-Type": "application/json",
-              },
-          }
-        )
-        .then((response) => {
-          console.log("useeffect");
-          console.log(response.data);
-          setTickets(response.data); //results
-        })
-        .catch((error) => {
-          console.log("error in get recipe info");
-        });
-    }
+        }
+      )
+      .then((response) => {
+        console.log("useeffect");
+        console.log(response.data);
+        setTickets(response.data); //results
+      })
+      .catch((error) => {
+        console.log("error in get recipe info");
+      });
+  };
+
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -63,11 +64,11 @@ const DashPromotionComponent = () => {
       })
       .then((response) => {
         Swal.fire({
-            title: 'Post ticket',
-            text: 'You post a ticket now',
+            title: 'ثبت تیکت',
+            text: 'تیکت شما با موفقیت ثبت شد',
             icon: 'success',
-          })
-        window.location.reload(false);
+          });
+        fetchData();
       })
       .catch((error) => {
         alert("خطایی رخ داده است. لطفا مجددا تلاش کنید.");
@@ -76,20 +77,22 @@ const DashPromotionComponent = () => {
   };
   console.log(tickets);
   console.log("1");
-  while(tickets[0] === undefined){
-    return <>Still loading...</>;
-  }
   console.log(tickets[0] === undefined);
   console.log("2");
   
   return (
     <Grid container spacing={2}>
-        <Grid container item spacing={2} xs={12} sm={12} md={3}>
+        <Grid container item spacing={2} xs={12} sm={12} md={2}>
           <DashboardSidebar />
         </Grid>
         <Grid container item spacing={2} xs={12} sm={12} md={9}>
           <Grid item xs={12} sm={12} md={12}>
             <DashboardHeader />
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <div className="ticket_body_area">
               <div className="f-p-container">
                 <h1 className="f-title">تیکت های من</h1>

@@ -28,6 +28,7 @@ import {
   ChiefWrapper,
 } from "./ForumStyle";
 import { useParams } from "react-router-dom";
+import { ChiefCardComplete } from "./ForumDetail";
 function ForumProfile({ Forums }) {
   const rows = [
     { id: 1, lastName: "Lannister", firstName: <a>click</a>, age: 42 },
@@ -81,7 +82,7 @@ function ForumProfile({ Forums }) {
       }
     };
     fetchData();
-  }, []);
+  });
 
   return (
     <>
@@ -89,31 +90,7 @@ function ForumProfile({ Forums }) {
       <Navbar />
       <Grid container spacing={2}>
         <Grid container item spacing={2} xs={12} sm={12} md={3}>
-          <Grid item xs={12} sm={12} md={12}></Grid>
-          <ChiefContainer>
-            <ChiefH1>پروفایل آشپز {chiefDetail.username}</ChiefH1>
-            <ChiefWrapper>
-              <ChiefCard>
-                <ChiefImage src={chief_profile_img}></ChiefImage>
-                <ChiefH2>
-                  {chiefDetail.first_name} {chiefDetail.last_name}
-                </ChiefH2>
-                <ChiefP>{chiefDetail.bio}</ChiefP>
-
-                <a
-                  href={
-                    "mailto: " +
-                    chiefDetail.email +
-                    "?subject=Mail from Cookommunity"
-                  }
-                >
-                  سوالات خود را بپرسید!
-                </a>
-                <button class="mbtn">دنبال کن !</button>
-                <button class="mbtn2">دنبال نکن :(</button>
-              </ChiefCard>
-            </ChiefWrapper>
-          </ChiefContainer>
+          <ChiefCardComplete />
         </Grid>
         <Grid container item spacing={2} xs={12} sm={12} md={9}>
           <Grid item xs={12} sm={12} md={12}>

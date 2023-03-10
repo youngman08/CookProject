@@ -51,6 +51,7 @@ class CreationResponse(BaseResponse):
 class ObjectInfoResponse(BaseResponse):
     def __init__(self, obj, detail_obj=None):
         self.data: dict = obj.data_dict
+        self.data['ingredients'] = [x.data_dict for x in obj.ingredients.all()]
         if detail_obj:
             self.data.update(detail_obj.data_dict)
         super().__init__(self.data)

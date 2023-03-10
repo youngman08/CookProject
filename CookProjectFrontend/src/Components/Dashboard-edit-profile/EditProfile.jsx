@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
-  min-height: 100vh;
-  position: flex;
+  position: flex !important;
   bottom: 0;
   left: 0;
   right: 0;
@@ -11,6 +10,9 @@ export const Container = styled.div`
   z-index: 0;
   overflow: hidden;
   background: #35334d;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
 `;
 export const FormWrap = styled.div`
   height: 100%;
@@ -22,9 +24,12 @@ export const FormWrap = styled.div`
   }
 `;
 export const Icon = styled(Link)`
-  margin: 32px,auto;
+  margin-left: 32px;
+  margin-top: 32px;
   text-decoration: none;
   color: #fff;
+  font-weight: 700;
+  font-size: 32px;
   @media screen and (max-width: 480px) {
     margin-left: 16px;
     margin-top: 8px;
@@ -39,7 +44,7 @@ export const FormContent = styled.div`
     padding: 10px;
   }
 `;
-export const Form = styled.form`
+export const Form = styled.div`
   background: #261236;
   max-width: 400px;
   height: auto;
@@ -88,10 +93,29 @@ export const Text = styled.div`
   color: #fff;
   font-size: 14px;
 `;
-export const RegisterLink = styled(Link)`
-  color: #fff;
-  font-size: 20px;
+export const Sidebar = styled.div`
   text-align: center;
-  margin-top: 24px;
+  color: #fff;
+  font-size: 14px;
+  width: 270px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  color: #282f53;
+  z-index: 99;
+  background: #fff;
+`;
+export const Image = styled.img`
+  text-align: center;
+  margin: 0 auto !important;
+`;
+export const Mbutton = styled(Link)`
+  text-align: center;
+  margin: 0 auto !important;
+  color: #010606;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
   text-decoration: none;
 `;

@@ -30,6 +30,7 @@ const DashboardSidebar = () => {
       </Sidebar>
     </div>
   );
+
 };
 
 export default DashboardSidebar;

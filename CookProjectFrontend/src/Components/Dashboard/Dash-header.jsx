@@ -22,9 +22,9 @@ const DashboardHeader = () => {
         <div className="web-header">
             <div className="element">
                 <div>خوش آمدید {user.username}</div>
-                <NotificationsOutlinedIcon className="m2-icon"/>
-                <ChatBubbleOutlineOutlinedIcon className="m2-icon"/>
-                <ShoppingCartOutlinedIcon className="m2-icon"/>
+                <div className="logout" onClick={() => navigate('/dashboard/tickets')}>
+                    <ChatBubbleOutlineOutlinedIcon className="m2-icon"/>
+                </div>
                 <div className="logout" onClick={logout}>
                     <LogoutIcon className="m2-icon"/>
                 </div>

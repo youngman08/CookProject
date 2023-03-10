@@ -8,6 +8,7 @@ import axios from "axios";
 import {BASE_API} from "../../App";
 import { updateRating, useRating } from "../../hooks/useRating";
 import Swal from "sweetalert2";
+import { UnitTypeOptions } from "../CreateRecipe";
 
 function FoodDetail() {
   const [food, setFood] = useState({});
@@ -60,6 +61,16 @@ function FoodDetail() {
               Swal.fire("نظر شما با موفقیت ثبت شد");
             }}/>
             <span className="price">{food.price}</span>
+          </div>
+          <div>
+            <table>
+              <thead>
+                <tr><td>نام</td> <td>مقدار</td></tr>
+              </thead>
+            {food.ingredients.map((x) => (
+              <tr><td>{x.name}</td><td>{x.amount} {UnitTypeOptions[Number(x.unit) - 1].label}</td></tr>
+            ))}
+            </table>
           </div>
           <div className="detail-description">
             <p className="card-description">

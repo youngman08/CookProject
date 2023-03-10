@@ -10,11 +10,8 @@ function Foods({ fetchFood }) {
       <Sidebar />
       <Navbar />
       <Grid container spacing={2}>
-        <Grid container item spacing={2} xs={12} sm={12} md={3}>
-          <Grid item xs={12} sm={12} md={12}>
-          </Grid>
-        </Grid>
-        <Grid container item spacing={2} xs={12} sm={12} md={9}>
+        <Grid  container item spacing={2} xs={12} sm={12} md={2}/>
+        <Grid  container item spacing={2} xs={12} sm={12} md={8}>
           <FoodList foods={fetchFood} />
         </Grid>
       </Grid>
