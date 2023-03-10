@@ -1,7 +1,7 @@
 # AshpazBashi website
 Ashpazbashi website created by django framework and Reactjs.
 
-This project is made for the final project of the Web Design course taught by Dr.Ansari.
+This project is made for the final project of the Web Design course taught by Dr.Yumcoder.
 
 ## Team members:
 - Reza Soumi 98105857
