@@ -1,7 +1,8 @@
 # AshpazBashi website
 Ashpazbashi website created with django framework and Reactjs and mysql databse.
 
-you can see preview here
+you can see preview here: 
+[preview.pdf](https://github.com/youngman08/CookProject/files/11219583/preview.pdf)
 
 This project is made for the final project of the Web Design course taught by [Dr.Yumcoder](https://github.com/YumcoderCom).
 
