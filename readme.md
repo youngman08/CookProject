@@ -1,6 +1,8 @@
 # AshpazBashi website
 Ashpazbashi website created with django framework and Reactjs and mysql databse.
 
+you can see preview here
+
 This project is made for the final project of the Web Design course taught by [Dr.Yumcoder](https://github.com/YumcoderCom).
 
 ## Team members:
@@ -25,3 +27,18 @@ This project is made for the final project of the Web Design course taught by [D
 - cd CookProjectFrontend
 - npm install -f
 - npm start
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
